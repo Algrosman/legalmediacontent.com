@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Media & Content Co: Content Creation for Law Firms</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243360;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f8f6f1;
+    --cream-dark: #ede9e0;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --gray-light: #f3f4f6;
+    --text: #1a1a2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(26, 39, 68, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    background-color: #1a2744;
+    background-image: url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1800');
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(26,39,68,0.93) 0%, rgba(26,39,68,0.82) 50%, rgba(26,39,68,0.88) 100%);
+    z-index: 1;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-card-title {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gold);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--white);
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 5%; }
+
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 3.5vw, 2.75rem);
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--gray);
+    max-width: 580px;
+    width: 100%;
+    line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* WHY SECTION */
+  .why { background: var(--white); padding-bottom: 2rem; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .why-text h3 {
+    font-size: 1.75rem;
+    color: var(--navy);
+    margin-bottom: 1.25rem;
+  }
+
+  .why-text p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+    line-height: 1.9;
+  }
+
+  .why-points {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .why-point {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .why-point-icon {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why-point-text h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .why-point-text p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* SERVICES */
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .services-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--cream-dark);
+    background: transparent;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .tab-btn:hover:not(.active) {
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .package-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    padding: 2rem;
+    background: var(--white);
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .package-card:hover {
+    border-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(26,39,68,0.08);
+  }
+
+  .package-card.featured {
+    border: 2px solid var(--navy);
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .package-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.875rem;
+    border-radius: 2px;
+  }
+
+  .package-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .package-card.featured .package-name { color: var(--white); }
+
+  .package-tagline {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .package-card.featured .package-tagline { color: rgba(255,255,255,0.6); }
+
+  .package-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .package-card.featured .package-price { color: var(--gold); }
+
+  .package-period {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 1.75rem;
+  }
+
+  .package-card.featured .package-period { color: rgba(255,255,255,0.5); }
+
+  .package-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .package-features li {
+    font-size: 0.875rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .package-card.featured .package-features li { color: rgba(255,255,255,0.85); }
+
+  .package-features li::before {
+    content: ' - ';
+    color: var(--gold);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .package-cta {
+    display: block;
+    text-align: center;
+    padding: 0.75rem;
+    border: 1px solid var(--navy);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--navy);
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: transparent;
+    width: 100%;
+  }
+
+  .package-cta:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .package-card.featured .package-cta {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+
+  .package-card.featured .package-cta:hover {
+    background: var(--gold-light);
+  }
+
+  /* ADDONS */
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .addon-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .addon-card:hover { border-color: var(--navy); }
+
+  .addon-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .addon-desc {
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+
+  .addon-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* CONTENT TYPES */
+  .content-types { background: var(--cream); padding-top: 2rem; }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .content-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 2rem;
+    border-left: 3px solid var(--gold);
+    transition: all 0.2s;
+  }
+
+  .content-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(26,39,68,0.07);
+  }
+
+  .content-card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-card h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .content-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .content-card-example {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* ABOUT */
+  .about { background: var(--navy); }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about .section-title { color: var(--white); }
+
+  .about .section-eyebrow::before { background: var(--gold); }
+
+  .about-body {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+    margin-top: 1.5rem;
+  }
+
+  .about-body p { margin-bottom: 1rem; }
+
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .credential {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 3px;
+  }
+
+  .credential-icon {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .credential-text {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .credential-text strong {
+    display: block;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+  }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 9.2rem;
+  }
+
+  .value-prop {
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+  }
+
+  .value-prop h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .value-prop p {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* BLOG */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .blog-card {
+    border: 1px solid var(--cream-dark);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .blog-card:hover {
+    border-color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(26,39,68,0.08);
+  }
+
+  .blog-card-header {
+    background: var(--navy);
+    padding: 1.5rem;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .blog-tag {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--white);
+    line-height: 1.35;
+  }
+
+  .blog-card-body {
+    padding: 1.25rem 1.5rem;
+    background: var(--navy);
+  }
+
+  .blog-excerpt {
+    font-size: 0.85rem;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .blog-meta {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* CONTACT */
+  .contact { background: var(--cream); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--cream-dark);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--navy);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .contact-info {
+    padding-top: 1rem;
+  }
+
+  .contact-info p {
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--navy);
+  }
+
+  .contact-detail-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 3rem 5%;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero h1 { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-sub { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-actions { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-card { animation: fadeUp 0.6s ease 0.4s both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .about-right { padding-top: 0; }
+    .hero-inner,
+    .why-grid,
+    .about-inner,
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .content-grid { grid-template-columns: 1fr 1fr; }
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .addons-grid { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .nav-links { display: none; }
+    .about-right { padding-top: 0; }
+  }
+
+  @media (min-width: 1400px) {
+    body { font-size: 19px; }
+    .section-sub { font-size: 1.1rem; }
+    .hero-sub { font-size: 1.15rem; }
+    .blog-excerpt { font-size: 0.95rem; }
+    .nav-links a { font-size: 1rem; }
+  }
+
+  @media (max-width: 600px) {
+    .content-grid,
+    .blog-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 4rem 5%; }
+    .section-title { font-size: 2rem !important; }
+    .about-right { padding-top: 0; }
+  }
+
+  /* ARTICLE MODALS */
+  .article-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; overflow-y: auto; padding: 2rem 1rem; }
+  .article-overlay.open { display: flex; justify-content: center; align-items: flex-start; }
+  .article-modal { background: var(--white); max-width: 760px; width: 100%; border-radius: 4px; padding: 3.5rem; position: relative; margin: auto; }
+  .article-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray); line-height: 1; padding: 0.25rem 0.5rem; transition: color 0.2s; }
+  .article-close:hover { color: var(--navy); }
+  .article-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .article-modal h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.25; }
+  .article-meta { font-size: 0.82rem; color: var(--gray); margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--cream-dark); }
+  .article-body { font-size: 1rem; color: #2d2d2d; line-height: 1.85; }
+  .article-body p { margin-bottom: 1.25rem; }
+  .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy); margin: 2.25rem 0 0.75rem; font-weight: 600; }
+  .article-body h3 { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--navy); margin: 1.75rem 0 0.5rem; }
+  .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .article-body li { margin-bottom: 0.5rem; line-height: 1.75; }
+  .article-body strong { font-weight: 500; color: var(--navy); }
+  .article-body blockquote { border-left: 3px solid var(--gold); padding: 0.75rem 1.25rem; background: var(--cream); margin: 1.75rem 0; font-style: italic; color: var(--gray); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Legal Media <span>&amp;</span> Content Co.</div>
+  <ul class="nav-links">
+    <li><a href="#content">Content</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"><img src="https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Courtroom interior" onerror="this.style.display='none'" /></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Media & content creation for law firms</div>
+      <h1>Great attorneys deserve to be <em>found.</em></h1>
+      <p class="hero-sub">We build platforms and write articles to share your wins, your insights, and changes in the law that matter to your clients.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">What we deliver</div>
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Websites</div>
+          <div class="stat-label">Professional web presence built for your firm. Modern, clean, and client-ready.</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Articles</div>
+          <div class="stat-label">Case studies, legal updates, and thought leadership published under your name</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Social Media</div>
+          <div class="stat-label">Consistent presence across LinkedIn, Facebook, and Instagram to drive traffic to your firm</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Newsletters</div>
+          <div class="stat-label">Client-ready email newsletters keeping your audience informed and your firm top of mind</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="section-eyebrow">The problem we solve</div>
+    <h2 class="section-title">Too many lawyers & firms are invisible online.<br>We fix that.</h2>
+    <p class="section-sub">Your current clients know your value. Your future clients don't... yet.</p>
+    <div class="why-grid">
+      <div class="why-text">
+        <h3>You win cases. We tell the story.</h3>
+        <p>A six-figure settlement, a contentious custody case, a verdict in your favor. Every one of these is a story that a potential client needs to hear.</p>
+        <p>But writing takes time. Time you don't have when you're in court, on calls, and building cases.</p>
+        <p>That's where Legal Media & Content Co steps in. We turn your wins into compelling content that builds your reputation, educates your clients, and drives new business. You never write a single word.</p>
+
+      </div>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
+          <div class="why-point-text">
+            <h4>Written by legal professionals for legal professionals</h4>
+            <p>We understand legal nuance, ethical boundaries, and how to write about complex law for a general audience. Other marketing agencies can't do this.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
+          <div class="why-point-text">
+            <h4>Thought leadership = client acquisition</h4>
+            <p>Attorneys who publish regularly are the ones prospective clients call first.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
+          <div class="why-point-text">
+            <h4>One article becomes many assets</h4>
+            <p>Every article we write gets repurposed into social posts, email content, and website updates, maximizing visibility.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
+          <div class="why-point-text">
+            <h4>Built for law firms of every size</h4>
+            <p>We're built for the attorney who needs big marketing results without the big marketing budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT TYPES -->
+<section class="content-types" id="content">
+  <div class="section-inner">
+    <div class="section-eyebrow">What we write</div>
+    <h2 class="section-title">Content that works for you</h2>
+    <p class="section-sub">Every piece we create is designed to educate potential clients and showcase your expertise.</p>
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="content-card-icon"><i data-lucide="award" style="width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;"></i></div>
+        <h3>Case Win Articles</h3>
+        <p>We turn your big recoveries, settlements, and favorable verdicts into compelling narratives that showcase your skill and attract similar cases.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-icon"><i data-lucide="file-text" style="width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;"></i></div>
+        <h3>Legal Update Analysis</h3>
+        <p>When laws change in your practice area, we write clear analysis breaking it down with practical recommendations for clients.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-icon"><i data-lucide="lightbulb" style="width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;"></i></div>
+        <h3>Thought Leadership</h3>
+        <p>Perspectives on legal trends, practical guidance for the everyday person navigating a legal issue, and commentary on the cases and rulings shaping your practice area. All written to inform, educate, and build credibility for your firm.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-icon"><i data-lucide="smartphone" style="width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;"></i></div>
+        <h3>Social Media Content</h3>
+        <p>Every article we write gets broken down into LinkedIn posts, Facebook updates, and bite-sized tips that feed your firm's social presence consistently.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-icon"><i data-lucide="newspaper" style="width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;"></i></div>
+        <h3>Media Visibility Strategy</h3>
+        <p>We help you identify the right outlets, craft the right messaging, and position your expertise so that journalists, editors, and legal publications are more likely to take notice and seek you out.</p>
+      </div>
+      <div class="content-card">
+        <div class="content-card-icon"><i data-lucide="globe" style="width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;"></i></div>
+        <h3>Website Content</h3>
+        <p>Fresh practice area pages, updated case results, attorney bio refreshes. Your website stays current and search-optimized without you lifting a finger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / PACKAGES -->
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="section-eyebrow">About us</div>
+        <h2 class="section-title">We speak your language because we learned it.</h2>
+        <div class="about-body">
+          <p>Legal Media & Content Co was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
+          <p>We bridge that gap. Our founder has formal legal training and extensive experience in content creation and marketing. We understand the nuance of legal writing, the ethical guardrails around attorney advertising, and how to translate complex legal concepts into content that actual people want to read.</p>
+          <p>We're not a massive agency. We're a focused team built specifically for the attorney who needs results without the overhead of a full marketing department.</p>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="credentials">
+          <div class="credential">
+            <div class="credential-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="3" x2="12" y2="21" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/><line x1="3" y1="21" x2="21" y2="21" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="7" x2="12" y2="4" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="4" x2="20" y2="7" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M4 7 L2 13 h4 Z" stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round" fill="#c9a84c" fill-opacity="0.15"/><path d="M20 7 L18 13 h4 Z" stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round" fill="#c9a84c" fill-opacity="0.15"/><circle cx="12" cy="3.5" r="1" fill="#c9a84c"/></svg></div>
+            <div class="credential-text">
+              <strong>Legal Training</strong>
+              Formal legal training means we write with the knowledge of someone who has studied the law, not a generalist copywriter.
+            </div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4.5C19.5 6 20.5 8 20.5 10.5C20.5 13 19.5 15 18 16.5" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/><path d="M15.5 7C16.5 8 17 9.2 17 10.5C17 11.8 16.5 13 15.5 14" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/><path d="M3 8.5V13.5L5 15H8V20L10 20V15H11L18 18V4L11 7H5L3 8.5Z" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="#c9a84c" fill-opacity="0.08"/><line x1="8" y1="15" x2="8" y2="9" stroke="#c9a84c" stroke-width="1" stroke-dasharray="1.5 1.5" opacity="0.5"/></svg></div>
+            <div class="credential-text">
+              <strong>Marketing Experience</strong>
+              Background in institutional content strategy and business development
+            </div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9.5" stroke="#c9a84c" stroke-width="1.2"/><circle cx="12" cy="12" r="6.5" stroke="#c9a84c" stroke-width="1.2" stroke-dasharray="2 1.5"/><circle cx="12" cy="12" r="3.5" stroke="#c9a84c" stroke-width="1.2"/><circle cx="12" cy="12" r="1.5" fill="#c9a84c"/><line x1="12" y1="2" x2="12" y2="5" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="22" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="19" y1="12" x2="22" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="credential-text">
+              <strong>Niche Focus</strong>
+              We work exclusively with law firms. No diluted attention from other industries.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-inner">
+    <div class="section-eyebrow">Resources</div>
+    <h2 class="section-title" style="color: var(--navy) !important;">From the blog</h2>
+    <p class="section-sub" style="color: var(--gray);">Insights on legal content marketing, attorney branding, and building your practice's online presence.</p>
+    <div class="blog-grid">
+
+      <!-- ARTICLE 1 -->
+      <div class="blog-card" onclick="openArticle('article1')" style="cursor:pointer;">
+        <div class="blog-card-header">
+          <div class="blog-tag">Content Strategy</div>
+          <div class="blog-card-title">Why attorneys who publish regularly win more referrals</div>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-excerpt">Referrals drive most law practices. Here's how a consistent publishing cadence keeps your name at the top of the list.</p>
+          <div class="blog-meta">
+            <span>5 min read</span>
+            <span>March 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 2 -->
+      <div class="blog-card" onclick="openArticle('article2')" style="cursor:pointer;">
+        <div class="blog-card-header">
+          <div class="blog-tag">Attorney Marketing</div>
+          <div class="blog-card-title">The case article formula: turning a win into a client magnet</div>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-excerpt">A simple framework for writing about your case outcomes in a way that's compelling, ethical, and drives new business.</p>
+          <div class="blog-meta">
+            <span>7 min read</span>
+            <span>February 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARTICLE 3 -->
+      <div class="blog-card" onclick="openArticle('article3')" style="cursor:pointer;">
+        <div class="blog-card-header">
+          <div class="blog-tag">Legal Updates</div>
+          <div class="blog-card-title">Bar rules on attorney advertising: what your content can and can't say</div>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-excerpt">A practical guide to the bar rules governing attorney advertising and what they mean for your firm's online content strategy.</p>
+          <div class="blog-meta">
+            <span>8 min read</span>
+            <span>January 2025</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE 1 MODAL -->
+<div class="article-overlay" id="article1">
+  <div class="article-modal">
+    <button class="article-close" onclick="closeArticle('article1')">&times;</button>
+    <div class="article-tag">Content Strategy &nbsp;&middot;&nbsp; March 2025 &nbsp;&middot;&nbsp; 5 min read</div>
+    <h1>Why attorneys who publish regularly win more referrals</h1>
+    <div class="article-meta">By Legal Media & Content Co. &nbsp;&middot;&nbsp; Published March 2025</div>
+    <div class="article-body">
+      <p>If you ask most attorneys how they get new clients, their response is some version of the same answer: referrals. A former client mentions them to a friend. A colleague passes along a name. Someone they know from the bar association sends work their way.</p>
+      <p>Referrals are the lifeblood of most law practices, and for good reason. A referred client comes in pre-warmed. They already trust you before they've met you. They're less price-sensitive, more likely to follow through, and more likely to refer others in turn.</p>
+      <p>The problem is that most attorneys treat referrals as something that just happens to them. They do good work, they stay connected to their network, and they wait. That passive approach works fine in the early years when relationships are fresh and former clients still have your number saved, but what about later down the line?</p>
+
+      <h2>The visibility problem no one talks about</h2>
+      <p>Here's a scenario that plays out constantly. A former client of yours is at a family dinner. Their cousin mentions they were just in a car accident and aren't sure what to do. Your former client thinks of you, but it's been two years. They can't quite remember your name. They remember you were great, but they can't find you on their phone, and a quick Google search for "personal injury attorney Cleveland" pulls up three firms they've never heard of before they find yours buried on page two.</p>
+      <p>You lost that referral. Not because you did anything wrong. Not because you aren't excellent at what you do. You lost it because you were invisible.</p>
+      <p>Publishing changes this. When you regularly put content into the world, you stay present in people's minds even when they're not actively thinking about hiring a lawyer. They see an article on your latest win pop up while browsing LinkedIn, or they come across your announcement of a recent large settlement during their daily Facebook or Instagram scroll. Seeing your name come up enough when they don't need a lawyer makes them remember your name when it matters.</p>
+
+      <h2>What "publishing regularly" actually looks like</h2>
+      <p>We're not talking about a 5,000-word law review article. We're talking about two things: case-based articles and legal update pieces, published consistently.</p>
+      <p>A case-based article might be titled "How we helped a local resident recover compensation after a grocery store slip-and-fall." Before writing about any client matter, the attorney has obtained informed consent from the client or ensured the details are sufficiently anonymized to protect the client's identity. The article doesn't name the client and is vague enough to protect their privacy and identity while complying with relevant ethics rules. Still, the article is informative enough to leave the reader with an impression of who you are and what you're capable of. It describes the situation in general terms, explains the legal theory, and walks through what the resolution looked like in a way that's equally simple for any referring attorney or potential client to understand as it is interesting to read.</p>
+      <p>A legal update piece might be "What recent changes to comparative fault law mean for injured workers." It explains a development in the law, breaks it down for a general audience, and demonstrates that you're actively tracking what's happening in your practice area. For clients, this matters more than most attorneys realize. People facing legal issues are often overwhelmed and confused. When they find an attorney who is already explaining the exact legal landscape they're navigating in plain language they can actually understand, it builds trust before a single conversation has taken place. It tells them that you're paying attention, and you know your field.</p>
+      <p>One or two of these a month. That's it.</p>
+
+      <h2>The referral effect in practice</h2>
+      <p>When a referring attorney, say a family lawyer who occasionally encounters clients with personal injury issues, is deciding who to send that client to, they're making a judgment call. They want to send someone who will take good care of their client and reflect well on them for making the referral.</p>
+      <p>All else being equal, who do they call? The attorney they haven't heard from in six months, or the attorney whose article about a recent premises liability verdict they read last week?</p>
+      <p>Publishing creates top of mind awareness. The attorneys who publish are the ones people think of first. In the referral game, first is everything.</p>
+
+      <h2>What this means for your practice</h2>
+      <p>You don't need to become a blogger. You don't need to write a newsletter every week or post on social media every day. You need a consistent, lightweight publishing cadence that keeps your name in front of the people who can send you work.</p>
+      <p>One to two articles a month. Shared on LinkedIn. Shared on your firm's Facebook page. Posted on your website. That's enough to meaningfully change how often your name comes up when it matters.</p>
+      <p>The attorneys who figure this out early build practices that compound over time. Every article is a permanent asset. It lives on your website, shows up in search results, and gets shared and re-shared. The work you do today is still working for you two years from now.</p>
+      <p>The ones who don't figure it out keep relying entirely on word of mouth. Which is great, until it isn't.</p>
+
+      <h2>Ready to start?</h2>
+      <p>Want to get into writing content but just don't have the time?</p>
+      <p>Have some ideas but need help to get started?</p>
+      <p>Already producing content but not sure if it's generating actual leads?</p>
+      <p>That's what Legal Media &amp; Content Co. is here for. Get in touch through our contact form, or reach out directly by phone or email.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 2 MODAL -->
+<div class="article-overlay" id="article2">
+  <div class="article-modal">
+    <button class="article-close" onclick="closeArticle('article2')">&times;</button>
+    <div class="article-tag">Attorney Marketing &nbsp;&middot;&nbsp; February 2025 &nbsp;&middot;&nbsp; 7 min read</div>
+    <h1>The case article formula: turning a win into a client magnet</h1>
+    <div class="article-meta">By Legal Media & Content Co. &nbsp;&middot;&nbsp; Published February 2025</div>
+    <div class="article-body">
+      <p>Every attorney has a mental catalog of cases they're proud of. The settlement that took two years to reach. The criminal case that looked unwinnable until it wasn't. The contract dispute that saved a small business from collapse. These outcomes represent real skill, real strategy, and real value. For most attorneys, though, they live only in memory and in a case file that no one will ever read.</p>
+      <p>That's a missed opportunity. Your case wins are marketing assets. The question is how to use them effectively in a way that's compelling to prospective clients, ethical under bar rules, and actually drives new business rather than just filling space on a website.</p>
+      <p><strong>Note:</strong> Before writing about any client matter, make sure you have obtained informed written consent from the client, or that the details you plan to include are genuinely anonymized to the point where the client is not identifiable to comply with bar ethics rules on confidentiality and attorney advertising.</p>
+
+      <h2>The Situation</h2>
+      <p>Start with the human situation, not the legal one. Referring attorneys and prospective clients want to know that you helped someone in a situation like theirs.</p>
+      <p>It's just as easy as it is compelling to start with a high-level description of the fact pattern and the situation your client found themselves in. "A client came to us after slipping on an icy parking lot outside a mall. She had a broken wrist, missed several weeks of work, and had already been told by the store's insurance company that the claim was worth almost nothing." You're not naming anyone. You're not identifying the store. But you're painting a picture that a potential client in a similar situation will immediately recognize as their own.</p>
+      <p>This is the moment of connection. It happens in the first paragraph or it doesn't happen at all.</p>
+
+      <h2>The Complexity</h2>
+      <p>This is the part most attorneys skip, and it's a mistake. Don't jump straight to the outcome. Explain what made the case difficult. What was the argument on the other side? What legal hurdles did you have to clear? What did the insurance company claim? What would have happened if you hadn't pushed back?</p>
+      <p>This serves two purposes. First, it demonstrates your competence to anyone reading. They can see you understand the terrain, not just the result. Second, it creates narrative tension. Outcomes are more satisfying when you understand what the stakes were.</p>
+      <p>For instance, "The insurance company argued that our client was partially at fault based on her physical condition and failing to take proper precautions that her doctor informed her of. Under the letter of the law, any percentage of fault assigned to our client would reduce her recovery. They were angling for a number that would have wiped it out entirely."</p>
+      <p>You're describing the difficulty from a legal standpoint without boring a potential client or referring attorney reading your article. Let's face it, attorneys, and certainly clients, don't want to be bored with legal intricacies unless they have to be. Keep it brief, keep it high-level, and most importantly, keep it interesting to someone with zero legal knowledge. The old adage of "explain it to me like I'm a child" is the key here.</p>
+
+      <h2>The Strategy</h2>
+      <p>Now explain what you actually did in plain English, not legalese, that a prospective client can follow. What evidence did you gather? What experts did you bring in? What arguments did you make? What negotiations happened?</p>
+      <p>This is the section that builds trust. It shows that there was genuine skill and thought behind the outcome. Not luck, not a fortunate settlement offer, but deliberate strategy executed by someone who knew what they were doing.</p>
+      <p>Keep it accessible. "We obtained surveillance footage from the property that showed the ice had been there for over 48 hours, long enough to establish that the store had constructive notice of the hazard" is better than a string of legal citations.</p>
+
+      <h2>The Outcome</h2>
+      <p>Close with the result framed in human terms. "Our client received a settlement that covered her medical bills, her lost wages, and compensation for the pain and disruption the injury caused. She was able to return to work and put the experience behind her."</p>
+      <p>If there's a dollar figure that the client is comfortable sharing, include it. Results matter to prospective clients. But the emotional close matters too. People aren't just hiring you to win money. They're hiring you to resolve something that's been hanging over them. Acknowledge that.</p>
+
+      <h2>The ethical piece: what you can and can't say</h2>
+      <p>Most state bar rules of professional conduct prohibit communications about a lawyer's services that are false or misleading, and include rules that address advertising specifically. While the exact language varies by state, a few practical guardrails apply broadly for case articles:</p>
+      <ul>
+        <li><strong>Don't guarantee results.</strong> "We achieved X for our client" is fine. "We will achieve X for you" is not.</li>
+        <li><strong>Include a disclaimer.</strong> A short note that past results don't guarantee future outcomes, placed on the article itself or in your site footer, keeps you on solid ground.</li>
+        <li><strong>Don't identify clients without consent.</strong> Keep details general enough that the client isn't identifiable. If you want to use specific identifying details, get written consent.</li>
+        <li><strong>Don't overstate your role.</strong> If the case settled quickly because the facts were overwhelming, say so. Credibility is built on honesty.</li>
+      </ul>
+
+      <h2>Where to publish and how to distribute</h2>
+      <p>The article lives on your website first. Your website is the permanent home for your content, and it contributes to your search visibility over time. From there, share it on LinkedIn with a brief personal note about why the case mattered to you. Share it on your firm's Facebook page. If it's relevant to a referring attorney's area of practice, send it directly.</p>
+      <p>A good case article takes a prospective client through the entire journey from "this sounds like my situation" to "this firm clearly knows what they're doing" to "I should call them." That's a lot of work for one piece of content, and it keeps doing that work long after you've moved on to the next case.</p>
+
+      <h2>Ready to start?</h2>
+      <p>Want to get into writing content but just don't have the time?</p>
+      <p>Have some ideas but need help to get started?</p>
+      <p>Already producing content but not sure if it's generating actual leads?</p>
+      <p>That's what Legal Media &amp; Content Co. is here for. Get in touch through our contact form, or reach out directly by phone or email.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE 3 MODAL -->
+<div class="article-overlay" id="article3">
+  <div class="article-modal">
+    <button class="article-close" onclick="closeArticle('article3')">&times;</button>
+    <div class="article-tag">Legal Updates &nbsp;&middot;&nbsp; January 2025 &nbsp;&middot;&nbsp; 8 min read</div>
+    <h1>Bar rules on attorney advertising: what your content can and can't say</h1>
+    <div class="article-meta">By Legal Media & Content Co. &nbsp;&middot;&nbsp; Published January 2025</div>
+    <div class="article-body">
+      <p>If you're an attorney thinking about building a content strategy, publishing articles, maintaining a blog, or running a social media presence, you need to understand the rules that govern what you can say. The good news is that most state rules of professional conduct give attorneys meaningful room to communicate their expertise, share case insights, and market their services. The guardrails are real but manageable, and most content that's genuinely useful and honest falls well within them.</p>
+      <p>This article walks through the key provisions that appear across nearly every state's rules of professional conduct, modeled on ABA Model Rules 7.1, 7.2, and 7.3, and translates them into practical guidance for your firm's content strategy.</p>
+      <p><strong>Note:</strong> This article is for informational purposes only and does not constitute legal advice. Rules vary by state. For guidance specific to your jurisdiction, consult your state bar's ethics counsel or ethics hotline.</p>
+
+      <h2>Rule 7.1: No false or misleading communications</h2>
+      <p>Rule 7.1 is the bedrock across virtually every state. It prohibits attorneys from making a false or misleading communication about the lawyer or the lawyer's services. A communication is misleading if it contains a material misrepresentation of fact or law, or omits information in a way that makes the overall communication misleading.</p>
+      <p>For content purposes, this rule has a few key implications:</p>
+
+      <h3>Results and outcomes</h3>
+      <p>You can discuss case outcomes. You can write about settlements you've achieved, verdicts you've won, and results you've obtained for clients. What you cannot do is present those results in a way that implies a prospective client will achieve the same outcome.</p>
+      <p>The standard fix is a disclaimer on the content itself or in your site footer, stating something to the effect of: "Past results do not guarantee or predict a similar outcome in any future case." This language is commonly used and widely understood to be appropriate across jurisdictions.</p>
+      <p>Best practice: include the disclaimer on any content that references specific case results, and include it in your site footer as a catchall.</p>
+
+      <h3>Comparative claims</h3>
+      <p>Statements like "we are the best personal injury firm in the city" or "our attorneys are more experienced than the competition" run into problems under Rule 7.1 if they can't be substantiated. Comparative and superlative claims require a factual basis. Specific, verifiable claims are fine if you can back them up. "The best" is harder to defend.</p>
+      <p>The practical guidance here is to let your track record and expertise speak for themselves rather than leaning on superlatives. Concrete, specific results are both more credible and more compliant than vague claims of superiority.</p>
+
+      <h3>Specialization claims</h3>
+      <p>Most states do not broadly certify legal specialties. Under the ABA Model Rules and most state equivalents, attorneys may communicate that they concentrate or limit their practice to certain areas, but may not claim to be a specialist or certified unless they hold actual certification from an accredited organization recognized by the ABA or their state supreme court.</p>
+      <p>In practice, "we focus our practice on personal injury law" or "our firm concentrates on business litigation" is fine in most jurisdictions. "Certified specialist" requires actual certification. Check your state's specific rule on this one.</p>
+
+      <h2>Rule 7.2: Advertising</h2>
+      <p>Rule 7.2 addresses attorney advertising specifically. The key provisions relevant to a content strategy:</p>
+
+      <h3>All advertising must be attributed to the firm</h3>
+      <p>Any communication that qualifies as advertising must include the name and contact information of at least one attorney or law firm responsible for its content. For a website or blog, this is easily satisfied by including your firm name, address, and contact information, which you should have on your site regardless.</p>
+
+      <h3>You cannot pay for referrals</h3>
+      <p>Most state equivalents of Rule 7.2 prohibit giving anything of value to a person for recommending the lawyer's services. This means paying for online reviews, compensating people for referrals, or entering into pay-per-lead arrangements tied to a referral. Standard content marketing, publishing articles, managing social media, or working with a content agency, is not affected as long as there's no improper referral arrangement embedded in the relationship.</p>
+
+      <h3>Keep a record of your advertising</h3>
+      <p>Many states require attorneys to retain a copy of advertisements for a set period after their last dissemination, along with a record of when and where they were used. For digital content, a simple folder or archive system that preserves your published content and approximate publication dates satisfies this requirement in most circumstances. Check your state's specific retention period.</p>
+
+      <h2>Rule 7.3: Direct contact with prospective clients</h2>
+      <p>Rule 7.3 governs direct solicitation, reaching out to prospective clients who haven't sought your services. The rule generally prohibits in-person or real-time electronic solicitation of prospective clients when a significant motive is pecuniary gain, with exceptions for former clients, lawyers, and certain family relationships.</p>
+      <p>For content marketing purposes, Rule 7.3 is largely not in play. Publishing an article on your website, sharing it on LinkedIn, or sending a newsletter to people who have opted in to receive it are not direct solicitation in the sense Rule 7.3 addresses. The rule is aimed at cold calls, in-person visits to accident scenes, and targeted outreach to specific individuals.</p>
+      <p>Where Rule 7.3 becomes relevant is if you're using content as a vehicle for direct outreach, for example, using a case article as a pretext to contact a specific individual involved in a similar situation. That kind of targeted use crosses the line into solicitation and should be avoided.</p>
+
+      <h2>Practical guidelines that apply in most jurisdictions</h2>
+      <p>Pulling this together, here's what a compliant content strategy looks like in practice across most states:</p>
+      <ul>
+        <li><strong>Discuss your results, but disclaim them.</strong> Include a past results disclaimer on case-specific content and in your site footer.</li>
+        <li><strong>Avoid unsubstantiated superlatives.</strong> Let your track record do the talking.</li>
+        <li><strong>Say "focus" or "concentrate," not "specialize" or "certified,"</strong> unless you hold actual recognized certification in your state.</li>
+        <li><strong>Include your firm name and contact information</strong> on your website and any advertising content.</li>
+        <li><strong>Keep an archive</strong> of published content with approximate publication dates. A simple Google Drive folder works.</li>
+        <li><strong>Don't use content as a vehicle for direct solicitation</strong> of specific individuals who haven't sought your services.</li>
+        <li><strong>Check your state's specific rules.</strong> The ABA Model Rules are the foundation, but every state has its own version. When in doubt, call your state bar's ethics hotline.</li>
+      </ul>
+      <p>None of this is complicated, and none of it meaningfully limits what good content marketing looks like. The attorneys who build strong online presences do so within these rules every day. The rules are designed to prevent deception, not to prevent communication.</p>
+      <p>The floor is clear. Build on it.</p>
+
+      <h2>Ready to start?</h2>
+      <p>Want to get into writing content but just don't have the time?</p>
+      <p>Have some ideas but need help to get started?</p>
+      <p>Already producing content but not sure if it's generating actual leads?</p>
+      <p>That's what Legal Media &amp; Content Co. is here for. Get in touch through our contact form, or reach out directly by phone or email.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-eyebrow">Get in touch</div>
+        <h2 class="section-title">Ready to start telling your firm's story?</h2>
+        <p>Tell us a bit about your practice and what you're looking for. We'll follow up with you to schedule a quick call.</p>
+
+      </div>
+      <div>
+        <form class="contact-form" action="https://formspree.io/f/xdapdzgn" method="POST" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" placeholder="John" />
+            </div>
+            <div class="form-group">
+              <label>Last name</label>
+              <input type="text" placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@smithlaw.com" />
+          </div>
+          <div class="form-group">
+            <label>Firm name</label>
+            <input type="text" placeholder="Smith Law Firm" />
+          </div>
+          <div class="form-group">
+            <label>Practice area</label>
+            <select>
+              <option value="">Select your practice area</option>
+              <option>Personal Injury</option>
+              <option>Medical Malpractice</option>
+              <option>Criminal Defense</option>
+              <option>Civil Litigation</option>
+              <option>Family Law</option>
+              <option>Estate Planning & Probate</option>
+              <option>Business / Corporate Law</option>
+              <option>Mergers & Acquisitions</option>
+              <option>Contract Law</option>
+              <option>Intellectual Property</option>
+              <option>Securities & Finance</option>
+              <option>Bankruptcy & Restructuring</option>
+              <option>Tax Law</option>
+              <option>Healthcare Law</option>
+              <option>Property Law</option>
+              <option>Labor and Employment Law</option>
+              <option>Government and Public Interest Law</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell us about your firm</label>
+            <textarea placeholder="How long have you been practicing? What kind of content are you looking for? Any questions?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; text-align: center; border: none;">Send message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Legal Media <span>&amp;</span> Content Co.</div>
+    <ul class="footer-links">
+      <li><a href="#content">Content</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Legal Media & Content Co. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  function openArticle(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArticle(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('load', function() {
+    document.querySelectorAll('.article-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) closeArticle(this.id);
+      });
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.article-overlay.open').forEach(o => closeArticle(o.id));
+      }
+    });
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = "Message sent! We'll be in touch soon.";
+    btn.style.background = '#1a2744';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+</script>
+</body>
+</html>
