@@ -214,15 +214,14 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .outlets span { color: var(--on-navy-muted); font-size: 0.95rem; }
 
 /* ABOUT */
-.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(3rem, 7vw, 6.5rem); align-items: center; }
-.about-photo { position: relative; }
-.about-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 2px; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.about-grid h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); }
 .about-copy { display: grid; gap: 1.15rem; }
-.about-copy h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); margin-bottom: 0.4rem; }
-.creds { display: grid; gap: 0; margin-top: 1.25rem; }
-.cred { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; padding-block: 1.1rem; border-top: 1px solid var(--line); }
-.cred:last-child { border-bottom: 1px solid var(--line); }
-.cred strong { font-family: var(--display); font-size: 1.2rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+.about-photo { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.about-photo img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 35%; border-radius: 2px; }
+.creds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.cred { display: grid; gap: 0.5rem; align-content: start; padding-top: 1.3rem; border-top: 1px solid var(--navy); }
+.cred strong { font-family: var(--display); font-size: 1.35rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
 .cred span { color: var(--muted); }
 
 /* BLOG */
@@ -293,6 +292,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .content-aside img { aspect-ratio: 16 / 9; }
   .notif { right: 50%; transform: translateX(50%); bottom: 1.25rem; width: max-content; max-width: calc(100% - 2rem); }
   .points { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .creds { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .deliver-in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .deliver-item:nth-child(3) { padding-left: 0; border-left: 0; }
   .deliver-item:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.12); }
@@ -311,7 +311,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .deliver-item, .deliver-item + .deliver-item { padding: 1.5rem 0; border-left: 0; }
   .deliver-item + .deliver-item { border-top: 1px solid rgba(255,255,255,0.12); }
   .row { grid-template-columns: minmax(0, 1fr); }
-  .cred { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  .about-photo img { aspect-ratio: 4 / 3; }
   .serp { padding: 1rem; }
   .logo { font-size: 1.05rem; }
 }
@@ -420,7 +420,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
     <div class="points">
       <div class="point">
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#a8862f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
-        <h4>Written by legal professionals</h4><p>We understand legal nuance, ethical boundaries, and how to write about complex law for a general audience. Other marketing agencies can't do this.</p></div>
+        <h4>Written by legal professionals</h4><p>We understand legal nuance, ethical boundaries, and how to write about complex law for a general audience. Other marketing agencies can't do that.</p></div>
       <div class="point">
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#a8862f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
         <h4>Thought leadership brings in clients</h4><p>Attorneys who publish regularly are the ones prospective clients call first.</p></div>
@@ -443,14 +443,14 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
           <div class="sm-post">
             <div class="sm-head">
               <span class="avatar" aria-hidden="true">YF</span>
-              <div class="who"><strong>Your Firm</strong><span>Family law attorneys &middot; 2h</span></div>
+              <div class="who"><strong>Your Firm</strong><span>Personal injury attorneys &middot; 2h</span></div>
             </div>
-            <p class="sm-text">Case win: after a contested relocation dispute, we helped a parent keep their children close to home. Here's what made the difference, and what every parent should know before a move.</p>
+            <p class="sm-text">Case win: after an insurer denied our client's claim following a highway crash, we secured a settlement covering her medical bills and lost wages. Here's what made the difference, and what every driver should know.</p>
             <div class="link-card">
               <div class="link-img" aria-hidden="true">
                 <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M12 5.5a1.2 1.2 0 1 0 0-.01"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>
               </div>
-              <div class="link-body"><span>yourfirm.com</span><strong>What parents should know before relocating with children</strong></div>
+              <div class="link-body"><span>yourfirm.com</span><strong>What to do in the first 48 hours after a car accident</strong></div>
             </div>
             <div class="sm-stats"><span>124 reactions</span><span>18 comments</span></div>
             <div class="sm-actions"><span>Like</span><span>Comment</span><span>Share</span></div>
@@ -505,20 +505,22 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 </section>
 
 <section id="about">
-  <div class="wrap about-grid">
+  <div class="wrap">
+    <div class="about-grid">
+      <h2>We speak your language because we know it.</h2>
+      <div class="about-copy">
+        <p>Legal Media &amp; Content Co. was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
+        <p>We bridge that gap. Legal Media &amp; Content Co. is run by lawyers with extensive experience in content creation and marketing. We understand the nuance of legal writing, the ethical guardrails around attorney advertising, and how to translate complex legal concepts into content that people actually want to read.</p>
+        <p>We're not a massive agency. We're a focused team built for the attorney who needs results without the overhead of a full marketing department.</p>
+      </div>
+    </div>
     <div class="about-photo">
       <img src="images/about-conversation.jpg" loading="lazy" alt="Three attorneys in conversation in an office lined with bookshelves">
     </div>
-    <div class="about-copy">
-      <h2>We speak your language because we know it.</h2>
-      <p>Legal Media &amp; Content Co. was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
-      <p>We bridge that gap. Legal Media &amp; Content Co. is run by lawyers with extensive experience in content creation and marketing. We understand the nuance of legal writing, the ethical guardrails around attorney advertising, and how to translate complex legal concepts into content that people actually want to read.</p>
-      <p>We're not a massive agency. We're a focused team built for the attorney who needs results without the overhead of a full marketing department.</p>
-      <div class="creds">
-        <div class="cred"><strong>Run by lawyers</strong><span>Your content is written by people who know the law, not by generalist copywriters.</span></div>
-        <div class="cred"><strong>Marketing experience</strong><span>A background in institutional content strategy and business development.</span></div>
-        <div class="cred"><strong>Niche focus</strong><span>We work only with law firms. No diluted attention from other industries.</span></div>
-      </div>
+    <div class="creds">
+      <div class="cred"><strong>Run by lawyers</strong><span>Your content is written by people who know the law, not by generalist copywriters.</span></div>
+      <div class="cred"><strong>Marketing experience</strong><span>A background in institutional content strategy and business development.</span></div>
+      <div class="cred"><strong>Niche focus</strong><span>We work only with law firms. No diluted attention from other industries.</span></div>
     </div>
   </div>
 </section>
