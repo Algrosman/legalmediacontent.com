@@ -315,7 +315,6 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 .motion .flow.is-in .outlets li:nth-child(2) { transition-delay: 1.65s; }
 .motion .flow.is-in .outlets li:nth-child(3) { transition-delay: 1.8s; }
 .motion .flow.is-in .outlets li:nth-child(4) { transition-delay: 1.95s; }
-.motion .flow.is-in .outlets .dot { animation: ping 1.4s ease-out 2.3s 1; }
 
 .motion .wins li { opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .motion .wins.is-in li { opacity: 1; transform: none; }
@@ -343,10 +342,8 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 
 /* Article flow: gold pulses travel from the article to each outlet */
 .wire .pulse { fill: none; stroke: #e6c879; stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 7 93; stroke-dashoffset: 100; opacity: 0; }
-.motion .flow.is-in .wire .pulse { animation: travel 3.2s linear 2.4s infinite; }
-.motion .flow.is-in .wire .pulse:nth-child(2) { animation-delay: 3.2s; }
-.motion .flow.is-in .wire .pulse:nth-child(3) { animation-delay: 4s; }
-.motion .flow.is-in .wire .pulse:nth-child(4) { animation-delay: 4.8s; }
+.motion .flow.is-in .wire .pulse { animation: travel 2.8s cubic-bezier(.45,.05,.55,.95) 2.4s infinite; }
+.motion .flow.is-in .outlets .dot { animation: arrive 2.8s linear 2.4s infinite; }
 
 /* Social post: notifications rotate, the like button taps */
 .notif-text { display: grid; }
@@ -359,6 +356,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 @keyframes glint { 0%, 100% { transform: none; filter: none; } 50% { transform: scale(1.15) rotate(-6deg); filter: drop-shadow(0 0 6px rgba(198,164,86,0.8)); } }
 @keyframes winPop { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
 @keyframes travel { 0% { stroke-dashoffset: 100; opacity: 0; } 8% { opacity: 1; } 85% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes arrive { 0%, 80% { box-shadow: 0 0 0 0 rgba(198,164,86,0); transform: scale(1); } 84% { box-shadow: 0 0 0 0 rgba(198,164,86,0.75); transform: scale(1.35); } 100% { box-shadow: 0 0 0 14px rgba(198,164,86,0); transform: scale(1); } }
 @keyframes swapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes tap { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
 
@@ -411,7 +409,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .notif-wrap, .hero-img, .wire .pulse { animation: none !important; }
+  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
 }
