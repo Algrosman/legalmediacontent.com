@@ -212,7 +212,8 @@ Ask before coding:
 Always use the CSS variables listed under Design System above. Never hardcode colors that exist as variables.
 
 ### Motion & Interaction
-- Keep motion to one moment: the SEO search results animation
+- Motion is limited to four scroll-in moments: the SEO search results, the social post (rise, notification pop, counting reactions), the "One article becomes many assets" flow, and the example wins list
+- Motion runs only when JavaScript adds the `motion` class to `<html>`, and is skipped for visitors who prefer reduced motion
 - Hover states on cards: subtle translateY(-2px) and box-shadow
 - Hover states on buttons: background color shift, subtle transform
 - Keep animations fast (0.2s for hovers, 0.6s for page load reveals)
