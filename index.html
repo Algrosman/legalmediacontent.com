@@ -235,28 +235,18 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 
 .roi { margin: 0; background: var(--white); border-radius: 6px; box-shadow: 0 30px 60px -32px rgba(21,33,59,0.4), 0 0 0 1px var(--line); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 1.5rem; min-width: 0; --unit: 26px; }
 .roi-intro { font-family: var(--display); font-size: 1.25rem; font-weight: 600; color: var(--navy); margin: 0 0 -0.4rem; }
-.roi-controls { display: grid; gap: 1.35rem; }
-.ctl { display: grid; gap: 0.55rem; }
-.ctl-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.ctl label { font-size: 0.98rem; color: var(--ink); cursor: pointer; }
-.num-box { display: inline-flex; align-items: baseline; gap: 0.2rem; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--navy); transition: border-color 0.2s, box-shadow 0.2s; }
-.num-box:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(198,164,86,0.25); }
-.num-box span { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
-.num-box input { width: 4.2ch; border: 0; background: transparent; padding: 0; font: inherit; color: inherit; text-align: right; font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
+.roi-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: end; }
+.ctl { display: grid; gap: 0.5rem; align-content: start; }
+.ctl label { font-size: 0.98rem; line-height: 1.35; color: var(--ink); cursor: text; }
+.num-box { display: flex; align-items: baseline; gap: 0.35rem; padding: 0.6rem 0.85rem; border: 1.5px solid var(--line); border-radius: 8px; background: var(--paper); font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--navy); cursor: text; transition: border-color 0.2s, box-shadow 0.2s; }
+.num-box:hover { border-color: #cfc6b3; }
+.num-box:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(198,164,86,0.25); background: var(--white); }
+.num-box span { font-family: var(--body); font-size: 0.9rem; color: var(--muted); font-weight: 400; white-space: nowrap; }
+.num-box input { flex: 1 1 auto; min-width: 0; width: 100%; border: 0; background: transparent; padding: 0; font: inherit; color: inherit; font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
 .num-box input:focus { outline: none; }
 .num-box input::-webkit-outer-spin-button, .num-box input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.ctl input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; margin: 0; background: transparent; cursor: pointer; --pct: 20%; }
-.ctl input[type=range]:focus { outline: none; }
-.ctl input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--gold) var(--pct), var(--line) var(--pct)); }
-.ctl input[type=range]::-moz-range-track { height: 8px; border-radius: 4px; background: var(--line); }
-.ctl input[type=range]::-moz-range-progress { height: 8px; border-radius: 4px; background: var(--gold); }
-.ctl input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; margin-top: -9px; border-radius: 50%; background: var(--white); border: 3px solid var(--gold); box-shadow: 0 3px 10px rgba(21,33,59,0.25); transition: transform 0.15s; }
-.ctl input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--white); border: 3px solid var(--gold); box-shadow: 0 3px 10px rgba(21,33,59,0.25); }
-.ctl input[type=range]:active::-webkit-slider-thumb { transform: scale(1.15); }
-.ctl input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(198,164,86,0.35), 0 3px 10px rgba(21,33,59,0.25); }
-.motion .roi.is-in .ctl input[type=range].hint::-webkit-slider-thumb { animation: thumbHint 1.6s ease-out 2; }
-.ctl-scale { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-top: -0.3rem; }
-@keyframes thumbHint { 0% { box-shadow: 0 0 0 0 rgba(198,164,86,0.6), 0 3px 10px rgba(21,33,59,0.25); } 100% { box-shadow: 0 0 0 14px rgba(198,164,86,0), 0 3px 10px rgba(21,33,59,0.25); } }
+.motion .roi.is-in .num-box.hint { animation: boxHint 1.6s ease-out 2; }
+@keyframes boxHint { 0% { box-shadow: 0 0 0 0 rgba(198,164,86,0.55); } 100% { box-shadow: 0 0 0 10px rgba(198,164,86,0); } }
 .matter { display: grid; gap: 1rem; padding: 1.25rem; background: var(--paper); border-radius: 4px; }
 .matter-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
 .matter-head span { font-size: 0.9rem; color: var(--muted); }
@@ -459,6 +449,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .row { grid-template-columns: minmax(0, 1fr); }
   .about-photo img { aspect-ratio: 4 / 3; }
   .roi { --unit: 21px; }
+  .roi-controls { grid-template-columns: minmax(0, 1fr); }
   .matter { padding: 1rem; }
   .hour-grid { gap: 4px; }
   .serp { padding: 1rem; }
@@ -545,20 +536,12 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
       <p class="roi-intro">Try it with your own numbers</p>
       <div class="roi-controls">
         <div class="ctl">
-          <div class="ctl-row">
-            <label for="roi-rate">Your hourly rate</label>
-            <span class="num-box"><span aria-hidden="true">$</span><input type="number" id="roi-rate-num" inputmode="numeric" min="50" max="5000" step="25" value="350" aria-label="Your hourly rate in dollars"></span>
-          </div>
-          <input type="range" id="roi-rate" min="100" max="1500" step="25" value="350">
-          <div class="ctl-scale" aria-hidden="true"><span>$100</span><span>$1,500+</span></div>
+          <label for="roi-rate-num">What is your billable rate?</label>
+          <span class="num-box"><span aria-hidden="true">$</span><input type="number" id="roi-rate-num" inputmode="numeric" min="1" max="5000" step="1" value="350"><span aria-hidden="true">per hour</span></span>
         </div>
         <div class="ctl">
-          <div class="ctl-row">
-            <label for="roi-hours">Hours on a typical new matter</label>
-            <span class="num-box"><input type="number" id="roi-hours-num" inputmode="numeric" min="1" max="500" step="1" value="15" aria-label="Hours on a typical new matter"><span aria-hidden="true">hrs</span></span>
-          </div>
-          <input type="range" id="roi-hours" min="1" max="200" step="1" value="15">
-          <div class="ctl-scale" aria-hidden="true"><span>1</span><span>200+</span></div>
+          <label for="roi-hours-num">Average hours per new matter?</label>
+          <span class="num-box"><input type="number" id="roi-hours-num" inputmode="numeric" min="1" max="500" step="1" value="15"><span aria-hidden="true">hours</span></span>
         </div>
       </div>
       <div class="matter" aria-live="polite">
@@ -1077,16 +1060,11 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 
   // Pricing: one new matter, the first hour covers the website fee
   (function () {
-    var rate = document.getElementById('roi-rate'), hours = document.getElementById('roi-hours');
     var rateNum = document.getElementById('roi-rate-num'), hoursNum = document.getElementById('roi-hours-num');
     var grid = document.getElementById('roi-grid');
-    if (!rate || !grid) return;
+    if (!rateNum || !grid) return;
     var R = 350, H = 15;
     function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
-    function fill(slider) {
-      var pct = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-      slider.style.setProperty('--pct', pct + '%');
-    }
     function layout() {
       var base = parseFloat(getComputedStyle(document.querySelector('.roi')).getPropertyValue('--unit')) || 26;
       var w = grid.clientWidth || 300, maxH = base * 4 + 15, unit, gap, cols;
@@ -1113,23 +1091,17 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         grid.appendChild(blk);
       }
     }
-    function fromSlider() {
-      R = +rate.value; H = +hours.value;
-      rateNum.value = R; hoursNum.value = H;
-      fill(rate); fill(hours); render();
-    }
-    function fromBox() {
+    function read() {
       var r = parseInt(rateNum.value, 10), h = parseInt(hoursNum.value, 10);
-      if (r > 0) { R = Math.min(r, 5000); rate.value = Math.min(Math.max(R, +rate.min), +rate.max); }
-      if (h > 0) { H = Math.min(h, 500); hours.value = Math.min(Math.max(H, +hours.min), +hours.max); }
-      fill(rate); fill(hours); render();
+      if (r > 0) R = Math.min(r, 5000);
+      if (h > 0) H = Math.min(h, 500);
+      render();
     }
     function tidy() { rateNum.value = R; hoursNum.value = H; }
-    rate.addEventListener('input', fromSlider); hours.addEventListener('input', fromSlider);
-    rateNum.addEventListener('input', fromBox); hoursNum.addEventListener('input', fromBox);
+    rateNum.addEventListener('input', read); hoursNum.addEventListener('input', read);
     rateNum.addEventListener('blur', tidy); hoursNum.addEventListener('blur', tidy);
     window.addEventListener('resize', layout);
-    fromSlider();
+    render();
     var roi = document.querySelector('.roi');
     if (document.documentElement.classList.contains('motion') && 'IntersectionObserver' in window) {
       var seen = false;
@@ -1137,8 +1109,9 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         entries.forEach(function (e) {
           if (e.isIntersecting && !seen) {
             seen = true; roi.classList.add('is-in'); grid.innerHTML = ''; render();
-            rate.classList.add('hint'); hours.classList.add('hint');
-            setTimeout(function () { rate.classList.remove('hint'); hours.classList.remove('hint'); }, 3600);
+            var boxes = roi.querySelectorAll('.num-box');
+            Array.prototype.forEach.call(boxes, function (x) { x.classList.add('hint'); });
+            setTimeout(function () { Array.prototype.forEach.call(boxes, function (x) { x.classList.remove('hint'); }); }, 3600);
           }
         });
       }, { threshold: 0.35 }).observe(roi);
