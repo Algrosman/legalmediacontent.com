@@ -82,7 +82,7 @@ Redesigned October 2026: open editorial layout, hairline dividers instead of box
 1. **Navigation** over the hero: logo, SEO, Content, About, Blog, "Get started"
 2. **Hero** with consultation photo, headline "Marketing by lawyers, for lawyers.", free SEO callout with explanation, CTA
 3. **What we deliver** strip: Websites, Articles, Social media, Newsletters
-3a. **Pricing** (`#pricing`): website fee is one billable hour a month at the client's own rate, SEO included; animated clock: the minute hand sweeps one hour while a gold slice fills, a line reading 'You bill $X an hour. Your website is $X a month.' cycles through example rates, and chips list what is included (Hosting, Security, Updates, Page edits, SEO). Keep it simple: no calculators, client counts, totals, or multiples
+3a. **Pricing** (`#pricing`): website fee is one billable hour a month at the client's own rate, SEO included; interactive example of ONE new matter at the lawyer's own rate and hours (sliders plus type-in boxes; hours up to 500, blocks shrink to stay compact): the first hour (gold) is the monthly website fee, the rest is theirs to keep. Never show a promised number of clients, totals, or multiples; keep the 'not guaranteed' caption
 4. **SEO** section with animated search results where "Your firm" climbs to first
 5. **Why** ("Too many lawyers & firms are invisible online"), with pull quote, example wins list, three points with icons
 6. **Content that works for you**: social post mockup plus six content types
