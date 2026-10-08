@@ -222,6 +222,8 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .mail-btn { justify-self: start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; color: var(--white); background: var(--navy); border-radius: 2px; padding: 0.5rem 0.85rem; }
 .scr-video { padding: 0.55rem; }
 .vid { position: relative; height: 100%; min-height: 300px; border-radius: 16px; overflow: hidden; background: radial-gradient(90% 70% at 50% 35%, #2a3c66 0%, var(--navy) 70%); display: grid; place-items: center; }
+.vid-art { display: grid; justify-items: center; gap: 1.4rem; margin-top: -2.5rem; }
+.vid-icon { width: 150px; height: auto; display: block; }
 .vid-play { width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.75); position: relative; }
 .vid-play::after { content: ''; position: absolute; left: 22px; top: 17px; border-left: 16px solid var(--white); border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
 .vid-cap { position: absolute; left: 1rem; right: 1rem; bottom: 1.6rem; display: grid; gap: 0.2rem; text-align: left; }
@@ -668,7 +670,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
             <p class="sm-text">Case win: after an insurer denied our client's claim following a highway crash, we secured a settlement covering her medical bills and lost wages. Here's what made the difference, and what every driver should know.</p>
             <div class="link-card">
               <div class="link-img" aria-hidden="true">
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M12 5.5a1.2 1.2 0 1 0 0-.01"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>
+                <svg width="96" height="60" viewBox="0 0 32 20" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(.6 0)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><g transform="translate(31.4 0) scale(-1 1)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><path d="M16 5.6v1.8"/><path d="M18.4 7.2l-1.1 1.1"/><path d="M13.6 7.2l1.1 1.1"/><path d="M16 10.2l.9-1.3.9 1.3-.9 1.3z"/></svg>
               </div>
               <div class="link-body"><span>yourfirm.com</span><strong>What to do in the first 48 hours after a car accident</strong></div>
             </div>
@@ -680,7 +682,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
             <span class="scr-tag">Personal injury</span>
             <strong class="scr-title">What to do in the first 48 hours after a car accident</strong>
             <span class="scr-meta">By your attorney &middot; 5 min read</span>
-            <div class="link-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M12 5.5a1.2 1.2 0 1 0 0-.01"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg></div>
+            <div class="link-img" aria-hidden="true"><svg width="92" height="58" viewBox="0 0 32 20" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(.6 0)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><g transform="translate(31.4 0) scale(-1 1)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><path d="M16 5.6v1.8"/><path d="M18.4 7.2l-1.1 1.1"/><path d="M13.6 7.2l1.1 1.1"/><path d="M16 10.2l.9-1.3.9 1.3-.9 1.3z"/></svg></div>
             <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
           </div>
           <div class="sm-post screen scr-mail" data-media="newsletter" aria-hidden="true">
@@ -697,7 +699,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
           </div>
           <div class="sm-post screen scr-video" data-media="video" aria-hidden="true">
             <div class="vid">
-              <span class="vid-play" aria-hidden="true"></span>
+              <div class="vid-art"><svg class="vid-icon" width="150" height="94" viewBox="0 0 32 20" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(.6 0)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><g transform="translate(31.4 0) scale(-1 1)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><path d="M16 5.6v1.8"/><path d="M18.4 7.2l-1.1 1.1"/><path d="M13.6 7.2l1.1 1.1"/><path d="M16 10.2l.9-1.3.9 1.3-.9 1.3z"/></svg><span class="vid-play" aria-hidden="true"></span></div>
               <div class="vid-cap"><b>3 things to do after a crash</b><span>Your Firm &middot; 0:58</span></div>
               <div class="vid-bar"><i></i></div>
             </div>
