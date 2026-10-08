@@ -177,8 +177,18 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .service-list h3 { font-size: clamp(1.45rem, 2.2vw, 1.8rem); color: var(--navy); }
 .service-list p { color: var(--muted); max-width: 38rem; }
 
-.social-mock { position: relative; margin: 0; max-width: 100%; background: var(--navy); border-radius: 2px; display: grid; justify-items: center; gap: 1.5rem; padding: 2rem 1.5rem; overflow: hidden; }
+.social-mock { position: relative; margin: 0; max-width: 100%; min-height: 750px; background: var(--navy); border-radius: 2px; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; gap: 1.5rem; padding: 2rem 1.25rem; overflow: hidden; }
+.device-wrap { display: grid; justify-items: center; align-self: center; width: 100%; transition: opacity 0.3s ease, transform 0.3s ease; }
+.device-wrap.flip-out { opacity: 0; transform: translateY(8px); }
+.device-wrap.flip-in { transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.2,.7,.2,1); }
 .phone { width: min(86%, 312px); background: #0b1222; border-radius: 28px; padding: 7px; box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 40px 70px -35px rgba(0,0,0,0.7); }
+.phone[data-device="laptop"] { width: min(100%, 460px); border-radius: 12px 12px 3px 3px; padding: 9px 9px 12px; }
+.phone[data-device="tablet"] { width: min(100%, 430px); border-radius: 22px; padding: 12px; }
+.phone[data-device="laptop"] .sm-post { border-radius: 3px; }
+.phone[data-device="tablet"] .sm-post { border-radius: 10px; }
+.laptop-base { display: none; }
+.social-mock[data-device="laptop"] .laptop-base { display: block; width: min(112%, 520px); height: 13px; margin-top: -1px; border-radius: 2px 2px 14px 14px; background: linear-gradient(180deg, #d9dce3 0%, #a7adba 100%); position: relative; }
+.social-mock[data-device="laptop"] .laptop-base::before { content: ''; position: absolute; left: 50%; top: 0; width: 70px; height: 5px; transform: translateX(-50%); border-radius: 0 0 6px 6px; background: #8e95a3; }
 .sm-post { background: var(--white); border-radius: 22px; padding: 1.1rem 1rem 0.6rem; display: grid; gap: 0.75rem; color: var(--ink); }
 .sm-head { display: flex; align-items: center; gap: 0.65rem; }
 .avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--navy); color: var(--gold); display: grid; place-items: center; font-family: var(--display); font-weight: 600; font-size: 0.95rem; flex-shrink: 0; }
@@ -202,12 +212,10 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .media-tab.is-active::after { transform: scaleX(1); }
 .motion .media-tab.is-active.timing::after { animation: tabTimer 4.2s linear both; }
 @keyframes tabTimer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-.screens { display: grid; transition: opacity 0.28s ease, transform 0.28s ease; }
-.screens.flip-out { opacity: 0; transform: translateY(6px); }
-.screens.flip-in { transition: opacity 0.4s ease, transform 0.4s cubic-bezier(.2,.7,.2,1); }
-.screen { grid-area: 1 / 1; visibility: hidden; }
+.screens { display: grid; }
+.screen { display: none !important; }
+.screen.is-active { display: grid !important; }
 .scr-article, .scr-mail { align-content: start; }
-.screen.is-active { visibility: visible; }
 .url-bar { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--muted); background: var(--linen); border-radius: 999px; padding: 0.35rem 0.7rem; }
 .url-bar .lock { width: 8px; height: 9px; border: 1.5px solid var(--muted); border-radius: 2px; position: relative; top: 1px; }
 .scr-tag { font-size: 0.7rem; font-weight: 600; color: var(--gold-deep); }
@@ -218,10 +226,34 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .screen .bars i { display: block; height: 6px; border-radius: 3px; background: var(--line); }
 .screen .bars i:nth-child(2n) { width: 86%; }
 .screen .bars i:last-child { width: 58%; }
+.browser-bar { display: flex; align-items: center; gap: 0.6rem; padding-bottom: 0.55rem; border-bottom: 1px solid var(--line); }
+.browser-bar .dots { display: flex; gap: 4px; }
+.browser-bar .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+.browser-bar .url { flex: 1; font-size: 0.68rem; color: var(--muted); background: var(--linen); border-radius: 4px; padding: 0.25rem 0.6rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.site-nav { display: flex; justify-content: space-between; align-items: center; }
+.site-nav b { font-family: var(--display); font-size: 0.85rem; color: var(--navy); }
+.site-nav span { display: flex; gap: 0.6rem; }
+.site-nav span i { width: 30px; height: 5px; border-radius: 3px; background: var(--line); }
+.art-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0.9rem; align-items: center; }
+.art-text { display: grid; gap: 0.45rem; }
+.scr-article .scr-title { margin: 0; font-size: 1.05rem; }
+.scr-article .scr-meta { margin: 0; }
+.scr-article .link-img { border-radius: 6px; height: 120px; }
+.mail-app { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 0.9rem; }
+.mail-list { display: grid; gap: 0.35rem; align-content: start; border-right: 1px solid var(--line); padding-right: 0.7rem; }
+.mail-item { display: grid; gap: 0.3rem; padding: 0.5rem; border-radius: 6px; }
+.mail-item.is-open { background: var(--linen); }
+.mail-item b { font-size: 0.68rem; color: var(--navy); }
+.mail-item span { font-size: 0.62rem; color: var(--muted); line-height: 1.3; }
+.mail-item i { display: block; height: 5px; border-radius: 3px; background: var(--line); }
+.mail-item i + i { width: 70%; }
+.mail-read { display: grid; gap: 0.6rem; align-content: start; min-width: 0; }
+.mail-read .sm-text { font-size: 0.78rem; }
 .mail-head { display: flex; align-items: center; gap: 0.65rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--line); }
 .mail-btn { justify-self: start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; color: var(--white); background: var(--navy); border-radius: 2px; padding: 0.5rem 0.85rem; }
-.scr-video { padding: 0.55rem; }
-.vid { position: relative; height: 100%; min-height: 300px; border-radius: 16px; overflow: hidden; background: radial-gradient(90% 70% at 50% 35%, #2a3c66 0%, var(--navy) 70%); display: grid; place-items: center; }
+.scr-video { padding: 0; background: transparent; }
+.scr-video .vid { border-radius: 22px; }
+.vid { position: relative; aspect-ratio: 9 / 16; border-radius: 16px; overflow: hidden; background: radial-gradient(90% 70% at 50% 35%, #2a3c66 0%, var(--navy) 70%); display: grid; place-items: center; }
 .vid-art { display: grid; justify-items: center; gap: 1.4rem; margin-top: -2.5rem; }
 .vid-icon { width: 150px; height: auto; display: block; }
 .vid-play { width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.75); position: relative; }
@@ -461,6 +493,11 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .seo-grid, .why-grid, .content-grid, .about-grid, .contact-grid, .pricing-grid { grid-template-columns: minmax(0, 1fr); }
   .content-aside img { aspect-ratio: 16 / 9; }
   .media-tab { font-size: 0.74rem; }
+  .social-mock { min-height: 750px; padding-inline: 0.75rem; }
+  .art-body { grid-template-columns: minmax(0, 1fr); }
+  .scr-article .link-img { height: 70px; }
+  .mail-app { grid-template-columns: minmax(0, 1fr); }
+  .mail-list { display: none; }
   .points { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .creds { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .deliver-in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -507,7 +544,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .screens { transition: none !important; }
+  .device-wrap { transition: none !important; }
   .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after, .hour { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
@@ -653,16 +690,17 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         <h2>Content that works for you</h2>
         <p>Every piece we create is designed to educate potential clients and showcase your expertise.</p>
       </div>
-      <figure class="social-mock" aria-label="One article turned into a social post, a website article, an email newsletter, and a short video">
+      <figure class="social-mock" data-device="phone" aria-label="One article shown as a social post on a phone, an article on a laptop, a newsletter on a tablet, and a short video on a phone">
         <div class="media-tabs" role="group" aria-label="Show the article as">
           <button type="button" class="media-tab is-active" data-show="social" aria-pressed="true">Social</button>
           <button type="button" class="media-tab" data-show="article" aria-pressed="false">Website</button>
           <button type="button" class="media-tab" data-show="newsletter" aria-pressed="false">Newsletter</button>
           <button type="button" class="media-tab" data-show="video" aria-pressed="false">Video</button>
         </div>
-        <div class="phone">
+        <div class="device-wrap">
+          <div class="phone" data-device="phone">
           <div class="screens">
-          <div class="sm-post screen is-active" data-media="social">
+          <div class="sm-post screen is-active" data-media="social" data-device="phone">
             <div class="sm-head">
               <span class="avatar" aria-hidden="true">YF</span>
               <div class="who"><strong>Your Firm</strong><span>Personal injury attorneys &middot; 2h</span></div>
@@ -677,27 +715,41 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
             <div class="sm-stats"><span><b class="count" data-to="124">124</b> reactions</span><span><b class="count" data-to="18">18</b> comments</span></div>
             <div class="sm-actions"><span class="like">Like</span><span>Comment</span><span>Share</span></div>
           </div>
-          <div class="sm-post screen scr-article" data-media="article" aria-hidden="true">
-            <div class="url-bar"><span class="lock" aria-hidden="true"></span>yourfirm.com/blog</div>
-            <span class="scr-tag">Personal injury</span>
-            <strong class="scr-title">What to do in the first 48 hours after a car accident</strong>
-            <span class="scr-meta">By your attorney &middot; 5 min read</span>
-            <div class="link-img" aria-hidden="true"><svg width="92" height="58" viewBox="0 0 32 20" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(.6 0)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><g transform="translate(31.4 0) scale(-1 1)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><path d="M16 5.6v1.8"/><path d="M18.4 7.2l-1.1 1.1"/><path d="M13.6 7.2l1.1 1.1"/><path d="M16 10.2l.9-1.3.9 1.3-.9 1.3z"/></svg></div>
-            <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="sm-post screen scr-mail" data-media="newsletter" aria-hidden="true">
-            <div class="mail-head">
-              <span class="avatar" aria-hidden="true">YF</span>
-              <div class="who"><strong>Your Firm</strong><span>Your monthly legal update</span></div>
+          <div class="sm-post screen scr-article" data-media="article" data-device="laptop" aria-hidden="true">
+            <div class="browser-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">yourfirm.com/blog/first-48-hours</span></div>
+            <div class="site-nav"><b>Your Firm</b><span aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="art-body">
+              <div class="art-text">
+                <span class="scr-tag">Personal injury</span>
+                <strong class="scr-title">What to do in the first 48 hours after a car accident</strong>
+                <span class="scr-meta">By your attorney &middot; 5 min read</span>
+                <div class="bars"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="link-img" aria-hidden="true"><svg width="84" height="53" viewBox="0 0 32 20" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(.6 0)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><g transform="translate(31.4 0) scale(-1 1)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><path d="M16 5.6v1.8"/><path d="M18.4 7.2l-1.1 1.1"/><path d="M13.6 7.2l1.1 1.1"/><path d="M16 10.2l.9-1.3.9 1.3-.9 1.3z"/></svg></div>
             </div>
-            <p class="sm-text">Hi there, here is what we have been working on this month, plus one thing every driver should know.</p>
-            <div class="link-card">
-              <div class="link-body"><span>Featured this month</span><strong>What to do in the first 48 hours after a car accident</strong></div>
-            </div>
-            <span class="mail-btn">Read the full article</span>
-            <div class="bars"><i></i><i></i><i></i></div>
           </div>
-          <div class="sm-post screen scr-video" data-media="video" aria-hidden="true">
+          <div class="sm-post screen scr-mail" data-media="newsletter" data-device="tablet" aria-hidden="true">
+            <div class="mail-app">
+              <div class="mail-list" aria-hidden="true">
+                <div class="mail-item is-open"><b>Your Firm</b><span>Your monthly legal update</span></div>
+                <div class="mail-item"><i></i><i></i></div>
+                <div class="mail-item"><i></i><i></i></div>
+                <div class="mail-item"><i></i><i></i></div>
+              </div>
+              <div class="mail-read">
+                <div class="mail-head">
+                  <span class="avatar" aria-hidden="true">YF</span>
+                  <div class="who"><strong>Your Firm</strong><span>Your monthly legal update</span></div>
+                </div>
+                <p class="sm-text">Hi there, here is what we have been working on this month, plus one thing every driver should know.</p>
+                <div class="link-card">
+                  <div class="link-body"><span>Featured this month</span><strong>What to do in the first 48 hours after a car accident</strong></div>
+                </div>
+                <span class="mail-btn">Read the full article</span>
+              </div>
+            </div>
+          </div>
+          <div class="sm-post screen scr-video" data-media="video" data-device="phone" aria-hidden="true">
             <div class="vid">
               <div class="vid-art"><svg class="vid-icon" width="150" height="94" viewBox="0 0 32 20" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="translate(.6 0)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><g transform="translate(31.4 0) scale(-1 1)"><path d="M1.6 14H.9a.8.8 0 0 1-.8-.8v-2l1.8-3.4A1.3 1.3 0 0 1 3 7h4.4a1.3 1.3 0 0 1 1 .5l2.3 2.9 1.6.4a1.2 1.2 0 0 1 .9 1.2v1.2a.8.8 0 0 1-.8.8h-.6"/><path d="M4.9 14h3.3"/><circle cx="3.3" cy="14.2" r="1.5"/><circle cx="9.8" cy="14.2" r="1.5"/><path d="M2.3 10.4h7.6"/><path d="M5.7 7v3.4"/></g><path d="M16 5.6v1.8"/><path d="M18.4 7.2l-1.1 1.1"/><path d="M13.6 7.2l1.1 1.1"/><path d="M16 10.2l.9-1.3.9 1.3-.9 1.3z"/></svg><span class="vid-play" aria-hidden="true"></span></div>
               <div class="vid-cap"><b>3 things to do after a crash</b><span>Your Firm &middot; 0:58</span></div>
@@ -705,6 +757,8 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
             </div>
           </div>
           </div>
+          </div>
+          <div class="laptop-base" aria-hidden="true"></div>
         </div>
         <div class="notif-wrap"><div class="notif">
           <span class="notif-dot" aria-hidden="true"></span>
@@ -1109,12 +1163,13 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
     };
     var order = ['social', 'article', 'newsletter', 'video'], cur = 0, cycle = null;
     function showMedia(i, animate) {
-      var fig = document.querySelector('.social-mock'), wrap = fig.querySelector('.screens');
+      var fig = document.querySelector('.social-mock'), wrap = fig.querySelector('.device-wrap'), dev = fig.querySelector('.phone');
       var key = order[i], box = fig.querySelector('.notif-text');
       function swap() {
         fig.querySelectorAll('.screen').forEach(function (s) {
           var on = s.getAttribute('data-media') === key;
           s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on ? 'false' : 'true');
+          if (on) { var d = s.getAttribute('data-device'); dev.setAttribute('data-device', d); fig.setAttribute('data-device', d); }
         });
         fig.querySelectorAll('.media-tab').forEach(function (b) {
           var on = b.getAttribute('data-show') === key;
@@ -1134,7 +1189,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
       cur = i;
       if (!animate) { swap(); return; }
       wrap.classList.remove('flip-in'); wrap.classList.add('flip-out');
-      setTimeout(function () { swap(); wrap.classList.add('flip-in'); wrap.classList.remove('flip-out'); }, 280);
+      setTimeout(function () { swap(); wrap.classList.add('flip-in'); wrap.classList.remove('flip-out'); }, 300);
     }
     window.__showMedia = function (key) {
       var i = order.indexOf(key); if (i < 0) return;
@@ -1226,7 +1281,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         var key = btn.getAttribute('data-show');
         var fig = document.querySelector('.social-mock'), screens = fig.querySelectorAll('.screen'), tabs = fig.querySelectorAll('.media-tab');
         if (typeof window.__showMedia === 'function') { window.__showMedia(key); return; }
-        screens.forEach(function (s) { var on = s.getAttribute('data-media') === key; s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+        screens.forEach(function (s) { var on = s.getAttribute('data-media') === key; s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on ? 'false' : 'true'); if (on) { fig.querySelector('.phone').setAttribute('data-device', s.getAttribute('data-device')); fig.setAttribute('data-device', s.getAttribute('data-device')); } });
         tabs.forEach(function (b) { var on = b === btn; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
       });
     });
