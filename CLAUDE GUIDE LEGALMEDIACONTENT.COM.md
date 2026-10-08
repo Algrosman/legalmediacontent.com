@@ -36,7 +36,7 @@ Pricing is NOT displayed on the website. These are internal reference only.
 **Filename:** `index.html`
 **Type:** Single HTML file with all CSS and JavaScript inline. No build process. Pure static site.
 
-**Images:** Photos live in the `images/` folder (`hero-consultation.jpg`, `about-conversation.jpg`). All are free Pexels photos, cropped and compressed. The "Content that works for you" visual is a CSS mockup of a law firm social post, not a photo.
+**Images:** Photos live in the `images/` folder (`hero-consultation.jpg`, `about-signing.jpg`). All are free Pexels photos, cropped and compressed. The "Content that works for you" visual is a CSS mockup of a law firm social post, not a photo.
 
 **Google Fonts used:** Source Serif 4 (headings) and Jost (body)
 
@@ -71,7 +71,7 @@ Redesigned October 2026: open editorial layout, hairline dividers instead of box
 ### Key Layout Rules
 - `.wrap` is the max 1200px container with responsive side gutters
 - Lists are separated by 1px hairlines (`var(--line)`), not cards
-- No faces in the hero; the About photo shows attorneys in conversation
+- No faces in the hero; the About photo shows hands signing documents at a table (no faces)
 
 ---
 
