@@ -16,1328 +16,582 @@
 <meta name="twitter:title" content="Legal Media & Content Co. | Content Creation for Law Firms" />
 <meta name="twitter:description" content="We build platforms and write articles that showcase your expertise, drive new business, and keep your firm visible online." />
 <meta name="twitter:image" content="https://legalmediacontent.com/og-image-new.png" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Legal Media &amp; Content Co. builds websites and writes articles, social posts, and newsletters for law firms and solo practitioners. Free SEO with every subscription.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Jost:wght@300..700&display=swap">
 <style>
-  :root {
-    --navy: #1a2744;
-    --navy-light: #243360;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --cream: #f8f6f1;
-    --cream-dark: #ede9e0;
-    --white: #ffffff;
-    --gray: #6b7280;
-    --gray-light: #f3f4f6;
-    --text: #1a1a2e;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    font-size: 18px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-    line-height: 1.2;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(26, 39, 68, 0.97);
-    backdrop-filter: blur(10px);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
-
-  .logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--white);
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
-
-  .logo span { color: var(--gold); }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--gold); }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--navy) !important;
-    padding: 0.5rem 1.25rem;
-    border-radius: 2px;
-    font-weight: 500 !important;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    padding: 120px 5% 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 0;
-    overflow: hidden;
-    background-color: #1a2744;
-    background-image: url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1800');
-    background-size: cover;
-    background-position: center center;
-  }
-
-  .hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(26,39,68,0.93) 0%, rgba(26,39,68,0.82) 50%, rgba(26,39,68,0.88) 100%);
-    z-index: 1;
-  }
-
-  .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-  }
-
-  .hero-eyebrow {
-    font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 3.75rem);
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--white);
-    margin-bottom: 2.5rem;
-    max-width: 480px;
-    font-weight: 300;
-    line-height: 1.8;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 0.875rem 2rem;
-    border: none;
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    letter-spacing: 0.02em;
-    transition: all 0.2s;
-  }
-
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    padding: 0.875rem 2rem;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 400;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
-  }
-
-  .btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  .hero-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 4px;
-    padding: 2.5rem;
-    backdrop-filter: blur(10px);
-  }
-
-  .hero-card-title {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--gold);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
-
-  .stat-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--white);
-    min-width: 120px;
-    flex-shrink: 0;
-  }
-
-  .stat-label {
-    font-size: 1rem;
-    color: var(--white);
-    line-height: 1.4;
-  }
-
-  /* SECTIONS */
-  section { padding: 6rem 5%; }
-
-  .section-inner { max-width: 1200px; margin: 0 auto; }
-
-  .section-eyebrow {
-    font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-size: clamp(2.2rem, 3.5vw, 2.75rem);
-    color: var(--navy);
-    margin-bottom: 1rem;
-  }
-
-  .section-sub {
-    font-size: 1.05rem;
-    color: var(--text);
-    max-width: 580px;
-    width: 100%;
-    line-height: 1.8;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  /* WHY SECTION */
-  .why .section-sub { margin-top: 1.75rem; }
-    .why { background: var(--white); padding-bottom: 2rem; }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-top: 4rem;
-  }
-
-  .why-text h3 {
-    font-size: 1.75rem;
-    color: var(--navy);
-    margin-bottom: 1.25rem;
-    margin-top: -0.75rem;
-  }
-
-  .why-text p {
-    color: var(--text);
-    margin-bottom: 1rem;
-    line-height: 1.9;
-    font-size: 1rem;
-  }
-
-  .why-points {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .why-point {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .why-point-icon {
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .why-point-text h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-  }
-
-  .why-point-text p {
-    font-size: 1rem;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.7;
-  }
-
-  /* SERVICES */
-  .services-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 3.5rem;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .services-tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .tab-btn {
-    padding: 0.5rem 1.25rem;
-    border: 1px solid var(--cream-dark);
-    background: transparent;
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    cursor: pointer;
-    color: var(--text);
-    transition: all 0.2s;
-  }
-
-  .tab-btn.active {
-    background: var(--navy);
-    color: var(--white);
-    border-color: var(--navy);
-  }
-
-  .tab-btn:hover:not(.active) {
-    border-color: var(--navy);
-    color: var(--navy);
-  }
-
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .package-card {
-    border: 1px solid var(--cream-dark);
-    border-radius: 4px;
-    padding: 2rem;
-    background: var(--white);
-    transition: all 0.2s;
-    position: relative;
-  }
-
-  .package-card:hover {
-    border-color: var(--navy);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(26,39,68,0.08);
-  }
-
-  .package-card.featured {
-    border: 2px solid var(--navy);
-    background: var(--navy);
-    color: var(--white);
-  }
-
-  .package-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: var(--navy);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.875rem;
-    border-radius: 2px;
-  }
-
-  .package-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-  }
-
-  .package-card.featured .package-name { color: var(--white); }
-
-  .package-tagline {
-    font-size: 0.8rem;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .package-card.featured .package-tagline { color: var(--white); }
-
-  .package-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.25rem;
-  }
-
-  .package-card.featured .package-price { color: var(--gold); }
-
-  .package-period {
-    font-size: 0.8rem;
-    color: var(--text);
-    margin-bottom: 1.75rem;
-  }
-
-  .package-card.featured .package-period { color: var(--white); }
-
-  .package-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-
-  .package-features li {
-    font-size: 1rem;
-    color: var(--text);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    line-height: 1.5;
-  }
-
-  .package-card.featured .package-features li { color: var(--white); }
-
-  .package-features li::before {
-    content: ' - ';
-    color: var(--gold);
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-top: 0.05rem;
-  }
-
-  .package-cta {
-    display: block;
-    text-align: center;
-    padding: 0.75rem;
-    border: 1px solid var(--navy);
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--navy);
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    background: transparent;
-    width: 100%;
-  }
-
-  .package-cta:hover {
-    background: var(--navy);
-    color: var(--white);
-  }
-
-  .package-card.featured .package-cta {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--navy);
-  }
-
-  .package-card.featured .package-cta:hover {
-    background: var(--gold-light);
-  }
-
-  /* ADDONS */
-  .addons-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 3rem;
-  }
-
-  .addon-card {
-    border: 1px solid var(--cream-dark);
-    border-radius: 4px;
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    transition: border-color 0.2s;
-  }
-
-  .addon-card:hover { border-color: var(--navy); }
-
-  .addon-name {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 0.2rem;
-  }
-
-  .addon-desc {
-    font-size: 0.9rem;
-    color: var(--text);
-  }
-
-  .addon-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--gold);
-    white-space: nowrap;
-  }
-
-  /* CONTENT TYPES */
-  .content-types { background: var(--cream); padding-top: 2rem; }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3.5rem;
-  }
-
-  .content-card {
-    background: var(--white);
-    border-radius: 4px;
-    padding: 2rem;
-    border-left: 3px solid var(--gold);
-    transition: all 0.2s;
-  }
-
-  .content-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(26,39,68,0.07);
-  }
-
-  .content-card-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .content-card h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-  }
-
-  .content-card p {
-    font-size: 1rem;
-    color: var(--text);
-    line-height: 1.7;
-  }
-
-  .content-card-example {
-    margin-top: 1rem;
-    font-size: 0.78rem;
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 500;
-  }
-
-  /* ABOUT */
-  .about { background: var(--navy); }
-
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about .section-title { color: var(--white); }
-
-  .about .section-eyebrow::before { background: var(--gold); }
-
-  .about-body {
-    color: var(--white);
-    line-height: 1.9;
-    margin-top: 1.5rem;
-  }
-
-  .about-body p { margin-bottom: 1rem; }
-
-  .credentials {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 0;
-  }
-
-  .credential {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 3px;
-  }
-
-  .credential-icon {
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .credential-text {
-    font-size: 1rem;
-    color: var(--white);
-  }
-
-  .credential-text strong {
-    display: block;
-    color: var(--white);
-    font-weight: 500;
-    margin-bottom: 0.1rem;
-  }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-top: 0;
-  }
-
-  .value-prop {
-    padding: 1.75rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.15);
-    border-radius: 4px;
-  }
-
-  .value-prop h4 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  .value-prop p {
-    font-size: 0.875rem;
-    color: var(--white);
-    line-height: 1.7;
-  }
-
-  /* BLOG */
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3.5rem;
-  }
-
-  .blog-card {
-    border: 1px solid var(--cream-dark);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .blog-card:hover {
-    border-color: var(--navy);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(26,39,68,0.08);
-  }
-
-  .blog-card-header {
-    background: var(--navy);
-    padding: 1.5rem;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  .blog-tag {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  .blog-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.35;
-  }
-
-  .blog-card-body {
-    padding: 1.25rem 1.5rem;
-    background: var(--navy);
-  }
-
-  .blog-excerpt {
-    font-size: 1rem;
-    color: var(--white);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .blog-meta {
-    font-size: 0.9rem;
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-  }
-
-  /* CONTACT */
-  .contact { background: var(--cream); }
-
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .form-group label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--cream-dark);
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    color: var(--text);
-    background: var(--white);
-    transition: border-color 0.2s;
-    outline: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--navy);
-  }
-
-  .form-group textarea { resize: vertical; min-height: 120px; }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .contact-info {
-    padding-top: 0;
-  }
-
-  .contact-info p {
-    color: var(--text);
-    line-height: 1.9;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-  }
-
-  .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--white);
-    border: 1px solid var(--cream-dark);
-    border-radius: 3px;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    color: var(--navy);
-  }
-
-  .contact-detail-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--navy);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    flex-shrink: 0;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    padding: 3rem 5%;
-    border-top: 1px solid rgba(201,168,76,0.2);
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .footer-logo span { color: var(--gold); }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--gold); }
-
-  .footer-copy {
-    color: var(--white);
-    font-size: 0.9rem;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-  .hero h1 { animation: fadeUp 0.6s ease 0.1s both; }
-  .hero-sub { animation: fadeUp 0.6s ease 0.2s both; }
-  .hero-actions { animation: fadeUp 0.6s ease 0.3s both; }
-  .hero-card { animation: fadeUp 0.6s ease 0.4s both; }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .about-right { padding-top: 0; }
-    .hero-inner,
-    .why-grid,
-    .about-inner,
-    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .packages-grid { grid-template-columns: 1fr; }
-    .content-grid { grid-template-columns: 1fr 1fr; }
-    .blog-grid { grid-template-columns: 1fr 1fr; }
-    .addons-grid { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
-    .nav-links { display: none; }
-    .about-right { padding-top: 0; }
-  }
-
-  @media (min-width: 1400px) {
-    body { font-size: 19px; }
-    .section-sub { font-size: 1.1rem; }
-    .hero h1 { font-size: 4.5rem; }
-    .hero-sub { font-size: 1.3rem; max-width: 580px; }
-    .seo-callout { max-width: 580px; }
-    .seo-callout-title { font-size: 1.7rem; }
-    .seo-callout-desc { font-size: 1.05rem; }
-    .hero-eyebrow { font-size: 1.15rem; }
-    .blog-excerpt { font-size: 0.95rem; }
-    .nav-links a { font-size: 1rem; }
-    .hero-card-title { font-size: 1.2rem; }
-    .stat-label { font-size: 1rem; }
-    .why-point-text h4 { font-size: 1.1rem; }
-    .why-point-text p { font-size: 1rem; }
-    .content-card h3 { font-size: 1.15rem; }
-    .content-card p { font-size: 1rem; }
-    .credential-text { font-size: 1rem; }
-    .credential-text strong { font-size: 1.05rem; }
-    .contact-info p { font-size: 1.1rem; }
-    .about-body p { font-size: 1rem; }
-    .logo { margin-left: -2rem; }
-  }
-
-  @media (max-width: 600px) {
-    .content-grid,
-    .blog-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    section { padding: 4rem 5%; }
-    .section-title { font-size: 2rem !important; }
-    .about-right { padding-top: 0; }
-  }
-
-  /* ARTICLE MODALS */
-  .article-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; overflow-y: auto; padding: 2rem 1rem; }
-  .article-overlay.open { display: flex; justify-content: center; align-items: flex-start; }
-  .article-modal { background: var(--white); max-width: 760px; width: 100%; border-radius: 4px; padding: 3.5rem; position: relative; margin: auto; }
-  .article-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); line-height: 1; padding: 0.25rem 0.5rem; transition: color 0.2s; }
-  .article-close:hover { color: var(--navy); }
-  .article-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-  .article-modal h1 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.25; }
-  .article-meta { font-size: 0.82rem; color: var(--text); margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--cream-dark); }
-  .article-body { font-size: 1rem; color: #2d2d2d; line-height: 1.85; }
-  .article-body p { margin-bottom: 1.25rem; }
-  .article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy); margin: 2.25rem 0 0.75rem; font-weight: 600; }
-  .article-body h3 { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; color: var(--navy); margin: 1.75rem 0 0.5rem; }
-  .article-body ul, .article-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
-  .article-body li { margin-bottom: 0.5rem; line-height: 1.75; }
-  .article-body strong { font-weight: 500; color: var(--navy); }
-  .article-body blockquote { border-left: 3px solid var(--gold); padding: 0.75rem 1.25rem; background: var(--cream); margin: 1.75rem 0; font-style: italic; color: var(--text); }
-  .seo-callout {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.1rem;
-    margin: 0 0 2.25rem;
-    padding: 1.25rem 1.5rem;
-    max-width: 520px;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.45);
-    border-left: 4px solid var(--gold);
-    border-radius: 4px;
-    font-family: 'DM Sans', sans-serif;
-    animation: fadeUp 0.6s ease 0.25s both;
-  }
-  .seo-callout-icon { flex-shrink: 0; margin-top: 0.15rem; }
-  .seo-callout-mark {
-    display: block;
-    color: var(--gold);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 0.35rem;
-  }
-  .seo-callout-title {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.25;
-    margin-bottom: 0.45rem;
-  }
-  .seo-callout-desc {
-    display: block;
-    font-size: 0.98rem;
-    color: var(--cream);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-  @media (max-width: 600px) {
-    .seo-callout { padding: 1rem 1.1rem; gap: 0.8rem; }
-    .seo-callout-title { font-size: 1.3rem; }
-    .content-types .section-sub { white-space: normal !important; }
-  }
-
+[hidden] { display: none !important; }
+/* Layout: full-bleed photo hero, then alternating paper and navy bands. Open editorial lists divided by hairlines instead of cards. One animated search visual explains SEO. */
+:root {
+  --navy: #15213b;
+  --navy-2: #1d2b4b;
+  --gold: #c6a456;
+  --gold-deep: #85691f;
+  --paper: #fbfaf7;
+  --linen: #f2eee6;
+  --line: #e2dccf;
+  --ink: #1c2332;
+  --muted: #4b5263;
+  --on-navy: #f1ede4;
+  --on-navy-muted: #c4cad7;
+  --white: #ffffff;
+  --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --body: 'Jost', 'Futura', 'Century Gothic', 'Helvetica Neue', Arial, sans-serif;
+  --gutter: clamp(16px, 5vw, 64px);
+  --max: 1200px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.15rem;
+  line-height: 1.72;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.14; margin: 0; text-wrap: balance; letter-spacing: -0.012em; font-optical-sizing: auto; }
+p { margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+section { padding-block: clamp(4.5rem, 9vw, 8rem); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--gold); color: var(--navy);
+  font: 600 0.95rem/1 var(--body); letter-spacing: 0.01em;
+  padding: 1.05rem 1.9rem; border-radius: 2px; border: 0; cursor: pointer;
+  text-decoration: none; transition: background 0.2s, transform 0.2s;
+}
+.btn:hover { background: #d4b467; transform: translateY(-1px); }
+.btn-dark { background: var(--navy); color: var(--white); }
+.btn-dark:hover { background: var(--navy-2); }
+.text-link { font-weight: 500; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+.section-head { display: grid; gap: 1.1rem; max-width: 40rem; }
+.section-head h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); }
+.section-head p { color: var(--muted); font-size: 1.12rem; }
+
+/* NAV */
+.nav { position: absolute; inset: 0 0 auto 0; z-index: 10; padding-top: env(safe-area-inset-top, 0px); }
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.6rem; }
+.logo { font-family: var(--display); font-size: 1.25rem; font-weight: 600; color: var(--white); text-decoration: none; white-space: nowrap; }
+.logo span { color: var(--gold); font-style: italic; }
+.nav-links { display: flex; align-items: center; gap: 2.2rem; }
+.nav-links a { color: var(--on-navy); text-decoration: none; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--white); }
+.nav-links .nav-cta { color: var(--white); border: 1px solid rgba(198,164,86,0.7); padding: 0.6rem 1.15rem; border-radius: 2px; }
+.nav-links .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+/* HERO */
+.hero { position: relative; background: var(--navy); color: var(--white); padding-block: clamp(9rem, 16vw, 12rem) clamp(4rem, 8vw, 6rem); overflow: hidden; isolation: isolate; }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; z-index: -2; }
+.hero::before { content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(21,33,59,0.97) 0%, rgba(21,33,59,0.9) 38%, rgba(21,33,59,0.55) 68%, rgba(21,33,59,0.35) 100%); }
+.hero-in { display: grid; gap: 2rem; }
+.hero h1 { font-size: clamp(2.8rem, 6.6vw, 5.2rem); font-weight: 600; max-width: 11ch; line-height: 1.04; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.lede { font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--on-navy); max-width: 34rem; font-weight: 400; line-height: 1.65; }
+
+.seo-line { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start; max-width: 36rem; padding-top: 1.75rem; border-top: 1px solid rgba(198,164,86,0.35); }
+.seo-line svg { margin-top: 0.3rem; }
+.seo-head { font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.1rem); font-weight: 600; color: var(--gold); line-height: 1.15; }
+.seo-sub { color: var(--on-navy); margin-top: 0.5rem; font-size: 1.02rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2rem; margin-top: 0.5rem; }
+.hero-actions .text-link { color: var(--white); }
+
+.deliver { background: var(--navy); color: var(--on-navy); padding-block: 0; }
+.deliver-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,0.12); }
+.deliver-item { padding: 2rem 1.5rem 2.4rem 0; }
+.deliver-item + .deliver-item { padding-left: 1.5rem; border-left: 1px solid rgba(255,255,255,0.12); }
+.deliver-item h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 0.5rem; }
+.deliver-item p { font-size: 0.95rem; color: var(--on-navy-muted); line-height: 1.6; }
+
+/* SEO */
+.seo-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(3rem, 6vw, 6rem); align-items: center; }
+.seo-points { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; }
+.seo-points li { padding-block: 1.3rem; border-top: 1px solid var(--line); display: grid; gap: 0.3rem; }
+.seo-points li:last-child { border-bottom: 1px solid var(--line); }
+.seo-points strong { font-weight: 600; color: var(--navy); font-size: 1.08rem; }
+.seo-points span { color: var(--muted); }
+
+.serp { margin: 0; background: var(--white); border-radius: 6px; box-shadow: 0 30px 60px -30px rgba(21,33,59,0.35), 0 0 0 1px var(--line); padding: 1.5rem; min-width: 0; }
+.serp-bar { display: flex; align-items: center; gap: 0.75rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.7rem 1.1rem; font-size: 0.98rem; color: var(--ink); }
+.serp-list { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
+.serp-list li { position: relative; padding: 0.8rem 0.95rem; border-radius: 4px; display: grid; gap: 0.2rem; min-width: 0; transition: background 0.5s, box-shadow 0.5s; will-change: transform; }
+.serp-list .url { font-size: 0.82rem; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; overflow-wrap: anywhere; }
+.serp-list .t { font-size: 1.05rem; line-height: 1.35; color: #24408e; font-weight: 500; overflow-wrap: anywhere; }
+.serp-list .d { font-size: 0.9rem; line-height: 1.5; color: var(--muted); }
+.serp-list li.you { background: #fbf6e8; box-shadow: inset 0 0 0 1px rgba(198,164,86,0.55); }
+.serp-list li.you .t { color: var(--navy); font-weight: 700; }
+.you-badge { font-size: 0.72rem; font-weight: 600; color: var(--gold-deep); background: var(--white); border: 1px solid rgba(198,164,86,0.6); border-radius: 999px; padding: 0.05rem 0.55rem; }
+.serp figcaption { margin-top: 1rem; font-size: 0.82rem; color: var(--muted); }
+.replay { background: none; border: 0; padding: 0; font: inherit; color: var(--navy); text-decoration: underline; cursor: pointer; }
+
+/* WHY */
+.why { background: var(--linen); position: relative; overflow: hidden; }
+.why-mark { position: absolute; top: -0.12em; left: -0.05em; font-family: var(--display); font-size: clamp(18rem, 40vw, 34rem); line-height: 1; color: rgba(198,164,86,0.1); pointer-events: none; user-select: none; }
+.why .wrap { position: relative; }
+.why-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.why h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); color: var(--navy); }
+.kicker { margin: 2.25rem 0 0; display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start; max-width: 30rem; }
+.kicker svg { width: 2.2rem; height: auto; margin-top: 0.35rem; }
+.kicker p { font-family: var(--display); font-style: italic; font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1.4; color: var(--gold-deep); }
+.why-copy { display: grid; gap: 1.1rem; color: var(--ink); }
+.why-copy h3 { font-size: 1.6rem; color: var(--navy); margin-bottom: 0.2rem; }
+.why-copy strong { font-weight: 600; color: var(--navy); }
+.wins { list-style: none; margin: 0.25rem 0 0.5rem; padding: 0; display: grid; }
+.wins li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; align-items: baseline; padding-block: 0.85rem; border-top: 1px solid var(--line); }
+.wins li:last-child { border-bottom: 1px solid var(--line); }
+.win-tag { font-size: 0.82rem; font-weight: 500; color: var(--gold-deep); }
+.win-t { font-family: var(--display); font-size: 1.35rem; font-weight: 600; color: var(--navy); line-height: 1.25; }
+.points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: clamp(3.5rem, 7vw, 5.5rem); }
+.point { padding-top: 1.4rem; border-top: 1px solid var(--navy); display: grid; gap: 0.6rem; align-content: start; }
+.point svg { margin-bottom: 0.3rem; }
+.point h4 { font-size: 1.35rem; color: var(--navy); }
+.point p { color: var(--muted); }
+
+/* CONTENT */
+.content-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
+.content-aside { position: sticky; top: 2rem; display: grid; gap: 2rem; }
+.content-aside img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 50%; border-radius: 2px; }
+.service-list { list-style: none; margin: 0; padding: 0; }
+.service-list li { padding-block: 2rem; border-top: 1px solid var(--line); display: grid; gap: 0.6rem; }
+.service-list li:last-child { border-bottom: 1px solid var(--line); }
+.service-list h3 { font-size: clamp(1.45rem, 2.2vw, 1.8rem); color: var(--navy); }
+.service-list p { color: var(--muted); max-width: 38rem; }
+
+.social-mock { position: relative; margin: 0; aspect-ratio: 4 / 5; max-width: 100%; background: radial-gradient(120% 90% at 30% 20%, var(--navy-2) 0%, var(--navy) 60%); border-radius: 2px; display: grid; place-items: center; padding: 2.5rem 1.5rem; overflow: hidden; }
+.phone { width: min(80%, 320px); background: #0c1426; border-radius: 30px; padding: 10px; box-shadow: 0 40px 60px -30px rgba(0,0,0,0.6); }
+.sm-post { background: var(--white); border-radius: 22px; padding: 1.1rem 1rem 0.6rem; display: grid; gap: 0.75rem; color: var(--ink); }
+.sm-head { display: flex; align-items: center; gap: 0.65rem; }
+.avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--navy); color: var(--gold); display: grid; place-items: center; font-family: var(--display); font-weight: 600; font-size: 0.95rem; flex-shrink: 0; }
+.who { display: grid; line-height: 1.25; }
+.who strong { font-size: 0.92rem; color: var(--navy); }
+.who span { font-size: 0.75rem; color: var(--muted); }
+.sm-text { font-size: 0.84rem; line-height: 1.5; }
+.link-card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.link-img { height: 92px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%); display: grid; place-items: center; }
+.link-body { padding: 0.55rem 0.7rem 0.65rem; display: grid; gap: 0.15rem; background: var(--linen); }
+.link-body span { font-size: 0.7rem; color: var(--muted); }
+.link-body strong { font-family: var(--display); font-size: 0.9rem; line-height: 1.3; color: var(--navy); }
+.sm-stats { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); }
+.sm-actions { display: flex; justify-content: space-around; border-top: 1px solid var(--line); padding-top: 0.5rem; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.notif { position: absolute; right: 6%; bottom: 7%; display: flex; gap: 0.65rem; align-items: flex-start; background: var(--white); border-radius: 12px; padding: 0.7rem 0.9rem; box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55); max-width: 15rem; }
+.notif-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); margin-top: 0.4rem; flex-shrink: 0; }
+.notif strong { display: block; font-size: 0.8rem; color: var(--navy); line-height: 1.3; }
+.notif span { display: block; font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
+
+/* REPURPOSE */
+.repurpose { background: var(--navy); color: var(--on-navy); }
+.repurpose .section-head h2 { color: var(--white); }
+.repurpose .section-head p { color: var(--on-navy-muted); }
+.flow { margin-top: clamp(3rem, 6vw, 4.5rem); display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(60px, 0.45fr) minmax(0, 1fr); align-items: center; }
+.page-mock { background: var(--paper); color: var(--ink); border-radius: 3px; padding: 1.75rem; box-shadow: 0 30px 60px -25px rgba(0,0,0,0.5); max-width: 24rem; width: 100%; justify-self: end; }
+.page-mock .tag { font-size: 0.75rem; font-weight: 600; color: var(--gold-deep); }
+.page-mock h3 { font-size: 1.45rem; color: var(--navy); margin: 0.5rem 0 0.9rem; font-weight: 600; }
+.page-mock .by { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+.bars { display: grid; gap: 0.55rem; }
+.bars i { display: block; height: 7px; border-radius: 4px; background: var(--line); }
+.bars i:nth-child(3n) { width: 82%; }
+.bars i:nth-child(4) { width: 64%; }
+.wire { position: relative; align-self: stretch; min-height: 1px; }
+.wire svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.outlets { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.outlets li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; padding-block: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.outlets li:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
+.outlets .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+.outlets strong { display: block; color: var(--white); font-weight: 600; font-size: 1.05rem; }
+.outlets span { color: var(--on-navy-muted); font-size: 0.95rem; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(3rem, 7vw, 6.5rem); align-items: center; }
+.about-photo { position: relative; }
+.about-photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 2px; }
+.about-copy { display: grid; gap: 1.15rem; }
+.about-copy h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); margin-bottom: 0.4rem; }
+.creds { display: grid; gap: 0; margin-top: 1.25rem; }
+.cred { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; padding-block: 1.1rem; border-top: 1px solid var(--line); }
+.cred:last-child { border-bottom: 1px solid var(--line); }
+.cred strong { font-family: var(--display); font-size: 1.2rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+.cred span { color: var(--muted); }
+
+/* BLOG */
+.blog { background: var(--linen); }
+.posts { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; }
+.post { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 12rem minmax(0, 1fr) auto; gap: 1rem 3rem; align-items: start; padding-block: 2.2rem; border-top: 1px solid var(--line); }
+.post:last-child { border-bottom: 1px solid var(--line); }
+.post:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.post-meta { display: grid; gap: 0.25rem; font-size: 0.88rem; color: var(--muted); }
+.post-meta b { color: var(--gold-deep); font-weight: 600; }
+.post-title { display: block; font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 2.4vw, 1.95rem); line-height: 1.2; color: var(--navy); text-wrap: balance; }
+.post-ex { display: block; margin-top: 0.6rem; color: var(--muted); max-width: 40rem; }
+.post-go { align-self: center; font-weight: 600; font-size: 0.95rem; color: var(--navy); border-bottom: 1px solid var(--gold); padding-bottom: 2px; white-space: nowrap; }
+.post:hover .post-title { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 6px; text-decoration-thickness: 1px; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+.contact-copy { display: grid; gap: 1.25rem; }
+.contact-copy h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); }
+.contact-copy p { color: var(--muted); font-size: 1.1rem; max-width: 30rem; }
+form { display: grid; gap: 1.25rem; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.field { display: grid; gap: 0.45rem; min-width: 0; }
+.field label { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+  background: var(--white); border: 1px solid var(--line); border-radius: 3px;
+  padding: 0.85rem 1rem; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field textarea { min-height: 8rem; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(198,164,86,0.25); }
+.form-error { color: #9b2c2c; font-size: 0.95rem; }
+.form-done { padding: 2rem; background: var(--white); border: 1px solid var(--line); border-radius: 3px; }
+.form-done h3 { font-size: 1.6rem; color: var(--navy); margin-bottom: 0.6rem; }
+.form-done p { color: var(--muted); }
+
+/* FOOTER */
+footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.5rem calc(3.5rem + env(safe-area-inset-bottom, 0px)); }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 1.75rem; }
+.foot nav a { text-decoration: none; color: var(--on-navy); font-size: 0.95rem; }
+.foot small { font-size: 0.85rem; }
+
+/* ARTICLE OVERLAY */
+.article-overlay { position: fixed; inset: 0; z-index: 50; background: rgba(15,22,40,0.66); overflow-y: auto; padding: clamp(1rem, 4vw, 3rem) 16px; }
+.article-overlay[hidden] { display: none !important; }
+.article-modal { position: relative; background: var(--paper); max-width: 46rem; margin: 0 auto; border-radius: 3px; padding: clamp(2rem, 6vw, 4rem); }
+.article-close { position: absolute; top: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: var(--linen); color: var(--navy); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.article-close:hover { background: var(--line); }
+.article-tag { font-size: 0.85rem; font-weight: 600; color: var(--gold-deep); margin-bottom: 1rem; }
+.article-modal h1 { font-size: clamp(2rem, 4.5vw, 2.8rem); font-weight: 700; color: var(--navy); margin-bottom: 1rem; }
+.article-meta { font-size: 0.9rem; color: var(--muted); padding-bottom: 1.5rem; margin-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.article-body { font-size: 1.06rem; line-height: 1.8; color: var(--ink); }
+.article-body p { margin-bottom: 1.2rem; }
+.article-body h2 { font-size: 1.6rem; font-weight: 600; color: var(--navy); margin: 2.4rem 0 0.8rem; }
+.article-body h3 { font-family: var(--body); font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1.8rem 0 0.5rem; }
+.article-body ul, .article-body ol { padding-left: 1.4rem; margin: 0 0 1.2rem; }
+.article-body li { margin-bottom: 0.5rem; }
+.article-body strong { font-weight: 600; color: var(--navy); }
+.article-body blockquote { margin: 1.8rem 0; padding: 0.4rem 0 0.4rem 1.4rem; border-left: 2px solid var(--gold); font-family: var(--display); font-style: italic; font-size: 1.2rem; color: var(--navy); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .seo-grid, .why-grid, .content-grid, .about-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .content-aside { position: static; }
+  .content-aside img { aspect-ratio: 16 / 9; }
+  .social-mock { aspect-ratio: auto; padding-block: 2.5rem 6rem; }
+  .notif { right: 50%; transform: translateX(50%); bottom: 1.25rem; width: max-content; max-width: calc(100% - 2rem); }
+  .points { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .deliver-in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deliver-item:nth-child(3) { padding-left: 0; border-left: 0; }
+  .deliver-item:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.12); }
+  .flow { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .wire { display: none; }
+  .page-mock { justify-self: start; }
+  .post { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+  .post-go { justify-self: start; }
+}
+@media (max-width: 600px) {
+  .wins li { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .hero::before { background: linear-gradient(180deg, rgba(21,33,59,0.9) 0%, rgba(21,33,59,0.93) 100%); }
+  .deliver-in { grid-template-columns: minmax(0, 1fr); }
+  .deliver-item, .deliver-item + .deliver-item { padding: 1.5rem 0; border-left: 0; }
+  .deliver-item + .deliver-item { border-top: 1px solid rgba(255,255,255,0.12); }
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .cred { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  .serp { padding: 1rem; }
+  .logo { font-size: 1.05rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .serp-list li, .btn { transition: none; }
+}
 </style>
 </head>
 <body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top">Legal Media <span>&amp;</span> Content Co.</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#seo">SEO</a>
+      <a href="#content">Content</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+      <a class="nav-cta" href="#contact">Get started</a>
+    </nav>
+  </div>
+</header>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Legal Media <span>&amp;</span> Content Co.</div>
-  <ul class="nav-links">
-    <li><a href="#content">Content</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#contact" class="nav-cta">Get Started</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <h1>Marketing by lawyers, for <em>lawyers.</em></h1>
-      <p class="hero-sub">We build platforms and write articles to share your wins, your insights, and changes in the law that matter to your clients.</p>
-      <div class="seo-callout">
-        <svg class="seo-callout-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8 13l2-2 1.5 1.5L14 9"/></svg>
-        <div>
-          <span class="seo-callout-mark">Included free</span>
-          <span class="seo-callout-title">Free SEO with every subscription</span>
-          <span class="seo-callout-desc">SEO (search engine optimization) is what moves your firm higher in Google results. We optimize every article and page we create so potential clients searching for a lawyer find you, not your competitors.</span>
-        </div>
-      </div>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Get in touch</a>
+<main>
+<section class="hero" id="top">
+  <img class="hero-img" src="images/hero-consultation.jpg" fetchpriority="high" alt="An attorney reviewing documents with a client across a desk">
+  <div class="wrap hero-in">
+    <h1>Marketing by lawyers, for <em>lawyers.</em></h1>
+    <p class="lede">We build websites and write articles that share your wins, your insights, and the changes in the law that matter to your clients.</p>
+    <div class="seo-line">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20.5 20.5-4.9-4.9"/><path d="M7.2 12.6l2.2-2.2 1.6 1.6 2.9-2.9"/></svg>
+      <div>
+        <p class="seo-head">Free SEO with every subscription</p>
+        <p class="seo-sub">SEO (search engine optimization) is what moves your firm higher in Google results. We optimize every article and page we write so the people searching for a lawyer find you, not your competitors.</p>
       </div>
     </div>
-    <div class="hero-card">
-      <div class="hero-card-title">What we deliver</div>
-      <div class="stat-row">
-        <div class="stat-item">
-          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Websites</div>
-          <div class="stat-label">Professional web presence built for your firm. Modern, clean, and client-ready.</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Articles</div>
-          <div class="stat-label">Case studies, legal updates, and thought leadership published under your name</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Social Media</div>
-          <div class="stat-label">Consistent presence across LinkedIn, Facebook, and Instagram to drive traffic to your firm</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num" style="font-size:1rem; font-weight:700; color:var(--gold);">Newsletters</div>
-          <div class="stat-label">Client-ready email newsletters keeping your audience informed and your firm top of mind</div>
-        </div>
-      </div>
+    <div class="hero-actions">
+      <a class="btn" href="#contact">Get in touch</a>
+      <a class="text-link" href="#seo">See how SEO works</a>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
+<section class="deliver" aria-label="What we deliver">
+  <div class="wrap">
+    <div class="deliver-in">
+      <div class="deliver-item"><h3>Websites</h3><p>A professional web presence built for your firm. Modern, clean, and client ready.</p></div>
+      <div class="deliver-item"><h3>Articles</h3><p>Case studies, legal updates, and thought leadership published under your name.</p></div>
+      <div class="deliver-item"><h3>Social media</h3><p>A steady presence on LinkedIn, Facebook, and Instagram that drives traffic to your firm.</p></div>
+      <div class="deliver-item"><h3>Newsletters</h3><p>Client ready email newsletters that keep your firm top of mind.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="seo">
+  <div class="wrap seo-grid">
+    <div>
+      <div class="section-head">
+        <h2>Show up when clients go looking for a lawyer.</h2>
+        <p>Most people start their search for a lawyer on Google. If your firm isn't on the first page, those clients never see you. SEO is included free with every subscription.</p>
+      </div>
+      <ul class="seo-points">
+        <li><strong>Articles built around real searches</strong><span>We write about the questions your future clients are already typing into Google.</span></li>
+        <li><strong>Pages search engines can read</strong><span>Titles, headings, descriptions, and links set up the way Google expects to see them.</span></li>
+        <li><strong>Fresh content, every month</strong><span>Search engines favor sites that publish regularly. Your subscription keeps yours active.</span></li>
+      </ul>
+    </div>
+    <figure class="serp">
+      <div class="serp-bar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5b6273" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <span>estate planning lawyer near me</span>
+      </div>
+      <ol class="serp-list" id="serp" aria-label="Example search results">
+        <li data-id="a"><span class="url">lawyerdirectory.example</span><span class="t">Find an estate planning attorney</span><span class="d">Browse listings, compare ratings, and request a consultation.</span></li>
+        <li data-id="b"><span class="url">bigfirmlegal.example</span><span class="t">Wills and trusts practice group</span><span class="d">Our attorneys advise families on every stage of planning.</span></li>
+        <li data-id="c"><span class="url">legalanswers.example</span><span class="t">Do I need a lawyer for a will?</span><span class="d">A general overview of when to hire an attorney.</span></li>
+        <li data-id="you" class="you"><span class="url">yourfirm.com <span class="you-badge">Your firm</span></span><span class="t">Your Firm | Estate Planning Attorneys</span><span class="d">Clear guidance on wills, trusts, and probate from your attorneys.</span></li>
+      </ol>
+      <figcaption>An illustration of how optimized, regularly published content moves a firm up in search results. <button class="replay" type="button" id="replay">Play again</button></figcaption>
+    </figure>
+  </div>
+</section>
+
 <section class="why" id="why">
-  <div class="section-inner">
-    <div class="section-eyebrow">The problem we solve</div>
-    <h2 class="section-title">Too many lawyers & firms are invisible online.<br>We fix that.</h2>
-    <p class="section-sub">Your current clients know your value. Your future clients don't... yet.</p>
+  <span class="why-mark" aria-hidden="true">&sect;</span>
+  <div class="wrap">
     <div class="why-grid">
-      <div class="why-text">
+      <div class="why-lead">
+        <h2>Too many lawyers &amp; firms are invisible online. We fix that.</h2>
+        <blockquote class="kicker">
+          <svg width="44" height="34" viewBox="0 0 44 34" aria-hidden="true"><path fill="#c6a456" d="M0 34V20C0 9 6 2 17 0l2 4C12 6 9 11 9 16h8v18H0Zm25 0V20c0-11 6-18 17-20l2 4c-7 2-10 7-10 12h8v18H25Z"/></svg>
+          <p>Your current clients know your value. Your future clients don't... yet.</p>
+        </blockquote>
+      </div>
+      <div class="why-copy">
         <h3>You win cases. We tell the story.</h3>
-        <p>A six-figure settlement, a contentious custody case, a verdict in your favor. Every one of these is a story that a potential client needs to hear.</p>
-        <p>But writing takes time. Time you don't have when you're in court, on calls, and building cases.</p>
-        <p>That's where Legal Media & Content Co steps in. We turn your wins into compelling content that builds your reputation, educates your clients, and drives new business. You never write a single word.</p>
-
+        <ul class="wins" aria-label="Examples of stories worth telling">
+          <li><span class="win-tag">Recovery</span><span class="win-t">A six figure settlement</span></li>
+          <li><span class="win-tag">Family law</span><span class="win-t">A contentious custody case</span></li>
+          <li><span class="win-tag">Trial</span><span class="win-t">A verdict in your favor</span></li>
+        </ul>
+        <p>Every one of these is a story that a potential client needs to hear. But writing takes time. Time you don't have when you're in court, on calls, and building cases.</p>
+        <p>That's where Legal Media &amp; Content Co. steps in. We turn your wins into compelling content that builds your reputation, educates your clients, and drives new business. <strong>You never write a single word.</strong></p>
       </div>
-      <div class="why-points">
-        <div class="why-point">
-          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
-          <div class="why-point-text">
-            <h4>Written by legal professionals for legal professionals</h4>
-            <p>We understand legal nuance, ethical boundaries, and how to write about complex law for a general audience. Other marketing agencies can't do this.</p>
-          </div>
-        </div>
-        <div class="why-point">
-          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
-          <div class="why-point-text">
-            <h4>Thought leadership = client acquisition</h4>
-            <p>Attorneys who publish regularly are the ones prospective clients call first.</p>
-          </div>
-        </div>
-        <div class="why-point">
-          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
-          <div class="why-point-text">
-            <h4>One article becomes many assets</h4>
-            <p>Every article we write gets repurposed into social posts, email content, and website updates, maximizing visibility.</p>
-          </div>
-        </div>
-        <div class="why-point">
-          <div class="why-point-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" fill="none" stroke="#c9a84c" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="18" cy="18" r="12" fill="#c9a84c" fill-opacity="0.08"/><path d="M11 18 Q14 18 18 18" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M15.5 14L20.5 18L15.5 22" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="10" cy="18" r="1.2" fill="#c9a84c" fill-opacity="0.5"/></svg></div>
-          <div class="why-point-text">
-            <h4>Built for law firms of every size</h4>
-            <p>We're built for the attorney who needs big marketing results without the big marketing budget.</p>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="points">
+      <div class="point">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#a8862f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        <h4>Written by legal professionals</h4><p>We understand legal nuance, ethical boundaries, and how to write about complex law for a general audience. Other marketing agencies can't do this.</p></div>
+      <div class="point">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#a8862f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        <h4>Thought leadership brings in clients</h4><p>Attorneys who publish regularly are the ones prospective clients call first.</p></div>
+      <div class="point">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#a8862f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10"/><path d="M19 21V10"/><path d="M9.5 21V10"/><path d="M14.5 21V10"/><path d="M2 10l10-6 10 6z"/></svg>
+        <h4>Built for law firms of every size</h4><p>For the attorney who needs big marketing results without the big marketing budget.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTENT TYPES -->
-<section class="content-types" id="content">
-  <div class="section-inner">
-    <div class="section-eyebrow">What we write</div>
-    <h2 class="section-title">Content that works for you</h2>
-    <p class="section-sub" style="white-space: nowrap;">Every piece we create is designed to educate potential clients and showcase your expertise.</p>
-    <div class="content-grid">
-      <div class="content-card">
-        <div class="content-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /> <circle cx="12" cy="8" r="6" /></svg></div>
-        <h3>Case Win Articles</h3>
-        <p>We turn your big recoveries, settlements, and favorable verdicts into compelling narratives that showcase your skill and attract similar cases.</p>
+<section id="content">
+  <div class="wrap content-grid">
+    <div class="content-aside">
+      <div class="section-head">
+        <h2>Content that works for you</h2>
+        <p>Every piece we create is designed to educate potential clients and showcase your expertise.</p>
       </div>
-      <div class="content-card">
-        <div class="content-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /></svg></div>
-        <h3>Legal Update Analysis</h3>
-        <p>When laws change in your practice area, we write clear analysis breaking it down with practical recommendations for clients.</p>
-      </div>
-      <div class="content-card">
-        <div class="content-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></svg></div>
-        <h3>Thought Leadership</h3>
-        <p>Perspectives on legal trends, practical guidance for the everyday person navigating a legal issue, and commentary on the cases and rulings shaping your practice area. All written to inform, educate, and build credibility for your firm.</p>
-      </div>
-      <div class="content-card">
-        <div class="content-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></svg></div>
-        <h3>Social Media Content</h3>
-        <p>Every article we write gets broken down into LinkedIn posts, Facebook updates, and bite-sized tips that feed your firm's social presence consistently.</p>
-      </div>
-      <div class="content-card">
-        <div class="content-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" /> <path d="M18 14h-8" /> <path d="M15 18h-5" /> <path d="M10 6h8v4h-8V6Z" /></svg></div>
-        <h3>Media Visibility Strategy</h3>
-        <p>We help you identify the right outlets, craft the right messaging, and position your expertise so that journalists, editors, and legal publications are more likely to take notice and seek you out.</p>
-      </div>
-      <div class="content-card">
-        <div class="content-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></svg></div>
-        <h3>Website Content</h3>
-        <p>Fresh practice area pages, updated case results, attorney bio refreshes. Your website stays current and search-optimized without you lifting a finger.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES / PACKAGES -->
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="section-inner">
-    <div class="section-eyebrow">About us</div>
-    <div class="about-inner">
-      <div class="about-left">
-        <h2 class="section-title">We speak your language<br>because we know it.</h2>
-        <div class="about-body">
-          <p>Legal Media & Content Co was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
-          <p>We bridge that gap. Legal Media & Content Co. is run by lawyers with extensive experience in content creation and marketing. We understand the nuance of legal writing, the ethical guardrails around attorney advertising, and how to translate complex legal concepts into content that actual people want to read.</p>
-          <p>We're not a massive agency. We're a focused team built specifically for the attorney who needs results without the overhead of a full marketing department.</p>
-        </div>
-      </div>
-      <div class="about-right">
-        <div class="credentials">
-          <div class="credential">
-            <div class="credential-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="3" x2="12" y2="21" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/><line x1="3" y1="21" x2="21" y2="21" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="7" x2="12" y2="4" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="4" x2="20" y2="7" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><path d="M4 7 L2 13 h4 Z" stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round" fill="#c9a84c" fill-opacity="0.15"/><path d="M20 7 L18 13 h4 Z" stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round" fill="#c9a84c" fill-opacity="0.15"/><circle cx="12" cy="3.5" r="1" fill="#c9a84c"/></svg></div>
-            <div class="credential-text">
-              <strong>Run by Lawyers</strong>
-              Your content is written by lawyers who know the law, not by generalist copywriters.
+      <figure class="social-mock" aria-label="Example of a law firm social media post">
+        <div class="phone">
+          <div class="sm-post">
+            <div class="sm-head">
+              <span class="avatar" aria-hidden="true">YF</span>
+              <div class="who"><strong>Your Firm</strong><span>Family law attorneys &middot; 2h</span></div>
             </div>
-          </div>
-          <div class="credential">
-            <div class="credential-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4.5C19.5 6 20.5 8 20.5 10.5C20.5 13 19.5 15 18 16.5" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/><path d="M15.5 7C16.5 8 17 9.2 17 10.5C17 11.8 16.5 13 15.5 14" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round"/><path d="M3 8.5V13.5L5 15H8V20L10 20V15H11L18 18V4L11 7H5L3 8.5Z" stroke="#c9a84c" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="#c9a84c" fill-opacity="0.08"/><line x1="8" y1="15" x2="8" y2="9" stroke="#c9a84c" stroke-width="1" stroke-dasharray="1.5 1.5" opacity="0.5"/></svg></div>
-            <div class="credential-text">
-              <strong>Marketing Experience</strong>
-              Background in institutional content strategy and business development
+            <p class="sm-text">Case win: after a contested relocation dispute, we helped a parent keep their children close to home. Here's what made the difference, and what every parent should know before a move.</p>
+            <div class="link-card">
+              <div class="link-img" aria-hidden="true">
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M12 5.5a1.2 1.2 0 1 0 0-.01"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg>
+              </div>
+              <div class="link-body"><span>yourfirm.com</span><strong>What parents should know before relocating with children</strong></div>
             </div>
-          </div>
-          <div class="credential">
-            <div class="credential-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9.5" stroke="#c9a84c" stroke-width="1.2"/><circle cx="12" cy="12" r="6.5" stroke="#c9a84c" stroke-width="1.2" stroke-dasharray="2 1.5"/><circle cx="12" cy="12" r="3.5" stroke="#c9a84c" stroke-width="1.2"/><circle cx="12" cy="12" r="1.5" fill="#c9a84c"/><line x1="12" y1="2" x2="12" y2="5" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="22" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/><line x1="19" y1="12" x2="22" y2="12" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-            <div class="credential-text">
-              <strong>Niche Focus</strong>
-              We work exclusively with law firms. No diluted attention from other industries.
-            </div>
+            <div class="sm-stats"><span>124 reactions</span><span>18 comments</span></div>
+            <div class="sm-actions"><span>Like</span><span>Comment</span><span>Share</span></div>
           </div>
         </div>
+        <div class="notif">
+          <span class="notif-dot" aria-hidden="true"></span>
+          <div><strong>New consultation request</strong><span>A reader messaged you after seeing this post</span></div>
+        </div>
+      </figure>
+    </div>
+    <ul class="service-list">
+      <li><h3>Case win articles</h3><p>We turn your big recoveries, settlements, and favorable verdicts into compelling narratives that showcase your skill and attract similar cases.</p></li>
+      <li><h3>Legal update analysis</h3><p>When laws change in your practice area, we write clear analysis breaking it down with practical recommendations for clients.</p></li>
+      <li><h3>Thought leadership</h3><p>Perspectives on legal trends, practical guidance for people navigating a legal issue, and commentary on the cases and rulings shaping your practice area.</p></li>
+      <li><h3>Social media content</h3><p>Every article gets broken down into LinkedIn posts, Facebook updates, and bite sized tips that keep your firm's social presence consistent.</p></li>
+      <li><h3>Media visibility strategy</h3><p>We help you find the right outlets, craft the right message, and position your expertise so journalists, editors, and legal publications take notice.</p></li>
+      <li><h3>Website content</h3><p>Fresh practice area pages, updated case results, and attorney bio refreshes. Your website stays current and search optimized without you lifting a finger.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="repurpose">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>One article becomes many assets.</h2>
+      <p>Every article we write is repurposed into social posts, email content, and website updates, so one piece of work reaches people wherever they spend their time.</p>
+    </div>
+    <div class="flow">
+      <div class="page-mock" aria-hidden="true">
+        <div class="tag">Case win article</div>
+        <h3>How a contested custody case was resolved without trial</h3>
+        <div class="by">By your attorney</div>
+        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="wire"><svg viewBox="0 0 100 300" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="#c6a456" stroke-width="1.2" vector-effect="non-scaling-stroke" opacity="0.85">
+          <path d="M0 150 C 50 150, 50 37, 100 37" vector-effect="non-scaling-stroke"/>
+          <path d="M0 150 C 50 150, 50 112, 100 112" vector-effect="non-scaling-stroke"/>
+          <path d="M0 150 C 50 150, 50 188, 100 188" vector-effect="non-scaling-stroke"/>
+          <path d="M0 150 C 50 150, 50 263, 100 263" vector-effect="non-scaling-stroke"/>
+        </g>
+      </svg></div>
+      <ul class="outlets">
+        <li><span class="dot"></span><div><strong>LinkedIn post</strong><span>The key takeaway, written for colleagues and referral sources.</span></div></li>
+        <li><span class="dot"></span><div><strong>Facebook update</strong><span>A plain language version for past clients and the community.</span></div></li>
+        <li><span class="dot"></span><div><strong>Client newsletter</strong><span>A featured story in your next email to clients.</span></div></li>
+        <li><span class="dot"></span><div><strong>Website and search</strong><span>A permanent page on your site that Google can find.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <img src="images/about-conversation.jpg" loading="lazy" alt="Three attorneys in conversation in an office lined with bookshelves">
+    </div>
+    <div class="about-copy">
+      <h2>We speak your language because we know it.</h2>
+      <p>Legal Media &amp; Content Co. was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
+      <p>We bridge that gap. Legal Media &amp; Content Co. is run by lawyers with extensive experience in content creation and marketing. We understand the nuance of legal writing, the ethical guardrails around attorney advertising, and how to translate complex legal concepts into content that people actually want to read.</p>
+      <p>We're not a massive agency. We're a focused team built for the attorney who needs results without the overhead of a full marketing department.</p>
+      <div class="creds">
+        <div class="cred"><strong>Run by lawyers</strong><span>Your content is written by people who know the law, not by generalist copywriters.</span></div>
+        <div class="cred"><strong>Marketing experience</strong><span>A background in institutional content strategy and business development.</span></div>
+        <div class="cred"><strong>Niche focus</strong><span>We work only with law firms. No diluted attention from other industries.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BLOG -->
-<section id="blog">
-  <div class="section-inner">
-    <div class="section-eyebrow">Resources</div>
-    <h2 class="section-title" style="color: var(--navy) !important;">From the blog</h2>
-    <p class="section-sub" style="color: var(--text);">Insights on legal content marketing, attorney branding, and building your practice's online presence.</p>
-    <div class="blog-grid">
-
-      <!-- ARTICLE 1 -->
-      <div class="blog-card" onclick="openArticle('article1')" style="cursor:pointer;">
-        <div class="blog-card-header">
-          <div class="blog-tag">Content Strategy</div>
-          <div class="blog-card-title">Why attorneys who publish regularly win more referrals</div>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">Referrals drive most law practices. Here's how a consistent publishing cadence keeps your name at the top of the list.</p>
-          <div class="blog-meta">
-            <span>5 min read</span>
-            <span>March 2025</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ARTICLE 2 -->
-      <div class="blog-card" onclick="openArticle('article2')" style="cursor:pointer;">
-        <div class="blog-card-header">
-          <div class="blog-tag">Attorney Marketing</div>
-          <div class="blog-card-title">The case article formula: turning a win into a client magnet</div>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">A simple framework for writing about your case outcomes in a way that's compelling, ethical, and drives new business.</p>
-          <div class="blog-meta">
-            <span>7 min read</span>
-            <span>February 2025</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ARTICLE 3 -->
-      <div class="blog-card" onclick="openArticle('article3')" style="cursor:pointer;">
-        <div class="blog-card-header">
-          <div class="blog-tag">Legal Updates</div>
-          <div class="blog-card-title">Bar rules on attorney advertising: what your content can and can't say</div>
-        </div>
-        <div class="blog-card-body">
-          <p class="blog-excerpt">A guide to the bar rules governing attorney advertising and what they mean for your online content strategy.</p>
-          <div class="blog-meta">
-            <span>8 min read</span>
-            <span>January 2025</span>
-          </div>
-        </div>
-      </div>
-
+<section class="blog" id="blog">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>From the blog</h2>
+      <p>Insights on legal content marketing, attorney branding, and building your practice's online presence.</p>
+    </div>
+    <div class="posts">
+      <button class="post" type="button" data-article="article1">
+        <span class="post-meta"><b>Content strategy</b><span>March 2025</span><span>5 min read</span></span>
+        <span><span class="post-title">Why attorneys who publish regularly win more referrals</span><span class="post-ex">Referrals drive most law practices. Here's how a consistent publishing schedule keeps your name at the top of the list.</span></span>
+        <span class="post-go">Read article</span>
+      </button>
+      <button class="post" type="button" data-article="article2">
+        <span class="post-meta"><b>Attorney marketing</b><span>February 2025</span><span>7 min read</span></span>
+        <span><span class="post-title">The case article formula: turning a win into a client magnet</span><span class="post-ex">A simple framework for writing about your case outcomes in a way that's compelling, ethical, and drives new business.</span></span>
+        <span class="post-go">Read article</span>
+      </button>
+      <button class="post" type="button" data-article="article3">
+        <span class="post-meta"><b>Legal updates</b><span>January 2025</span><span>8 min read</span></span>
+        <span><span class="post-title">Bar rules on attorney advertising: what your content can and can't say</span><span class="post-ex">A guide to the bar rules governing attorney advertising and what they mean for your online content strategy.</span></span>
+        <span class="post-go">Read article</span>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ARTICLE 1 MODAL -->
-<div class="article-overlay" id="article1">
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <h2>Ready to start telling your firm's story?</h2>
+      <p>Tell us a bit about your practice and what you're looking for. We'll follow up to schedule a quick call.</p>
+    </div>
+    <div>
+      <form id="contact-form" action="https://formspree.io/f/xdapdzgn" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New inquiry from legalmediacontent.com">
+        <div class="row">
+          <div class="field"><label for="cf-first">First name</label><input id="cf-first" name="first_name" autocomplete="given-name" placeholder="John" required></div>
+          <div class="field"><label for="cf-last">Last name</label><input id="cf-last" name="last_name" autocomplete="family-name" placeholder="Smith" required></div>
+        </div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" autocomplete="email" placeholder="john@smithlaw.com" required></div>
+        <div class="field"><label for="cf-firm">Firm name</label><input id="cf-firm" name="firm" autocomplete="organization" placeholder="Smith Law Firm"></div>
+        <div class="field"><label for="cf-area">Practice area</label>
+          <select id="cf-area" name="practice_area">
+            <option value="">Select your practice area</option>
+            <option>Personal Injury</option><option>Medical Malpractice</option><option>Criminal Defense</option><option>Civil Litigation</option><option>Family Law</option><option>Estate Planning &amp; Probate</option><option>Business / Corporate Law</option><option>Mergers &amp; Acquisitions</option><option>Contract Law</option><option>Intellectual Property</option><option>Securities &amp; Finance</option><option>Bankruptcy &amp; Restructuring</option><option>Tax Law</option><option>Healthcare Law</option><option>Property Law</option><option>Labor and Employment Law</option><option>Government and Public Interest Law</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="cf-message">Tell us about your firm</label><textarea id="cf-message" name="message" placeholder="How long have you been practicing? What kind of content are you looking for? Any questions?"></textarea></div>
+        <button class="btn btn-dark" type="submit" id="cf-submit">Send message</button>
+        <p class="form-error" id="form-error" hidden>Your message could not be sent. Please check your connection and try again.</p>
+      </form>
+      <div class="form-done" id="form-done" hidden>
+        <h3>Thanks, <span id="done-name">there</span>.</h3>
+        <p>Your message is on its way. We'll follow up soon to schedule a quick call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top">Legal Media <span>&amp;</span> Content Co.</a>
+    <nav aria-label="Footer"><a href="#seo">SEO</a><a href="#content">Content</a><a href="#about">About</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
+    <small>&copy; <span id="year">2026</span> Legal Media &amp; Content Co. All rights reserved.</small>
+  </div>
+</footer>
+
+<div class="article-overlay" id="article1" hidden role="dialog" aria-modal="true" aria-label="Why attorneys who publish regularly win more referrals">
   <div class="article-modal">
-    <button class="article-close" onclick="closeArticle('article1')">&times;</button>
+    <button class="article-close" type="button" aria-label="Close article">&times;</button>
     <div class="article-tag">Content Strategy &nbsp;&middot;&nbsp; March 2025 &nbsp;&middot;&nbsp; 5 min read</div>
     <h1>Why attorneys who publish regularly win more referrals</h1>
     <div class="article-meta">By Legal Media & Content Co. &nbsp;&middot;&nbsp; Published March 2025</div>
@@ -1377,10 +631,9 @@
   </div>
 </div>
 
-<!-- ARTICLE 2 MODAL -->
-<div class="article-overlay" id="article2">
+<div class="article-overlay" id="article2" hidden role="dialog" aria-modal="true" aria-label="The case article formula: turning a win into a client magnet">
   <div class="article-modal">
-    <button class="article-close" onclick="closeArticle('article2')">&times;</button>
+    <button class="article-close" type="button" aria-label="Close article">&times;</button>
     <div class="article-tag">Attorney Marketing &nbsp;&middot;&nbsp; February 2025 &nbsp;&middot;&nbsp; 7 min read</div>
     <h1>The case article formula: turning a win into a client magnet</h1>
     <div class="article-meta">By Legal Media & Content Co. &nbsp;&middot;&nbsp; Published February 2025</div>
@@ -1431,10 +684,9 @@
   </div>
 </div>
 
-<!-- ARTICLE 3 MODAL -->
-<div class="article-overlay" id="article3">
+<div class="article-overlay" id="article3" hidden role="dialog" aria-modal="true" aria-label="Bar rules on attorney advertising: what your content can and can't say">
   <div class="article-modal">
-    <button class="article-close" onclick="closeArticle('article3')">&times;</button>
+    <button class="article-close" type="button" aria-label="Close article">&times;</button>
     <div class="article-tag">Legal Updates &nbsp;&middot;&nbsp; January 2025 &nbsp;&middot;&nbsp; 8 min read</div>
     <h1>Bar rules on attorney advertising: what your content can and can't say</h1>
     <div class="article-meta">By Legal Media & Content Co. &nbsp;&middot;&nbsp; Published January 2025</div>
@@ -1500,148 +752,97 @@
   </div>
 </div>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="section-inner">
-    <div class="section-eyebrow">Get in touch</div>
-    <div class="contact-inner">
-      <div class="contact-info">
-        <h2 class="section-title">Ready to start telling your firm's story?</h2>
-        <p>Tell us a bit about your practice and what you're looking for. We'll follow up with you to schedule a quick call.</p>
-
-      </div>
-      <div>
-        <form class="contact-form" action="https://formspree.io/f/xdapdzgn" method="POST" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="_subject" value="New inquiry from legalmediacontent.com" />
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cf-first">First name</label>
-              <input type="text" id="cf-first" name="first_name" autocomplete="given-name" placeholder="John" required />
-            </div>
-            <div class="form-group">
-              <label for="cf-last">Last name</label>
-              <input type="text" id="cf-last" name="last_name" autocomplete="family-name" placeholder="Smith" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="john@smithlaw.com" required />
-          </div>
-          <div class="form-group">
-            <label for="cf-firm">Firm name</label>
-            <input type="text" id="cf-firm" name="firm" autocomplete="organization" placeholder="Smith Law Firm" />
-          </div>
-          <div class="form-group">
-            <label for="cf-area">Practice area</label>
-            <select id="cf-area" name="practice_area">
-              <option value="">Select your practice area</option>
-              <option>Personal Injury</option>
-              <option>Medical Malpractice</option>
-              <option>Criminal Defense</option>
-              <option>Civil Litigation</option>
-              <option>Family Law</option>
-              <option>Estate Planning & Probate</option>
-              <option>Business / Corporate Law</option>
-              <option>Mergers & Acquisitions</option>
-              <option>Contract Law</option>
-              <option>Intellectual Property</option>
-              <option>Securities & Finance</option>
-              <option>Bankruptcy & Restructuring</option>
-              <option>Tax Law</option>
-              <option>Healthcare Law</option>
-              <option>Property Law</option>
-              <option>Labor and Employment Law</option>
-              <option>Government and Public Interest Law</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="cf-message">Tell us about your firm</label>
-            <textarea id="cf-message" name="message" placeholder="How long have you been practicing? What kind of content are you looking for? Any questions?"></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width: 100%; text-align: center; border: none;">Send message →</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Legal Media <span>&amp;</span> Content Co.</div>
-    <ul class="footer-links">
-      <li><a href="#content">Content</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="footer-copy">© <span id="footer-year">2026</span> Legal Media & Content Co. All rights reserved.</div>
-  </div>
-</footer>
-
 <script>
-  function openArticle(id) {
-    document.getElementById(id).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function closeArticle(id) {
-    document.getElementById(id).classList.remove('open');
+  // Search results illustration: your firm climbs from fourth place to first
+  var list = document.getElementById('serp');
+  var items = {};
+  Array.prototype.forEach.call(list.children, function (li) { items[li.getAttribute('data-id')] = li; });
+  var frames = [['a', 'b', 'c', 'you'], ['a', 'b', 'you', 'c'], ['a', 'you', 'b', 'c'], ['you', 'a', 'b', 'c']];
+  var timers = [];
+  function show(order, animate) {
+    var first = {};
+    if (animate) order.forEach(function (id) { first[id] = items[id].getBoundingClientRect().top; });
+    order.forEach(function (id) { list.appendChild(items[id]); });
+    if (!animate) return;
+    order.forEach(function (id) {
+      var el = items[id], dy = first[id] - el.getBoundingClientRect().top;
+      if (!dy) return;
+      el.style.transition = 'none'; el.style.transform = 'translateY(' + dy + 'px)';
+      el.getBoundingClientRect();
+      el.style.transition = 'transform 0.7s cubic-bezier(.2,.7,.2,1), background 0.5s, box-shadow 0.5s';
+      el.style.transform = '';
+    });
+  }
+  function play() {
+    timers.forEach(clearTimeout); timers = [];
+    if (reduce) { show(frames[3], false); return; }
+    show(frames[0], false);
+    for (var i = 1; i < frames.length; i++) {
+      (function (f, d) { timers.push(setTimeout(function () { show(f, true); }, d)); })(frames[i], 700 + i * 900);
+    }
+  }
+  show(frames[0], false);
+  var played = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting && !played) { played = true; play(); } });
+    }, { threshold: 0.5 }).observe(list);
+  } else { play(); }
+  document.getElementById('replay').addEventListener('click', play);
+
+  // Article overlays
+  var lastTrigger = null;
+  function openArticle(id, trigger) {
+    var el = document.getElementById(id); if (!el) return;
+    lastTrigger = trigger || null;
+    el.hidden = false; document.body.style.overflow = 'hidden';
+    el.querySelector('.article-close').focus();
+  }
+  function closeAll() {
+    document.querySelectorAll('.article-overlay').forEach(function (o) { o.hidden = true; });
     document.body.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus();
   }
-
-  window.addEventListener('load', function() {
-    document.querySelectorAll('.article-overlay').forEach(overlay => {
-      overlay.addEventListener('click', function(e) {
-        if (e.target === this) closeArticle(this.id);
-      });
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.article-overlay.open').forEach(o => closeArticle(o.id));
-      }
-    });
+  document.querySelectorAll('[data-article]').forEach(function (b) {
+    b.addEventListener('click', function () { openArticle(b.getAttribute('data-article'), b); });
   });
+  document.querySelectorAll('.article-overlay').forEach(function (o) {
+    o.addEventListener('click', function (e) { if (e.target === o) closeAll(); });
+    o.querySelector('.article-close').addEventListener('click', closeAll);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 
-  function handleSubmit(e) {
+  // Contact form: submits to the form service, then shows a confirmation
+  var form = document.getElementById('contact-form');
+  var submitBtn = document.getElementById('cf-submit');
+  var errorMsg = document.getElementById('form-error');
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('button[type="submit"]');
-    const label = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function(res) {
-      if (!res.ok) throw new Error('Request failed');
-      form.reset();
-      btn.textContent = 'Message sent! We will be in touch soon.';
-      btn.style.background = '#1a2744';
-      btn.style.color = '#fff';
-    }).catch(function() {
-      btn.disabled = false;
-      btn.textContent = label;
-      alert('Sorry, your message could not be sent. Please try again in a moment.');
-    });
-  }
-
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
-    });
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    errorMsg.hidden = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Request failed');
+        var first = document.getElementById('cf-first').value.trim();
+        document.getElementById('done-name').textContent = first || 'there';
+        form.reset();
+        form.hidden = true;
+        document.getElementById('form-done').hidden = false;
+      })
+      .catch(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+        errorMsg.hidden = false;
+      });
   });
 
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
 </script>
 </body>
 </html>

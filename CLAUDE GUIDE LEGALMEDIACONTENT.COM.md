@@ -34,77 +34,65 @@ Pricing is NOT displayed on the website. These are internal reference only.
 ## Website File
 
 **Filename:** `index.html`
-**Type:** Single self-contained HTML file — all CSS and JavaScript are inline. No separate stylesheets, scripts, or asset folders. No build process required. Pure static site.
+**Type:** Single HTML file with all CSS and JavaScript inline. No build process. Pure static site.
 
-**Google Fonts used:** Playfair Display, DM Sans (loaded via CDN in the `<head>`)
+**Images:** Photos live in the `images/` folder (`hero-consultation.jpg`, `about-conversation.jpg`). All are free Pexels photos, cropped and compressed. The "Content that works for you" visual is a CSS mockup of a law firm social post, not a photo.
 
-**External dependencies:** Google Fonts CDN only. No other external libraries or frameworks.
+**Google Fonts used:** Source Serif 4 (headings) and Jost (body)
+
+**External dependencies:** Google Fonts and Formspree (contact form) only.
 
 ---
 
 ## Design System
 
+Redesigned October 2026: open editorial layout, hairline dividers instead of boxed cards, photo hero, animated SEO search illustration.
+
 ### Color Palette
 ```css
---navy: #1a2744;
---gold: #c9a84c;
---cream: #f8f6f1;
---cream-dark: #ede9e0;
---white: #ffffff;
---text: #2d3748;
---gray: #6b7280;
+--navy: #15213b;
+--navy-2: #1d2b4b;
+--gold: #c6a456;
+--gold-deep: #85691f;   /* gold text on light backgrounds */
+--paper: #fbfaf7;       /* main light background */
+--linen: #f2eee6;       /* alternate light sections */
+--line: #e2dccf;        /* hairline dividers */
+--ink: #1c2332;         /* body text */
+--muted: #4b5263;       /* secondary text */
+--on-navy: #f1ede4;
+--on-navy-muted: #c4cad7;
 ```
 
 ### Typography
-- **Headings:** Playfair Display (serif) — used for h1, h2, h3, section titles
-- **Body:** DM Sans (sans-serif) — used for all body copy, labels, navigation
-- **Eyebrow labels:** DM Sans, uppercase, letter-spacing 0.18em, gold color
+- **Headings:** Source Serif 4, weight 600 (blog titles 700)
+- **Body:** Jost, 1.15rem, line height 1.72
+- No uppercase eyebrow labels; sections lead with the heading
 
-### Key CSS Classes
-- `.section-eyebrow` — gold uppercase label above section titles (font-size: 1.05rem)
-- `.section-title` — main section heading (Playfair Display, navy, clamp 2.2rem to 2.75rem)
-- `.section-sub` — subtitle below section title (DM Sans, gray)
-- `.section-inner` — max-width 1200px centered container for all sections
-- `.btn-primary` — navy background, white text, primary CTA button
-- `.btn-outline` — outlined navy button, secondary CTA
-- `.hero-eyebrow` — gold uppercase label in hero section (font-size: 1.05rem)
+### Key Layout Rules
+- `.wrap` is the max 1200px container with responsive side gutters
+- Lists are separated by 1px hairlines (`var(--line)`), not cards
+- No faces in the hero; the About photo shows attorneys in conversation
 
 ---
 
 ## Website Sections (in order)
 
-1. **Navigation** — fixed top nav, logo left, links right, "Get in touch" CTA button
-2. **Hero** — full viewport, courtroom background image, headline "Your cases deserve to be told.", subheadline, CTA button, hero card with stats
-3. **Why (The Problem We Solve)** — cream background, explains the visibility problem attorneys face
-4. **Content Types (What We Write)** — cream background, grid of content service cards
-5. **About** — navy background, two-column layout: text left, credentials right (Legal Training, Marketing Experience, Niche Focus with SVG icons)
-6. **Blog/Resources** — white background, 3 article cards that open in modal overlays on click
-7. **Contact** — cream background, contact form (first name, last name, email, firm name, practice area dropdown, message)
-8. **Footer** — navy background, logo, nav links, copyright
+1. **Navigation** over the hero: logo, SEO, Content, About, Blog, "Get started"
+2. **Hero** with consultation photo, headline "Marketing by lawyers, for lawyers.", free SEO callout with explanation, CTA
+3. **What we deliver** strip: Websites, Articles, Social media, Newsletters
+4. **SEO** section with animated search results where "Your firm" climbs to first
+5. **Why** ("Too many lawyers & firms are invisible online"), with pull quote, example wins list, three points with icons
+6. **Content that works for you**: social post mockup plus six content types
+7. **One article becomes many assets**: diagram from an article to LinkedIn, Facebook, newsletter, website
+8. **About** ("We speak your language because we know it") with photo and credentials
+9. **Blog**: three articles as a list with bold titles; clicking opens the full article
+10. **Contact** form (Formspree) and footer
 
 ---
 
 ## Article Modal System
 
-Three blog articles open in modal overlays when their cards are clicked. The system uses:
-
-```javascript
-function openArticle(id) {
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeArticle(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-}
-```
-
-- Modal IDs: `article1`, `article2`, `article3`
-- CSS class `.article-overlay` is `display: none` by default
-- `.article-overlay.open` sets `display: flex`
-- Clicking outside the modal or pressing Escape closes it
-- All modal CSS is in the main `<style>` block in `<head>` — NOT in a separate mid-body style block
+Each blog row is a `<button class="post" data-article="articleN">`. Clicking it removes the `hidden` attribute from `#articleN` (`.article-overlay`). Close button, clicking outside, or Escape closes it. Modal IDs: `article1`, `article2`, `article3`.
 
 ### Article 1
 - **Tag:** Content Strategy
@@ -165,10 +153,9 @@ No email address is displayed publicly on the site. Form uses a `handleSubmit` J
 
 ## Known Issues & Notes
 
-- **Courtroom hero image** (`https://cdn.loc.gov/service/pnp/highsm/03400/03427v.jpg`) does not load on mobile due to LOC hotlink blocking. The site uses a Pexels image as a CSS background fallback. Permanent fix is to self-host the image. When deployed to a live domain this may resolve itself — test after deployment.
-- **All article modal CSS** must remain in the main `<style>` block in `<head>`. A previous bug was caused by a `<style>` block in the body which rendered as a grey overlay.
-- **Blog card body** has `background: var(--navy)` so the white/cream text is visible.
-- **"From the blog" heading** uses `color: #f0ece4 !important` (ivory) and the subtitle uses `color: #c9c0b0`.
+- **Hero image** is self-hosted in `images/`, so it loads on mobile.
+- **All CSS** must remain in the main `<style>` block in `<head>`. A previous bug was caused by a `<style>` block in the body which rendered as a grey overlay.
+- **Class names:** the blog rows use `.post`; the social mockup uses `.sm-*` classes. Keep them separate.
 
 ---
 
@@ -183,9 +170,7 @@ No email address is displayed publicly on the site. Form uses a `handleSubmit` J
 
 ## Future Work / On the Horizon
 
-- Fix courtroom hero image for mobile (self-host the image file)
 - Build out law firm client website templates (Template 1 warm/family-friendly is partially built at `law-firm-template-1.html`)
-- Add Formspree or similar to contact form so submissions actually arrive via email
 - Cold outreach script for calling attorneys
 - Client proposal/one-pager template
 - Service agreement/contract template
@@ -210,45 +195,34 @@ No email address is displayed publicly on the site. Form uses a `handleSubmit` J
 When building or modifying any UI element on this site, follow these principles:
 
 ### Design Thinking
-Before writing any code, commit to a clear aesthetic direction. This site uses a **luxury/refined editorial** aesthetic. Dark navy backgrounds, gold accents, cream tones, serif display typography paired with clean sans-serif body text. Every design decision should reinforce that this is a premium, attorney-grade service — not a generic marketing agency.
+Before writing any code, commit to a clear aesthetic direction. This site uses a **refined, modern editorial** aesthetic. Navy and gold with warm off-white sections, open layouts separated by hairlines instead of boxes, real photography, and a serif display face paired with an elegant sans body. Every design decision should reinforce that this is a premium, attorney-grade service — not a generic marketing agency.
 
 Ask before coding:
-- Does this feel consistent with the navy/gold/cream palette?
-- Does this use Playfair Display for headings and DM Sans for body?
+- Does this feel consistent with the navy/gold/paper palette?
+- Does this use Source Serif 4 for headings and Jost for body?
 - Does this have intentional spacing and hierarchy?
 - Would an attorney trust a firm that looked this way?
 
 ### Typography Rules
-- **Display/headings:** Playfair Display — used for all h1, h2, h3, section titles, article titles
-- **Body/UI:** DM Sans — used for all body copy, labels, buttons, nav, form fields
-- Never use Arial, Inter, Roboto, or system fonts
-- Eyebrow labels: DM Sans, uppercase, letter-spacing 0.18em, 1.05rem, gold color
+- **Display/headings:** Source Serif 4 for all h1, h2, h3, section titles, article titles
+- **Body/UI:** Jost for body copy, labels, buttons, nav, form fields
+- Never use Arial, Inter, Roboto, or system fonts as the primary face
 
 ### Color Rules
-Always use CSS variables. Never hardcode colors that exist as variables.
-```css
---navy: #1a2744;      /* primary dark background */
---gold: #c9a84c;      /* accent, CTAs, highlights */
---cream: #f8f6f1;     /* light section backgrounds */
---cream-dark: #ede9e0; /* borders, card backgrounds */
---white: #ffffff;     /* pure white backgrounds */
---text: #2d3748;      /* primary body text */
---gray: #6b7280;      /* secondary/muted text */
-```
+Always use the CSS variables listed under Design System above. Never hardcode colors that exist as variables.
 
 ### Motion & Interaction
-- Use CSS animations for page load reveals (fadeUp keyframe already defined in the file)
+- Keep motion to one moment: the SEO search results animation
 - Hover states on cards: subtle translateY(-2px) and box-shadow
 - Hover states on buttons: background color shift, subtle transform
 - Keep animations fast (0.2s for hovers, 0.6s for page load reveals)
-- Use `animation-delay` for staggered reveals on grouped elements
 
 ### Spatial Composition
 - Generous padding on sections: 6rem 5% default
 - Max-width 1200px centered containers via `.section-inner`
 - Two-column grids for content that benefits from side-by-side layout
-- Cards use subtle borders (1px solid var(--cream-dark)) rather than heavy shadows
-- Border-radius: 4px on cards (keep it sharp, not rounded — this is a law firm aesthetic)
+- Prefer open lists with 1px hairlines (var(--line)) over boxed cards
+- Keep corners sharp (2px to 4px radius); this is a law firm aesthetic
 
 ### What Makes This Site Memorable
 The single most important thing: the combination of the dark navy sections with gold accents and cream typography feels authoritative and premium in a way that most law firm sites do not. Every new element should reinforce that contrast and that premium feel. When in doubt, ask: does this look like it belongs on a BigLaw firm's site?
