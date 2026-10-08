@@ -233,30 +233,36 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .pricing-points strong { font-weight: 600; color: var(--navy); font-size: 1.08rem; }
 .pricing-points span { color: var(--muted); }
 
-.roi { margin: 0; background: var(--white); border-radius: 6px; box-shadow: 0 30px 60px -32px rgba(21,33,59,0.4), 0 0 0 1px var(--line); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 1.5rem; min-width: 0; --unit: 26px; }
-.roi-controls { display: grid; gap: 1rem; }
-.ctl { display: grid; gap: 0.4rem; }
-.ctl-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.ctl label { font-size: 0.95rem; color: var(--ink); }
-.ctl output { font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--navy); font-variant-numeric: tabular-nums; }
-.ctl input[type=range] { width: 100%; accent-color: var(--gold); height: 1.5rem; margin: 0; cursor: pointer; }
-.matter { display: grid; gap: 1rem; padding: 1.25rem; background: var(--paper); border-radius: 4px; }
-.matter-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
-.matter-head span { font-size: 0.9rem; color: var(--muted); }
-.matter-head strong { font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; line-height: 1.1; }
-.hour { display: block; width: var(--unit); height: var(--unit); border-radius: 3px; background: var(--navy); flex-shrink: 0; }
-.hour.gold { background: var(--gold); box-shadow: 0 0 0 3px rgba(198,164,86,0.25); }
-.hour-grid { display: grid; grid-template-columns: repeat(10, var(--unit)); gap: 5px; min-height: var(--unit); }
-.matter-key { display: grid; gap: 0.55rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
-.key-row { display: grid; grid-template-columns: auto 1fr auto; gap: 0.75rem; align-items: center; font-size: 0.95rem; }
-.key-row .hour { --unit: 14px; }
-.key-row b { font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--navy); font-variant-numeric: tabular-nums; }
-.roi-note { font-family: var(--display); font-size: 1.15rem; line-height: 1.45; color: var(--navy); text-align: center; text-wrap: balance; }
-.roi figcaption { font-size: 0.82rem; color: var(--muted); text-align: center; }
-.motion .hour-grid .hour.new { animation: hourIn 0.45s cubic-bezier(.34,1.56,.64,1) both; }
-.motion .roi.is-in .hour-grid .hour.gold { animation: goldBeat 2.4s ease-in-out 1.2s infinite; }
-@keyframes hourIn { from { opacity: 0; transform: scale(0.2); } to { opacity: 1; transform: none; } }
-@keyframes goldBeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.25); } 30% { transform: scale(1); } }
+.roi { margin: 0; background: var(--white); border-radius: 6px; box-shadow: 0 30px 60px -32px rgba(21,33,59,0.4), 0 0 0 1px var(--line); padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 3vw, 2.25rem); display: grid; justify-items: center; gap: 1.5rem; text-align: center; min-width: 0; }
+.clock { width: min(270px, 62vw); height: auto; display: block; overflow: visible; }
+.clock .face { fill: var(--paper); stroke: var(--line); stroke-width: 2; }
+.clock .wedge { fill: none; stroke: var(--gold); stroke-width: 76; stroke-dasharray: 30 330; transform: rotate(-90deg); transform-origin: 100px 100px; opacity: 0.95; }
+.clock .ticks line { stroke: #9aa1b2; stroke-width: 2; stroke-linecap: round; }
+.clock .ticks line.big { stroke: var(--navy); stroke-width: 3; }
+.clock .hand-h, .clock .hand-m { stroke: var(--navy); stroke-linecap: round; transform-origin: 100px 100px; }
+.clock .hand-h { stroke-width: 6; transform: rotate(30deg); }
+.clock .hand-m { stroke-width: 3.5; }
+.clock .pin { fill: var(--gold); stroke: var(--navy); stroke-width: 2; }
+.rate-line { font-family: var(--display); font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.4; color: var(--navy); }
+.rate-num { display: inline-block; min-width: 3.6ch; color: var(--gold-deep); font-weight: 700; font-variant-numeric: tabular-nums; }
+.rate-num.swap { animation: swapIn 0.45s ease; }
+.covers { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.covers li { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.85rem 0.45rem 0.7rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.95rem; color: var(--navy); background: var(--paper); }
+.covers li::before { content: ''; width: 0.95rem; height: 0.95rem; border-radius: 50%; background: var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%2315213b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 80% no-repeat; flex-shrink: 0; }
+.roi figcaption { font-size: 0.9rem; color: var(--muted); }
+.motion .roi.is-in .clock .wedge { animation: wedgeHour 7s ease-in-out infinite; }
+.motion .roi.is-in .clock .hand-m { animation: minuteSweep 7s ease-in-out infinite; }
+.motion .roi.is-in .clock .hand-h { animation: hourStep 7s ease-in-out infinite; }
+.motion .covers li { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.motion .roi.is-in .covers li { opacity: 1; transform: none; }
+.motion .roi.is-in .covers li:nth-child(1) { transition-delay: 1.4s; }
+.motion .roi.is-in .covers li:nth-child(2) { transition-delay: 1.6s; }
+.motion .roi.is-in .covers li:nth-child(3) { transition-delay: 1.8s; }
+.motion .roi.is-in .covers li:nth-child(4) { transition-delay: 2s; }
+.motion .roi.is-in .covers li:nth-child(5) { transition-delay: 2.2s; }
+@keyframes wedgeHour { 0% { stroke-dasharray: 0 360; opacity: 0.95; } 40% { stroke-dasharray: 30 330; } 88% { stroke-dasharray: 30 330; opacity: 0.95; } 100% { stroke-dasharray: 30 330; opacity: 0; } }
+@keyframes minuteSweep { 0% { transform: rotate(0deg); } 40%, 100% { transform: rotate(360deg); } }
+@keyframes hourStep { 0% { transform: rotate(0deg); } 40%, 100% { transform: rotate(30deg); } }
 
 /* ABOUT */
 .about-title { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); max-width: 24ch; }
@@ -441,9 +447,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .deliver-item + .deliver-item { border-top: 1px solid rgba(255,255,255,0.12); }
   .row { grid-template-columns: minmax(0, 1fr); }
   .about-photo img { aspect-ratio: 4 / 3; }
-  .roi { --unit: 21px; }
-  .matter { padding: 1rem; }
-  .hour-grid { gap: 4px; }
+  .covers li { font-size: 0.9rem; }
   .serp { padding: 1rem; }
   .logo { font-size: 1.05rem; }
   .nav .logo { font-size: 1.22rem; }
@@ -460,7 +464,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after, .hour { animation: none !important; }
+  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after, .clock .wedge, .clock .hand-m, .clock .hand-h { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
 }
@@ -525,26 +529,19 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
       <a class="btn" href="#contact">Talk to us about your site</a>
     </div>
     <figure class="roi" aria-labelledby="roi-cap">
-      <div class="roi-controls">
-        <div class="ctl">
-          <div class="ctl-row"><label for="roi-rate">Your hourly rate</label><output for="roi-rate" id="roi-rate-out">$350</output></div>
-          <input type="range" id="roi-rate" min="150" max="1000" step="25" value="350">
-        </div>
-        <div class="ctl">
-          <div class="ctl-row"><label for="roi-hours">Hours on a typical new matter</label><output for="roi-hours" id="roi-hours-out">15</output></div>
-          <input type="range" id="roi-hours" min="2" max="40" step="1" value="15">
-        </div>
-      </div>
-      <div class="matter" aria-live="polite">
-        <div class="matter-head"><span>One new matter at your rate</span><strong id="roi-matter">$5,250</strong></div>
-        <div class="hour-grid" id="roi-grid" aria-hidden="true"></div>
-        <div class="matter-key">
-          <div class="key-row"><i class="hour gold"></i><span>Your monthly website fee</span><b id="roi-cost">$350</b></div>
-          <div class="key-row"><i class="hour"></i><span>Yours to keep</span><b id="roi-keep">$4,900</b></div>
-        </div>
-      </div>
-      <p class="roi-note">If your website brings in even one new matter, the first hour covers it for the month. Every hour after that is yours.</p>
-      <figcaption id="roi-cap">An illustration using your own numbers. Every practice is different, and new clients are never guaranteed.</figcaption>
+      <svg class="clock" viewBox="0 0 200 200" role="img" aria-label="A clock with one hour shaded in gold">
+        <circle class="face" cx="100" cy="100" r="94"/>
+        <circle class="wedge" cx="100" cy="100" r="38" pathLength="360"/>
+        <g class="ticks"><line x1="100.0" y1="22.0" x2="100.0" y2="12.0" class="big"/><line x1="141.0" y1="29.0" x2="144.0" y2="23.8"/><line x1="171.0" y1="59.0" x2="176.2" y2="56.0"/><line x1="178.0" y1="100.0" x2="188.0" y2="100.0" class="big"/><line x1="171.0" y1="141.0" x2="176.2" y2="144.0"/><line x1="141.0" y1="171.0" x2="144.0" y2="176.2"/><line x1="100.0" y1="178.0" x2="100.0" y2="188.0" class="big"/><line x1="59.0" y1="171.0" x2="56.0" y2="176.2"/><line x1="29.0" y1="141.0" x2="23.8" y2="144.0"/><line x1="22.0" y1="100.0" x2="12.0" y2="100.0" class="big"/><line x1="29.0" y1="59.0" x2="23.8" y2="56.0"/><line x1="59.0" y1="29.0" x2="56.0" y2="23.8"/></g>
+        <line class="hand-h" x1="100" y1="100" x2="100" y2="58"/>
+        <line class="hand-m" x1="100" y1="100" x2="100" y2="28"/>
+        <circle class="pin" cx="100" cy="100" r="5"/>
+      </svg>
+      <p class="rate-line">You bill <b class="rate-num">$350</b> an hour.<br>Your website is <b class="rate-num">$350</b> a month.</p>
+      <ul class="covers" aria-label="Included every month">
+        <li>Hosting</li><li>Security</li><li>Updates</li><li>Page edits</li><li>SEO</li>
+      </ul>
+      <figcaption id="roi-cap">Whatever your hourly rate is, that is your monthly website fee.</figcaption>
     </figure>
   </div>
 </section>
@@ -1049,39 +1046,26 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
     document.querySelectorAll('.social-mock, .flow, .wins').forEach(function (el) { io.observe(el); });
   }
 
-  // Pricing: one new matter, the first hour covers the website fee
+  // Pricing: one hour of your rate is your monthly website fee
   (function () {
-    var rate = document.getElementById('roi-rate'), hours = document.getElementById('roi-hours');
-    var grid = document.getElementById('roi-grid');
-    if (!rate || !grid) return;
-    function money(n) { return '$' + n.toLocaleString('en-US'); }
-    function update() {
-      var r = +rate.value, h = +hours.value;
-      document.getElementById('roi-rate-out').textContent = money(r);
-      document.getElementById('roi-hours-out').textContent = h;
-      document.getElementById('roi-matter').textContent = money(r * h);
-      document.getElementById('roi-cost').textContent = money(r);
-      document.getElementById('roi-keep').textContent = money(r * (h - 1));
-      while (grid.children.length > h) grid.removeChild(grid.lastChild);
-      var start = grid.children.length;
-      for (var i = start; i < h; i++) {
-        var blk = document.createElement('i');
-        blk.className = 'hour new' + (i === 0 ? ' gold' : '');
-        blk.style.animationDelay = Math.min((i - start) * 45, 1200) + 'ms';
-        grid.appendChild(blk);
-      }
-    }
-    [rate, hours].forEach(function (el) { el.addEventListener('input', update); });
     var roi = document.querySelector('.roi');
-    update();
-    if (document.documentElement.classList.contains('motion') && 'IntersectionObserver' in window) {
-      var seen = false;
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting && !seen) { seen = true; roi.classList.add('is-in'); grid.innerHTML = ''; update(); }
-        });
-      }, { threshold: 0.35 }).observe(roi);
-    }
+    if (!roi) return;
+    var nums = roi.querySelectorAll('.rate-num');
+    var rates = ['$350', '$500', '$250', '$750', '$400', '$600'], k = 0;
+    if (!document.documentElement.classList.contains('motion') || !('IntersectionObserver' in window)) return;
+    var started = false;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || started) return;
+        started = true; roi.classList.add('is-in');
+        setInterval(function () {
+          k = (k + 1) % rates.length;
+          Array.prototype.forEach.call(nums, function (n) {
+            n.classList.remove('swap'); void n.offsetWidth; n.textContent = rates[k]; n.classList.add('swap');
+          });
+        }, 2600);
+      });
+    }, { threshold: 0.35 }).observe(roi);
   })();
 
   // Article overlays
