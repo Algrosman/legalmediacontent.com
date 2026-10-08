@@ -137,7 +137,7 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .serp-list li.you .t { color: var(--navy); font-weight: 700; }
 .you-badge { font-size: 0.72rem; font-weight: 600; color: var(--gold-deep); background: var(--white); border: 1px solid rgba(198,164,86,0.6); border-radius: 999px; padding: 0.05rem 0.55rem; }
 .serp figcaption { margin-top: 1rem; font-size: 0.82rem; color: var(--muted); }
-.replay { background: none; border: 0; padding: 0; font: inherit; color: var(--navy); text-decoration: underline; cursor: pointer; }
+.replay { background: none; border: 0; padding: 0.6rem 0.15rem; font: inherit; color: var(--navy); text-decoration: underline; cursor: pointer; }
 
 /* WHY */
 .why { background: var(--linen); position: relative; overflow: hidden; }
@@ -266,7 +266,7 @@ form { display: grid; gap: 1.25rem; }
 footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.5rem calc(3.5rem + env(safe-area-inset-bottom, 0px)); }
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; }
 .foot nav { display: flex; flex-wrap: wrap; gap: 1.75rem; }
-.foot nav a { text-decoration: none; color: var(--on-navy); font-size: 0.95rem; }
+.foot nav a { text-decoration: none; color: var(--on-navy); font-size: 0.95rem; display: inline-block; padding-block: 0.65rem; }
 .foot small { font-size: 0.85rem; }
 
 /* ARTICLE OVERLAY */
@@ -357,7 +357,8 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 @keyframes winPop { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
 @keyframes travel { 0% { stroke-dashoffset: 100; opacity: 0; } 8% { opacity: 1; } 85% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
 @keyframes arrive { 0%, 80% { box-shadow: 0 0 0 0 rgba(198,164,86,0); transform: scale(1); } 84% { box-shadow: 0 0 0 0 rgba(198,164,86,0.75); transform: scale(1.35); } 100% { box-shadow: 0 0 0 14px rgba(198,164,86,0); transform: scale(1); } }
-@keyframes swapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes drop { 0% { transform: translateY(-46px); opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(var(--drop, 320px)); opacity: 0; } }
+@keyframes swapIn { from { opacity: 0.25; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes tap { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
 
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(198,164,86,0.6); } 100% { box-shadow: 0 0 0 12px rgba(198,164,86,0); } }
@@ -379,6 +380,11 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .deliver-item:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.12); }
   .flow { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .wire { display: none; }
+  .outlets { position: relative; }
+  .outlets::before { content: ''; position: absolute; left: 4.5px; top: -2rem; bottom: 0; width: 1px; background: rgba(198,164,86,0.45); }
+  .outlets li { position: relative; }
+  .outlets .dot { position: relative; z-index: 1; }
+  .motion .flow.is-in .outlets::after { content: ''; position: absolute; left: 2px; top: 0; width: 6px; height: 46px; border-radius: 3px; background: linear-gradient(180deg, rgba(230,200,121,0) 0%, #e6c879 60%, rgba(230,200,121,0) 100%); animation: drop 2.8s cubic-bezier(.45,.05,.55,.95) 2.4s infinite; opacity: 0; }
   .page-mock { justify-self: start; }
   .post { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
   .post-go { justify-self: start; }
@@ -409,7 +415,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot { animation: none !important; }
+  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
 }
@@ -433,7 +439,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 <section class="hero" id="top">
   <img class="hero-img" src="images/hero-consultation.jpg" fetchpriority="high" alt="An attorney reviewing documents with a client across a desk">
   <div class="wrap hero-in">
-    <h1>Marketing by lawyers, for <em>lawyers.</em></h1>
+    <h1>Marketing by lawyers, <em>for lawyers.</em></h1>
     <p class="lede">We build websites and write articles that share your wins, your insights, and the changes in the law that matter to your clients.</p>
     <div class="seo-line">
       <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="7"/><path d="m20.5 20.5-4.9-4.9"/><path d="M7.2 12.6l2.2-2.2 1.6 1.6 2.9-2.9"/></svg>
@@ -946,6 +952,9 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         react.textContent = (+react.textContent || 124) + 1 + Math.floor(Math.random() * 3);
       }, 4200);
     }
+    var outlets = document.querySelector('.outlets');
+    function setDrop() { if (outlets) outlets.style.setProperty('--drop', outlets.offsetHeight + 'px'); }
+    setDrop(); window.addEventListener('resize', setDrop);
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
