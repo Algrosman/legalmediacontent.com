@@ -185,9 +185,10 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .link-body { padding: 0.55rem 0.7rem 0.65rem; display: grid; gap: 0.15rem; background: var(--linen); }
 .link-body span { font-size: 0.7rem; color: var(--muted); }
 .link-body strong { font-family: var(--display); font-size: 0.9rem; line-height: 1.3; color: var(--navy); }
+.sm-stats b { font-weight: 400; font-variant-numeric: tabular-nums; }
 .sm-stats { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); }
 .sm-actions { display: flex; justify-content: space-around; border-top: 1px solid var(--line); padding-top: 0.5rem; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
-.notif { position: absolute; right: 1.25rem; bottom: 1.25rem; display: flex; gap: 0.65rem; align-items: flex-start; background: var(--white); border-radius: 12px; padding: 0.7rem 0.9rem; box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55); max-width: 15rem; }
+.notif { display: flex; gap: 0.65rem; align-items: flex-start; background: var(--white); border-radius: 12px; padding: 0.7rem 0.9rem; box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55); max-width: 15rem; }
 .notif-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); margin-top: 0.4rem; flex-shrink: 0; }
 .notif strong { display: block; font-size: 0.8rem; color: var(--navy); line-height: 1.3; }
 .notif span { display: block; font-size: 0.72rem; color: var(--muted); line-height: 1.35; }
@@ -215,8 +216,9 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .outlets span { color: var(--on-navy-muted); font-size: 0.95rem; }
 
 /* ABOUT */
-.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
-.about-grid h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); }
+.about-title { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); max-width: 24ch; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.5rem clamp(2rem, 6vw, 6rem); align-items: baseline; margin-top: clamp(1.5rem, 3vw, 2.25rem); padding-top: clamp(1.5rem, 3vw, 2.25rem); border-top: 1px solid var(--line); }
+.about-lead { font-family: var(--display); font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1.45; color: var(--navy); }
 .about-copy { display: grid; gap: 1.15rem; }
 .about-photo { margin-top: clamp(2.5rem, 5vw, 4rem); }
 .about-photo img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 35%; border-radius: 2px; }
@@ -284,6 +286,50 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 .article-body strong { font-weight: 600; color: var(--navy); }
 .article-body blockquote { margin: 1.8rem 0; padding: 0.4rem 0 0.4rem 1.4rem; border-left: 2px solid var(--gold); font-family: var(--display); font-style: italic; font-size: 1.2rem; color: var(--navy); }
 
+
+/* MOTION (only when the browser allows it; content is fully visible without JS) */
+.motion .social-mock .phone { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.8s cubic-bezier(.2,.7,.2,1); }
+.motion .social-mock .notif { opacity: 0; transform: translateY(14px) scale(0.92); transition: opacity 0.45s ease 1.2s, transform 0.55s cubic-bezier(.34,1.56,.64,1) 1.2s; }
+.motion .social-mock.is-in .phone { opacity: 1; transform: none; }
+.motion .social-mock.is-in .notif { opacity: 1; transform: none; }
+.motion .social-mock.is-in .notif-dot { animation: ping 1.6s ease-out 1.8s 2; }
+.motion .social-mock.is-in .notif-wrap { animation: drift 5s ease-in-out 2.4s infinite; }
+.notif-wrap { position: absolute; right: 1.25rem; bottom: 1.25rem; max-width: calc(100% - 2.5rem); }
+.notif-wrap .notif { position: static; }
+
+.motion .flow .page-mock { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.7s cubic-bezier(.2,.7,.2,1); }
+.motion .flow .bars i { transform: scaleX(0); transform-origin: left center; transition: transform 0.5s ease; }
+.motion .flow .wire svg { clip-path: inset(0 100% 0 0); transition: clip-path 0.9s ease 0.9s; }
+.motion .flow .outlets li { opacity: 0; transform: translateX(-12px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.motion .flow.is-in .page-mock, .motion .flow.is-in .outlets li { opacity: 1; transform: none; }
+.motion .flow.is-in .bars i { transform: scaleX(1); }
+.motion .flow.is-in .wire svg { clip-path: inset(0 0 0 0); }
+.motion .flow.is-in .bars i:nth-child(1) { transition-delay: 0.35s; }
+.motion .flow.is-in .bars i:nth-child(2) { transition-delay: 0.45s; }
+.motion .flow.is-in .bars i:nth-child(3) { transition-delay: 0.55s; }
+.motion .flow.is-in .bars i:nth-child(4) { transition-delay: 0.65s; }
+.motion .flow.is-in .bars i:nth-child(5) { transition-delay: 0.75s; }
+.motion .flow.is-in .bars i:nth-child(6) { transition-delay: 0.85s; }
+.motion .flow.is-in .outlets li:nth-child(1) { transition-delay: 1.5s; }
+.motion .flow.is-in .outlets li:nth-child(2) { transition-delay: 1.65s; }
+.motion .flow.is-in .outlets li:nth-child(3) { transition-delay: 1.8s; }
+.motion .flow.is-in .outlets li:nth-child(4) { transition-delay: 1.95s; }
+.motion .flow.is-in .outlets .dot { animation: ping 1.4s ease-out 2.3s 1; }
+
+.motion .wins li { opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.motion .wins.is-in li { opacity: 1; transform: none; }
+.motion .wins.is-in li:nth-child(2) { transition-delay: 0.15s; }
+.motion .wins.is-in li:nth-child(3) { transition-delay: 0.3s; }
+
+.page-mock, .phone { transition: transform 0.3s ease; }
+@media (hover: hover) {
+  .flow.is-in .page-mock:hover { transform: translateY(-4px) rotate(-0.6deg); }
+  .social-mock.is-in .phone:hover { transform: translateY(-4px); }
+}
+
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(198,164,86,0.6); } 100% { box-shadow: 0 0 0 12px rgba(198,164,86,0); } }
+@keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
 /* RESPONSIVE */
 @media (max-width: 960px) {
   .nav-links a:not(.nav-cta) { display: none; }
@@ -291,7 +337,8 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .hero-img { object-position: 85% 40%; }
   .seo-grid, .why-grid, .content-grid, .about-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
   .content-aside img { aspect-ratio: 16 / 9; }
-  .notif { right: 50%; transform: translateX(50%); bottom: 1.25rem; width: max-content; max-width: calc(100% - 2rem); }
+  .notif-wrap { left: 1rem; right: 1rem; max-width: none; display: flex; justify-content: center; }
+  .notif { max-width: 100%; }
   .points { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .creds { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .deliver-in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -329,6 +376,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .notif-wrap { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
 }
@@ -465,14 +513,14 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
               </div>
               <div class="link-body"><span>yourfirm.com</span><strong>What to do in the first 48 hours after a car accident</strong></div>
             </div>
-            <div class="sm-stats"><span>124 reactions</span><span>18 comments</span></div>
+            <div class="sm-stats"><span><b class="count" data-to="124">124</b> reactions</span><span><b class="count" data-to="18">18</b> comments</span></div>
             <div class="sm-actions"><span>Like</span><span>Comment</span><span>Share</span></div>
           </div>
         </div>
-        <div class="notif">
+        <div class="notif-wrap"><div class="notif">
           <span class="notif-dot" aria-hidden="true"></span>
           <div><strong>New consultation request</strong><span>A reader messaged you after seeing this post</span></div>
-        </div>
+        </div></div>
       </figure>
     </div>
     <ul class="service-list">
@@ -519,10 +567,10 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 
 <section id="about">
   <div class="wrap">
+    <h2 class="about-title">We speak your language because we know it.</h2>
     <div class="about-grid">
-      <h2>We speak your language because we know it.</h2>
+      <p class="about-lead">Legal Media &amp; Content Co. was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
       <div class="about-copy">
-        <p>Legal Media &amp; Content Co. was built on a simple observation: law firms and solo practitioners have remarkable stories to tell, but no time to tell them.</p>
         <p>We bridge that gap. Legal Media &amp; Content Co. is run by lawyers with extensive experience in content creation and marketing. We understand the nuance of legal writing, the ethical guardrails around attorney advertising, and how to translate complex legal concepts into content that people actually want to read.</p>
         <p>We're not a massive agency. We're a focused team built for the attorney who needs results without the overhead of a full marketing department.</p>
       </div>
@@ -809,6 +857,35 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
     }, { threshold: 0.5 }).observe(list);
   } else { play(); }
   document.getElementById('replay').addEventListener('click', play);
+
+  // Scroll-in motion for the social post, the article flow, and the wins list
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('motion');
+    var counted = false;
+    function countUp() {
+      if (counted) return; counted = true;
+      document.querySelectorAll('.count').forEach(function (el) {
+        var to = +el.getAttribute('data-to'), from = Math.round(to * 0.6), start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var k = Math.min(1, (ts - start) / 1400);
+          el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(step);
+        }
+        el.textContent = from;
+        setTimeout(function () { requestAnimationFrame(step); }, 900);
+      });
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        if (e.target.classList.contains('social-mock')) countUp();
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('.social-mock, .flow, .wins').forEach(function (el) { io.observe(el); });
+  }
 
   // Article overlays
   var lastTrigger = null;
