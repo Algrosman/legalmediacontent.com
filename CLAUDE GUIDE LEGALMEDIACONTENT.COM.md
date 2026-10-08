@@ -79,17 +79,19 @@ Redesigned October 2026: open editorial layout, hairline dividers instead of box
 
 ## Website Sections (in order)
 
-1. **Navigation** over the hero: logo, SEO, Content, About, Blog, "Get started"
+1. **Navigation** over the hero: logo, About, SEO, Content, Pricing, Blog, "Get started"
 2. **Hero** with consultation photo, headline "Marketing by lawyers, for lawyers.", free SEO callout with explanation, CTA
 3. **What we deliver** strip: Websites, Articles, Social media, Newsletters
-3a. **Pricing** (`#pricing`): website fee is one billable hour a month at the client's own rate, SEO included; interactive example of ONE new matter at the lawyer's own rate and hours (two type-in questions only, no sliders: billable rate up to $5,000 and average hours per new matter up to 500; blocks shrink to stay compact): the first hour (gold) is the monthly website fee, the rest is theirs to keep. Never show a promised number of clients, totals, or multiples; keep the 'not guaranteed' caption
-4. **SEO** section with animated search results where "Your firm" climbs to first
-5. **Why** ("Too many lawyers & firms are invisible online"), with pull quote, example wins list, three points with icons
-6. **Content that works for you**: social post mockup plus six content types
-7. **One article becomes many assets**: diagram from an article to LinkedIn, Facebook, newsletter, website
-8. **About** ("We speak your language because we know it") with photo and credentials
-9. **Blog**: three articles as a list with bold titles; clicking opens the full article
-10. **Contact** form (Formspree) and footer
+4. **About** ("We speak your language because we know it"): heading, lead and body text, full-width photo, three credentials (linen background)
+5. **SEO** section with animated search results where "Your firm" climbs to first place
+6. **Why** ("Too many lawyers & firms are invisible online"), with pull quote, example wins list, three points with icons
+7. **Content that works for you**: social post mockup plus six content types
+8. **One article becomes many assets**: diagram from an article to LinkedIn, Facebook, newsletter, website
+9. **Pricing** (`#pricing`): website fee is one billable hour a month at the client's own rate, SEO included; interactive example of ONE new matter (two type-in questions: billable rate up to $5,000, average hours per new matter up to 500); the first hour (gold) is the monthly website fee, the rest is theirs to keep. Never show a promised number of clients, totals, or multiples; keep the 'not guaranteed' caption
+10. **Blog**: three articles as a list with bold titles; clicking opens the full article
+11. **Contact** form (Formspree) and footer
+
+Light sections alternate between paper and linen backgrounds; keep that alternation when reordering.
 
 ---
 
