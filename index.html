@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Jost:wght@300..700&display=swap">
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.classList.add("motion")}catch(e){}</script>
 <style>
 [hidden] { display: none !important; }
 /* Layout: full-bleed photo hero, then alternating paper and navy bands. Open editorial lists divided by hairlines instead of cards. One animated search visual explains SEO. */
@@ -327,6 +328,40 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .social-mock.is-in .phone:hover { transform: translateY(-4px); }
 }
 
+
+/* Hero: slow drift on the photo, staggered entrance, gold rule drawn in */
+.motion .hero-img { animation: heroDrift 26s ease-in-out infinite alternate; transform-origin: 70% 40%; }
+.motion .hero h1 { animation: rise 0.8s cubic-bezier(.2,.7,.2,1) 0.1s both; }
+.motion .lede { animation: rise 0.8s cubic-bezier(.2,.7,.2,1) 0.3s both; }
+.motion .seo-line { animation: rise 0.8s cubic-bezier(.2,.7,.2,1) 0.55s both; border-top-color: transparent; position: relative; }
+.motion .seo-line::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: rgba(198,164,86,0.7); transform-origin: left center; animation: sweep 1.1s ease 0.9s both; }
+.motion .seo-line svg { animation: glint 1.2s ease 1.6s 2; }
+.motion .hero-actions { animation: rise 0.8s cubic-bezier(.2,.7,.2,1) 0.8s both; }
+
+/* Search results: your firm pops when it reaches first place */
+.serp-list li.you.win { animation: winPop 0.9s cubic-bezier(.34,1.56,.64,1); box-shadow: inset 0 0 0 1px rgba(198,164,86,0.9), 0 12px 30px -14px rgba(133,105,31,0.55); }
+
+/* Article flow: gold pulses travel from the article to each outlet */
+.wire .pulse { fill: none; stroke: #e6c879; stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 7 93; stroke-dashoffset: 100; opacity: 0; }
+.motion .flow.is-in .wire .pulse { animation: travel 3.2s linear 2.4s infinite; }
+.motion .flow.is-in .wire .pulse:nth-child(2) { animation-delay: 3.2s; }
+.motion .flow.is-in .wire .pulse:nth-child(3) { animation-delay: 4s; }
+.motion .flow.is-in .wire .pulse:nth-child(4) { animation-delay: 4.8s; }
+
+/* Social post: notifications rotate, the like button taps */
+.notif-text { display: grid; }
+.notif-text.swap { animation: swapIn 0.5s ease; }
+.sm-actions .like.tap { color: var(--gold-deep); animation: tap 0.6s cubic-bezier(.34,1.56,.64,1); }
+
+@keyframes heroDrift { from { transform: scale(1); } to { transform: scale(1.08) translate(-1.2%, -1%); } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes glint { 0%, 100% { transform: none; filter: none; } 50% { transform: scale(1.15) rotate(-6deg); filter: drop-shadow(0 0 6px rgba(198,164,86,0.8)); } }
+@keyframes winPop { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
+@keyframes travel { 0% { stroke-dashoffset: 100; opacity: 0; } 8% { opacity: 1; } 85% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes swapIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes tap { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(198,164,86,0.6); } 100% { box-shadow: 0 0 0 12px rgba(198,164,86,0); } }
 @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
@@ -376,7 +411,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .notif-wrap { animation: none !important; }
+  .notif-wrap, .hero-img, .wire .pulse { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
 }
@@ -514,12 +549,12 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
               <div class="link-body"><span>yourfirm.com</span><strong>What to do in the first 48 hours after a car accident</strong></div>
             </div>
             <div class="sm-stats"><span><b class="count" data-to="124">124</b> reactions</span><span><b class="count" data-to="18">18</b> comments</span></div>
-            <div class="sm-actions"><span>Like</span><span>Comment</span><span>Share</span></div>
+            <div class="sm-actions"><span class="like">Like</span><span>Comment</span><span>Share</span></div>
           </div>
         </div>
         <div class="notif-wrap"><div class="notif">
           <span class="notif-dot" aria-hidden="true"></span>
-          <div><strong>New consultation request</strong><span>A reader messaged you after seeing this post</span></div>
+          <div class="notif-text" aria-live="off"><strong>New consultation request</strong><span>A reader messaged you after seeing this post</span></div>
         </div></div>
       </figure>
     </div>
@@ -553,6 +588,12 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
           <path d="M0 150 C 50 150, 50 112, 100 112" vector-effect="non-scaling-stroke"/>
           <path d="M0 150 C 50 150, 50 188, 100 188" vector-effect="non-scaling-stroke"/>
           <path d="M0 150 C 50 150, 50 263, 100 263" vector-effect="non-scaling-stroke"/>
+        </g>
+        <g aria-hidden="true">
+          <path class="pulse" pathLength="100" d="M0 150 C 50 150, 50 37, 100 37"/>
+          <path class="pulse" pathLength="100" d="M0 150 C 50 150, 50 112, 100 112"/>
+          <path class="pulse" pathLength="100" d="M0 150 C 50 150, 50 188, 100 188"/>
+          <path class="pulse" pathLength="100" d="M0 150 C 50 150, 50 263, 100 263"/>
         </g>
       </svg></div>
       <ul class="outlets">
@@ -841,26 +882,38 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
       el.style.transform = '';
     });
   }
+  var you = items['you'], loopTimer = null, serpVisible = false;
   function play() {
-    timers.forEach(clearTimeout); timers = [];
+    timers.forEach(clearTimeout); timers = []; clearTimeout(loopTimer);
+    you.classList.remove('win');
     if (reduce) { show(frames[3], false); return; }
     show(frames[0], false);
     for (var i = 1; i < frames.length; i++) {
-      (function (f, d) { timers.push(setTimeout(function () { show(f, true); }, d)); })(frames[i], 700 + i * 900);
+      (function (f, d, last) {
+        timers.push(setTimeout(function () {
+          show(f, true);
+          if (last) {
+            setTimeout(function () { you.classList.add('win'); }, 650);
+            loopTimer = setTimeout(function () { if (serpVisible) play(); }, 5200);
+          }
+        }, d));
+      })(frames[i], 700 + i * 900, i === frames.length - 1);
     }
   }
   show(frames[0], false);
-  var played = false;
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting && !played) { played = true; play(); } });
-    }, { threshold: 0.5 }).observe(list);
+      entries.forEach(function (e) {
+        var was = serpVisible; serpVisible = e.isIntersecting;
+        if (serpVisible && !was && !timers.length) play();
+        if (!serpVisible) { timers.forEach(clearTimeout); timers = []; clearTimeout(loopTimer); }
+      });
+    }, { threshold: 0.4 }).observe(list);
   } else { play(); }
   document.getElementById('replay').addEventListener('click', play);
 
   // Scroll-in motion for the social post, the article flow, and the wins list
-  if (!reduce && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('motion');
+  if (document.documentElement.classList.contains('motion')) {
     var counted = false;
     function countUp() {
       if (counted) return; counted = true;
@@ -876,11 +929,30 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         setTimeout(function () { requestAnimationFrame(step); }, 900);
       });
     }
+    var notes = [
+      ['New consultation request', 'A reader messaged you after seeing this post'],
+      ['Your post was shared 12 times', 'Colleagues are passing it along'],
+      ['New referral from a past client', 'They read your article this morning'],
+      ['3 new followers', 'Local readers who found you through search']
+    ];
+    function startNotifs() {
+      var box = document.querySelector('.notif-text'), like = document.querySelector('.sm-actions .like');
+      var react = document.querySelector('.count[data-to="124"]'), n = 0;
+      setInterval(function () {
+        n = (n + 1) % notes.length;
+        box.classList.remove('swap'); void box.offsetWidth;
+        box.querySelector('strong').textContent = notes[n][0];
+        box.querySelector('span').textContent = notes[n][1];
+        box.classList.add('swap');
+        like.classList.remove('tap'); void like.offsetWidth; like.classList.add('tap');
+        react.textContent = (+react.textContent || 124) + 1 + Math.floor(Math.random() * 3);
+      }, 4200);
+    }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add('is-in');
-        if (e.target.classList.contains('social-mock')) countUp();
+        if (e.target.classList.contains('social-mock')) { countUp(); setTimeout(startNotifs, 3200); }
         io.unobserve(e.target);
       });
     }, { threshold: 0.35 });
