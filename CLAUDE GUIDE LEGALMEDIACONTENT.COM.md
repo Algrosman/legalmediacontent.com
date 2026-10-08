@@ -85,7 +85,7 @@ Redesigned October 2026: open editorial layout, hairline dividers instead of box
 4. **About** ("We speak your language because we know it"): heading, lead and body text, full-width photo, three credentials (linen background)
 5. **SEO** section with animated search results where "Your firm" climbs to first place
 6. **Why** ("Too many lawyers & firms are invisible online"), with pull quote, example wins list, three points with icons
-7. **Content that works for you**: social post mockup plus six content types
+7. **Content that works for you**: a phone mockup that flips every few seconds through the same personal injury article as a social post, a website article, an email newsletter, and a short video; tabs above it (Social, Website, Newsletter, Video) can be clicked, and the notification bubble below changes to match each format. Plus six content types
 8. **One article becomes many assets**: diagram from an article to LinkedIn, Facebook, newsletter, website
 9. **Pricing** (`#pricing`): website fee is one billable hour a month at the client's own rate, SEO included; interactive example of ONE new matter (two type-in questions: billable rate up to $5,000, average hours per new matter up to 500); the first hour (gold) is the monthly website fee, the rest is theirs to keep. Never show a promised number of clients, totals, or multiples; keep the 'not guaranteed' caption
 10. **Blog**: three articles as a list with bold titles; clicking opens the full article

@@ -177,8 +177,8 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .service-list h3 { font-size: clamp(1.45rem, 2.2vw, 1.8rem); color: var(--navy); }
 .service-list p { color: var(--muted); max-width: 38rem; }
 
-.social-mock { position: relative; margin: 0; max-width: 100%; background: radial-gradient(120% 90% at 30% 20%, var(--navy-2) 0%, var(--navy) 60%); border-radius: 2px; display: grid; place-items: center; padding: 2.5rem 1.5rem 6rem; overflow: hidden; }
-.phone { width: min(80%, 320px); background: #0c1426; border-radius: 30px; padding: 10px; box-shadow: 0 40px 60px -30px rgba(0,0,0,0.6); }
+.social-mock { position: relative; margin: 0; max-width: 100%; background: radial-gradient(120% 90% at 30% 20%, var(--navy-2) 0%, var(--navy) 60%); border-radius: 2px; display: grid; justify-items: center; gap: 1.25rem; padding: 1.5rem 1.5rem 6rem; overflow: hidden; }
+.phone { width: min(80%, 320px); background: #0c1426; border-radius: 30px; padding: 10px; box-shadow: 0 40px 60px -30px rgba(0,0,0,0.6); perspective: 900px; }
 .sm-post { background: var(--white); border-radius: 22px; padding: 1.1rem 1rem 0.6rem; display: grid; gap: 0.75rem; color: var(--ink); }
 .sm-head { display: flex; align-items: center; gap: 0.65rem; }
 .avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--navy); color: var(--gold); display: grid; place-items: center; font-family: var(--display); font-weight: 600; font-size: 0.95rem; flex-shrink: 0; }
@@ -194,6 +194,40 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .sm-stats b { font-weight: 400; font-variant-numeric: tabular-nums; }
 .sm-stats { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); }
 .sm-actions { display: flex; justify-content: space-around; border-top: 1px solid var(--line); padding-top: 0.5rem; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+.media-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; }
+.media-tab { font: inherit; font-size: 0.8rem; font-weight: 500; color: var(--on-navy-muted); background: transparent; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; padding: 0.4rem 0.8rem; cursor: pointer; transition: background 0.25s, color 0.25s, border-color 0.25s; }
+.media-tab:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+.media-tab.is-active { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.screens { display: grid; transform-style: preserve-3d; transition: transform 0.28s ease-in; }
+.screens.flip-out { transform: rotateY(90deg); }
+.screens.flip-in { transition: transform 0.32s cubic-bezier(.2,.7,.2,1); }
+.screen { grid-area: 1 / 1; visibility: hidden; }
+.scr-article, .scr-mail { align-content: start; }
+.screen.is-active { visibility: visible; }
+.url-bar { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--muted); background: var(--linen); border-radius: 999px; padding: 0.35rem 0.7rem; }
+.url-bar .lock { width: 8px; height: 9px; border: 1.5px solid var(--muted); border-radius: 2px; position: relative; top: 1px; }
+.scr-tag { font-size: 0.7rem; font-weight: 600; color: var(--gold-deep); }
+.scr-title { font-family: var(--display); font-size: 1.15rem; line-height: 1.25; color: var(--navy); margin-top: -0.4rem; }
+.scr-meta { font-size: 0.72rem; color: var(--muted); margin-top: -0.4rem; }
+.scr-article .link-img { border-radius: 10px; height: 96px; }
+.screen .bars { display: grid; gap: 0.45rem; }
+.screen .bars i { display: block; height: 6px; border-radius: 3px; background: var(--line); }
+.screen .bars i:nth-child(2n) { width: 86%; }
+.screen .bars i:last-child { width: 58%; }
+.mail-head { display: flex; align-items: center; gap: 0.65rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--line); }
+.mail-btn { justify-self: start; font-size: 0.78rem; font-weight: 600; color: var(--navy); background: var(--gold); border-radius: 4px; padding: 0.45rem 0.8rem; }
+.scr-video { padding: 0.55rem; }
+.vid { position: relative; height: 100%; min-height: 300px; border-radius: 16px; overflow: hidden; background: radial-gradient(90% 70% at 50% 35%, #2a3c66 0%, var(--navy) 70%); display: grid; place-items: center; }
+.vid-play { width: 64px; height: 64px; border-radius: 50%; background: rgba(198,164,86,0.95); position: relative; box-shadow: 0 0 0 10px rgba(198,164,86,0.18); }
+.vid-play::after { content: ''; position: absolute; left: 26px; top: 20px; border-left: 18px solid var(--navy); border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+.vid-cap { position: absolute; left: 1rem; right: 1rem; bottom: 1.6rem; display: grid; gap: 0.2rem; text-align: left; }
+.vid-cap b { font-family: var(--display); font-size: 1.15rem; line-height: 1.25; color: var(--white); }
+.vid-cap span { font-size: 0.72rem; color: var(--on-navy-muted); }
+.vid-bar { position: absolute; left: 1rem; right: 1rem; bottom: 0.9rem; height: 3px; border-radius: 2px; background: rgba(255,255,255,0.2); overflow: hidden; }
+.vid-bar i { display: block; height: 100%; width: 35%; background: var(--gold); }
+.motion .screen.is-active .vid-bar i { animation: vidPlay 4s linear both; }
+.motion .screen.is-active .vid-play { animation: ping 1.6s ease-out 0.3s 2; }
+@keyframes vidPlay { from { width: 0; } to { width: 100%; } }
 .notif { display: flex; gap: 0.65rem; align-items: flex-start; background: var(--white); border-radius: 12px; padding: 0.7rem 0.9rem; box-shadow: 0 18px 40px -18px rgba(0,0,0,0.55); max-width: 15rem; }
 .notif-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); margin-top: 0.4rem; flex-shrink: 0; }
 .notif strong { display: block; font-size: 0.8rem; color: var(--navy); line-height: 1.3; }
@@ -424,6 +458,8 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .seo-grid, .why-grid, .content-grid, .about-grid, .contact-grid, .pricing-grid { grid-template-columns: minmax(0, 1fr); }
   .content-aside img { aspect-ratio: 16 / 9; }
   .notif-wrap { left: 1rem; right: 1rem; max-width: none; display: flex; justify-content: center; }
+  .media-tab { font-size: 0.75rem; padding: 0.38rem 0.65rem; }
+  .media-tabs { gap: 0.25rem; }
   .notif { max-width: 100%; }
   .points { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .creds { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
@@ -471,6 +507,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .screens { transition: none !important; }
   .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after, .hour { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
@@ -616,9 +653,16 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         <h2>Content that works for you</h2>
         <p>Every piece we create is designed to educate potential clients and showcase your expertise.</p>
       </div>
-      <figure class="social-mock" aria-label="Example of a law firm social media post">
+      <figure class="social-mock" aria-label="One article turned into a social post, a website article, an email newsletter, and a short video">
+        <div class="media-tabs" role="group" aria-label="Show the article as">
+          <button type="button" class="media-tab is-active" data-show="social" aria-pressed="true">Social</button>
+          <button type="button" class="media-tab" data-show="article" aria-pressed="false">Website</button>
+          <button type="button" class="media-tab" data-show="newsletter" aria-pressed="false">Newsletter</button>
+          <button type="button" class="media-tab" data-show="video" aria-pressed="false">Video</button>
+        </div>
         <div class="phone">
-          <div class="sm-post">
+          <div class="screens">
+          <div class="sm-post screen is-active" data-media="social">
             <div class="sm-head">
               <span class="avatar" aria-hidden="true">YF</span>
               <div class="who"><strong>Your Firm</strong><span>Personal injury attorneys &middot; 2h</span></div>
@@ -632,6 +676,34 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
             </div>
             <div class="sm-stats"><span><b class="count" data-to="124">124</b> reactions</span><span><b class="count" data-to="18">18</b> comments</span></div>
             <div class="sm-actions"><span class="like">Like</span><span>Comment</span><span>Share</span></div>
+          </div>
+          <div class="sm-post screen scr-article" data-media="article" aria-hidden="true">
+            <div class="url-bar"><span class="lock" aria-hidden="true"></span>yourfirm.com/blog</div>
+            <span class="scr-tag">Personal injury</span>
+            <strong class="scr-title">What to do in the first 48 hours after a car accident</strong>
+            <span class="scr-meta">By your attorney &middot; 5 min read</span>
+            <div class="link-img" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c6a456" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M12 5.5a1.2 1.2 0 1 0 0-.01"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg></div>
+            <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="sm-post screen scr-mail" data-media="newsletter" aria-hidden="true">
+            <div class="mail-head">
+              <span class="avatar" aria-hidden="true">YF</span>
+              <div class="who"><strong>Your Firm</strong><span>Your monthly legal update</span></div>
+            </div>
+            <p class="sm-text">Hi there, here is what we have been working on this month, plus one thing every driver should know.</p>
+            <div class="link-card">
+              <div class="link-body"><span>Featured this month</span><strong>What to do in the first 48 hours after a car accident</strong></div>
+            </div>
+            <span class="mail-btn">Read the full article</span>
+            <div class="bars"><i></i><i></i><i></i></div>
+          </div>
+          <div class="sm-post screen scr-video" data-media="video" aria-hidden="true">
+            <div class="vid">
+              <span class="vid-play" aria-hidden="true"></span>
+              <div class="vid-cap"><b>3 things to do after a crash</b><span>Your Firm &middot; 0:58</span></div>
+              <div class="vid-bar"><i></i></div>
+            </div>
+          </div>
           </div>
         </div>
         <div class="notif-wrap"><div class="notif">
@@ -1029,24 +1101,46 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         setTimeout(function () { requestAnimationFrame(step); }, 900);
       });
     }
-    var notes = [
-      ['New consultation request', 'A reader messaged you after seeing this post'],
-      ['Your post was shared 12 times', 'Colleagues are passing it along'],
-      ['New referral from a past client', 'They read your article this morning'],
-      ['3 new followers', 'Local readers who found you through search']
-    ];
-    function startNotifs() {
-      var box = document.querySelector('.notif-text'), like = document.querySelector('.sm-actions .like');
-      var react = document.querySelector('.count[data-to="124"]'), n = 0;
-      setInterval(function () {
-        n = (n + 1) % notes.length;
+    var media = {
+      social: ['New consultation request', 'A reader messaged you after seeing this post'],
+      article: ['Article published', 'Live on your website and optimized for search'],
+      newsletter: ['Newsletter sent', 'Delivered to your clients and referral sources'],
+      video: ['Short video posted', 'The same story in under a minute']
+    };
+    var order = ['social', 'article', 'newsletter', 'video'], cur = 0, cycle = null;
+    function showMedia(i, animate) {
+      var fig = document.querySelector('.social-mock'), wrap = fig.querySelector('.screens');
+      var key = order[i], box = fig.querySelector('.notif-text');
+      function swap() {
+        fig.querySelectorAll('.screen').forEach(function (s) {
+          var on = s.getAttribute('data-media') === key;
+          s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on ? 'false' : 'true');
+        });
+        fig.querySelectorAll('.media-tab').forEach(function (b) {
+          var on = b.getAttribute('data-show') === key;
+          b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
         box.classList.remove('swap'); void box.offsetWidth;
-        box.querySelector('strong').textContent = notes[n][0];
-        box.querySelector('span').textContent = notes[n][1];
+        box.querySelector('strong').textContent = media[key][0];
+        box.querySelector('span').textContent = media[key][1];
         box.classList.add('swap');
-        like.classList.remove('tap'); void like.offsetWidth; like.classList.add('tap');
-        react.textContent = (+react.textContent || 124) + 1 + Math.floor(Math.random() * 3);
-      }, 4200);
+        if (key === 'social') {
+          var like = fig.querySelector('.sm-actions .like');
+          like.classList.remove('tap'); void like.offsetWidth; like.classList.add('tap');
+        }
+      }
+      cur = i;
+      if (!animate) { swap(); return; }
+      wrap.classList.remove('flip-in'); wrap.classList.add('flip-out');
+      setTimeout(function () { swap(); wrap.classList.add('flip-in'); wrap.classList.remove('flip-out'); }, 280);
+    }
+    window.__showMedia = function (key) {
+      var i = order.indexOf(key); if (i < 0) return;
+      if (cycle) { clearInterval(cycle); cycle = null; showMedia(i, true); startNotifs(); } else { showMedia(i, true); }
+    };
+    function startNotifs() {
+      if (cycle) return;
+      cycle = setInterval(function () { showMedia((cur + 1) % order.length, true); }, 4200);
     }
     var outlets = document.querySelector('.outlets');
     function setDrop() { if (outlets) outlets.style.setProperty('--drop', outlets.offsetHeight + 'px'); }
@@ -1120,6 +1214,19 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
         });
       }, { threshold: 0.35 }).observe(roi);
     }
+  })();
+
+  // Media tabs on the content mockup
+  (function () {
+    document.querySelectorAll('.media-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-show');
+        var fig = document.querySelector('.social-mock'), screens = fig.querySelectorAll('.screen'), tabs = fig.querySelectorAll('.media-tab');
+        if (typeof window.__showMedia === 'function') { window.__showMedia(key); return; }
+        screens.forEach(function (s) { var on = s.getAttribute('data-media') === key; s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+        tabs.forEach(function (b) { var on = b === btn; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+      });
+    });
   })();
 
   // Article overlays
