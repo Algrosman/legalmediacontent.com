@@ -4,18 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal Media & Content Co: Content Creation for Law Firms</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#15213b">
 <meta property="og:title" content="Legal Media & Content Co. | Content Creation for Law Firms" />
 <meta property="og:description" content="We build platforms and write articles that showcase your expertise, drive new business, and keep your firm visible online. Get in touch today." />
-<meta property="og:image" content="https://legalmediacontent.com/og-image-new.png" />
+<meta property="og:image" content="https://legalmediacontent.com/og-logo.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Legal Media &amp; Content Co. logo" />
 <meta property="og:url" content="https://legalmediacontent.com" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Legal Media & Content Co. | Content Creation for Law Firms" />
 <meta name="twitter:description" content="We build platforms and write articles that showcase your expertise, drive new business, and keep your firm visible online." />
-<meta name="twitter:image" content="https://legalmediacontent.com/og-image-new.png" />
+<meta name="twitter:image" content="https://legalmediacontent.com/og-logo.png" />
 <meta name="description" content="Legal Media &amp; Content Co. builds websites and writes articles, social posts, and newsletters for law firms and solo practitioners. Free SEO with every subscription.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,6 +221,50 @@ section { padding-block: clamp(4.5rem, 9vw, 8rem); }
 .outlets strong { display: block; color: var(--white); font-weight: 600; font-size: 1.05rem; }
 .outlets span { color: var(--on-navy-muted); font-size: 0.95rem; }
 
+/* PRICING */
+.pricing { background: var(--linen); }
+.pricing-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(3rem, 6vw, 5.5rem); align-items: center; }
+.pricing-copy { display: grid; gap: 1.4rem; justify-items: start; }
+.pricing-copy h2 { font-size: clamp(2.4rem, 5vw, 3.9rem); color: var(--navy); line-height: 1.05; }
+.pricing-lead { font-family: var(--display); font-size: clamp(1.3rem, 1.9vw, 1.5rem); line-height: 1.45; color: var(--navy); max-width: 32rem; }
+.pricing-points { list-style: none; margin: 0.4rem 0 0.6rem; padding: 0; display: grid; width: 100%; }
+.pricing-points li { display: grid; gap: 0.25rem; padding-block: 1rem; border-top: 1px solid var(--line); }
+.pricing-points li:last-child { border-bottom: 1px solid var(--line); }
+.pricing-points strong { font-weight: 600; color: var(--navy); font-size: 1.08rem; }
+.pricing-points span { color: var(--muted); }
+
+.roi { margin: 0; background: var(--white); border-radius: 6px; box-shadow: 0 30px 60px -32px rgba(21,33,59,0.4), 0 0 0 1px var(--line); padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: 1.5rem; min-width: 0; --unit: 18px; }
+.roi-controls { display: grid; gap: 1rem; }
+.ctl { display: grid; gap: 0.4rem; }
+.ctl-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.ctl label { font-size: 0.95rem; color: var(--ink); }
+.ctl output { font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--navy); font-variant-numeric: tabular-nums; }
+.ctl input[type=range] { width: 100%; accent-color: var(--gold); height: 1.5rem; margin: 0; cursor: pointer; }
+.roi-visual { display: grid; grid-template-columns: auto minmax(28px, 1fr) auto; align-items: center; gap: 0.75rem; padding: 1.25rem; background: var(--paper); border-radius: 4px; }
+.roi-side { display: grid; justify-items: center; gap: 0.45rem; text-align: center; }
+.roi-label { font-size: 0.85rem; color: var(--muted); }
+.roi-val { font-family: var(--display); font-size: 1.45rem; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.roi-sub { font-size: 0.82rem; color: var(--muted); }
+.roi-one { display: grid; place-items: center; height: calc(var(--unit) * 4); }
+.hour { display: block; width: var(--unit); height: var(--unit); border-radius: 2px; background: var(--navy); }
+.hour.gold { background: var(--gold); box-shadow: 0 0 0 4px rgba(198,164,86,0.22); }
+.hour.c2 { background: #34497a; }
+.hour.c3 { background: #5d73a3; }
+.hour-grid { display: grid; grid-template-columns: repeat(10, var(--unit)); gap: 3px; min-height: calc(var(--unit) * 4); align-content: end; }
+.roi-arrow { position: relative; height: 2px; background: rgba(198,164,86,0.45); align-self: center; }
+.roi-arrow::after { content: ''; position: absolute; right: -1px; top: -4px; border-left: 7px solid rgba(198,164,86,0.9); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.roi-arrow span { position: absolute; left: 0; top: -2px; width: 18px; height: 6px; border-radius: 3px; background: #e6c879; opacity: 0; }
+.roi-multiple { text-align: center; font-size: 1.05rem; color: var(--ink); }
+.roi-multiple b { font-family: var(--display); font-size: 2rem; font-weight: 700; color: var(--gold-deep); margin-right: 0.25rem; font-variant-numeric: tabular-nums; }
+.roi figcaption { font-size: 0.82rem; color: var(--muted); text-align: center; }
+.motion .hour-grid .hour.new { animation: hourIn 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+.motion .roi.is-in .roi-arrow span { animation: roiFlow 2.2s ease-in-out infinite; }
+.motion .roi.is-in .hour.gold { animation: goldBeat 2.2s ease-in-out infinite; }
+.roi-multiple b.bump { animation: tap 0.5s cubic-bezier(.34,1.56,.64,1); display: inline-block; }
+@keyframes hourIn { from { opacity: 0; transform: scale(0.2); } to { opacity: 1; transform: none; } }
+@keyframes roiFlow { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 18px); opacity: 0; } }
+@keyframes goldBeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.25); } 30% { transform: scale(1); } }
+
 /* ABOUT */
 .about-title { font-size: clamp(2.1rem, 4vw, 3.25rem); color: var(--navy); max-width: 24ch; }
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.5rem clamp(2rem, 6vw, 6rem); align-items: baseline; margin-top: clamp(1.5rem, 3vw, 2.25rem); padding-top: clamp(1.5rem, 3vw, 2.25rem); border-top: 1px solid var(--line); }
@@ -369,7 +418,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links a:not(.nav-cta) { display: none; }
   .hero::before { background: linear-gradient(90deg, rgba(21,33,59,0.96) 0%, rgba(21,33,59,0.9) 55%, rgba(21,33,59,0.6) 100%); }
   .hero-img { object-position: 85% 40%; }
-  .seo-grid, .why-grid, .content-grid, .about-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .seo-grid, .why-grid, .content-grid, .about-grid, .contact-grid, .pricing-grid { grid-template-columns: minmax(0, 1fr); }
   .content-aside img { aspect-ratio: 16 / 9; }
   .notif-wrap { left: 1rem; right: 1rem; max-width: none; display: flex; justify-content: center; }
   .notif { max-width: 100%; }
@@ -399,6 +448,10 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .deliver-item + .deliver-item { border-top: 1px solid rgba(255,255,255,0.12); }
   .row { grid-template-columns: minmax(0, 1fr); }
   .about-photo img { aspect-ratio: 4 / 3; }
+  .roi { --unit: 12px; }
+  .roi-visual { padding: 1rem 0.75rem; gap: 0.5rem; }
+  .roi-val { font-size: 1.2rem; }
+  .hour-grid { gap: 2px; }
   .serp { padding: 1rem; }
   .logo { font-size: 1.05rem; }
   .nav .logo { font-size: 1.22rem; }
@@ -415,7 +468,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   .nav-links .nav-cta { padding: 0.45rem 0.6rem; font-size: 0.82rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after { animation: none !important; }
+  .notif-wrap, .hero-img, .wire .pulse, .outlets .dot, .outlets::after, .roi-arrow span, .hour { animation: none !important; }
   html { scroll-behavior: auto; }
   .serp-list li, .btn { transition: none; }
 }
@@ -426,6 +479,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
   <div class="wrap nav-in">
     <a class="logo" href="#top">Legal Media <span>&amp;</span> Content Co.</a>
     <nav class="nav-links" aria-label="Main">
+      <a href="#pricing">Pricing</a>
       <a href="#seo">SEO</a>
       <a href="#content">Content</a>
       <a href="#about">About</a>
@@ -463,6 +517,54 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
       <div class="deliver-item"><h3>Social media</h3><p>A steady presence on LinkedIn, Facebook, and Instagram that drives traffic to your firm.</p></div>
       <div class="deliver-item"><h3>Newsletters</h3><p>Client ready email newsletters that keep your firm top of mind.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap pricing-grid">
+    <div class="pricing-copy">
+      <h2>One billable hour a month.</h2>
+      <p class="pricing-lead">That is the whole fee for your website. Whatever you bill a client for one hour, you pay us once a month to keep your site live, current, and climbing in search results.</p>
+      <ul class="pricing-points">
+        <li><strong>We work at your level</strong><span>A new solo practice and an established firm get the same care. Your fee follows your own rate, so we price to where you are.</span></li>
+        <li><strong>Everything is included</strong><span>Hosting, security, updates, page edits, and SEO are all covered by that one hour.</span></li>
+        <li><strong>What is a new client worth to you?</strong><span>A single new matter can mean many billable hours. Your website only has to bring in a client now and then to pay for itself many times over.</span></li>
+      </ul>
+      <a class="btn" href="#contact">Talk to us about your site</a>
+    </div>
+    <figure class="roi" aria-labelledby="roi-cap">
+      <div class="roi-controls">
+        <div class="ctl">
+          <div class="ctl-row"><label for="roi-rate">Your hourly rate</label><output for="roi-rate" id="roi-rate-out">$350</output></div>
+          <input type="range" id="roi-rate" min="150" max="1000" step="25" value="350">
+        </div>
+        <div class="ctl">
+          <div class="ctl-row"><label for="roi-hours">Hours on a typical new matter</label><output for="roi-hours" id="roi-hours-out">15</output></div>
+          <input type="range" id="roi-hours" min="2" max="40" step="1" value="15">
+        </div>
+        <div class="ctl">
+          <div class="ctl-row"><label for="roi-clients">New clients a month from your site</label><output for="roi-clients" id="roi-clients-out">1</output></div>
+          <input type="range" id="roi-clients" min="1" max="3" step="1" value="1">
+        </div>
+      </div>
+      <div class="roi-visual" aria-live="polite">
+        <div class="roi-side">
+          <span class="roi-label">You pay us</span>
+          <div class="roi-one"><i class="hour gold"></i></div>
+          <strong class="roi-val" id="roi-cost">$350</strong>
+          <span class="roi-sub">1 hour a month</span>
+        </div>
+        <div class="roi-arrow" aria-hidden="true"><span></span></div>
+        <div class="roi-side roi-earn">
+          <span class="roi-label">Your site brings in</span>
+          <div class="hour-grid" id="roi-grid" aria-hidden="true"></div>
+          <strong class="roi-val" id="roi-earn">$5,250</strong>
+          <span class="roi-sub" id="roi-earn-sub">15 billable hours a month</span>
+        </div>
+      </div>
+      <p class="roi-multiple"><b id="roi-x">15&times;</b> what you pay us</p>
+      <figcaption id="roi-cap">An example to adjust for your own practice. Every firm is different and results are not guaranteed.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -694,7 +796,7 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
 <footer>
   <div class="wrap foot">
     <a class="logo" href="#top">Legal Media <span>&amp;</span> Content Co.</a>
-    <nav aria-label="Footer"><a href="#seo">SEO</a><a href="#content">Content</a><a href="#about">About</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Footer"><a href="#pricing">Pricing</a><a href="#seo">SEO</a><a href="#content">Content</a><a href="#about">About</a><a href="#blog">Blog</a><a href="#contact">Contact</a></nav>
     <small>&copy; <span id="year">2026</span> Legal Media &amp; Content Co. All rights reserved.</small>
   </div>
 </footer>
@@ -965,6 +1067,52 @@ footer { background: var(--navy); color: var(--on-navy-muted); padding-block: 3.
     }, { threshold: 0.35 });
     document.querySelectorAll('.social-mock, .flow, .wins').forEach(function (el) { io.observe(el); });
   }
+
+  // Pricing: one billable hour in, many billable hours out
+  (function () {
+    var rate = document.getElementById('roi-rate'), hours = document.getElementById('roi-hours'), clients = document.getElementById('roi-clients');
+    var grid = document.getElementById('roi-grid'), multi = document.getElementById('roi-x');
+    if (!rate || !grid) return;
+    function money(n) { return '$' + n.toLocaleString('en-US'); }
+    var shown = 0, lastX = null;
+    function update() {
+      var r = +rate.value, h = +hours.value, c = +clients.value, total = h * c;
+      document.getElementById('roi-rate-out').textContent = money(r);
+      document.getElementById('roi-hours-out').textContent = h;
+      document.getElementById('roi-clients-out').textContent = c;
+      document.getElementById('roi-cost').textContent = money(r);
+      document.getElementById('roi-earn').textContent = money(r * total);
+      document.getElementById('roi-earn-sub').textContent = total + ' billable hour' + (total === 1 ? '' : 's') + ' a month';
+      multi.textContent = total + '\u00d7';
+      if (lastX !== null && lastX !== total) { multi.classList.remove('bump'); void multi.offsetWidth; multi.classList.add('bump'); }
+      lastX = total;
+      // one block per billable hour, shaded by client
+      while (grid.children.length > total) grid.removeChild(grid.lastChild);
+      var start = grid.children.length;
+      for (var i = start; i < total; i++) {
+        var b = document.createElement('i');
+        b.className = 'hour new' + (Math.floor(i / h) === 1 ? ' c2' : Math.floor(i / h) === 2 ? ' c3' : '');
+        b.style.animationDelay = Math.min((i - start) * 18, 900) + 'ms';
+        grid.appendChild(b);
+      }
+      Array.prototype.forEach.call(grid.children, function (b, i) {
+        b.classList.toggle('c2', Math.floor(i / h) === 1);
+        b.classList.toggle('c3', Math.floor(i / h) === 2);
+      });
+      shown = total;
+    }
+    [rate, hours, clients].forEach(function (el) { el.addEventListener('input', update); });
+    var roi = document.querySelector('.roi');
+    if (document.documentElement.classList.contains('motion') && 'IntersectionObserver' in window) {
+      var seen = false;
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !seen) { seen = true; roi.classList.add('is-in'); grid.innerHTML = ''; update(); }
+        });
+      }, { threshold: 0.35 }).observe(roi);
+      update();
+    } else { update(); }
+  })();
 
   // Article overlays
   var lastTrigger = null;

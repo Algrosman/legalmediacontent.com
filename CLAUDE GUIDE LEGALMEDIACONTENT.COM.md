@@ -36,6 +36,8 @@ Pricing is NOT displayed on the website. These are internal reference only.
 **Filename:** `index.html`
 **Type:** Single HTML file with all CSS and JavaScript inline. No build process. Pure static site.
 
+**Icons:** the browser tab icon is the gold italic ampersand (`favicon.ico`, `favicon-32.png`, `favicon-192.png`); `apple-touch-icon.png` is the gold ampersand on navy; link previews use `og-logo.png`, the header logo on navy.
+
 **Images:** Photos live in the `images/` folder (`hero-consultation.jpg`, `about-signing.jpg`). All are free Pexels photos, cropped and compressed. The "Content that works for you" visual is a CSS mockup of a law firm social post, not a photo.
 
 **Google Fonts used:** Source Serif 4 (headings) and Jost (body)
@@ -80,6 +82,7 @@ Redesigned October 2026: open editorial layout, hairline dividers instead of box
 1. **Navigation** over the hero: logo, SEO, Content, About, Blog, "Get started"
 2. **Hero** with consultation photo, headline "Marketing by lawyers, for lawyers.", free SEO callout with explanation, CTA
 3. **What we deliver** strip: Websites, Articles, Social media, Newsletters
+3a. **Pricing** (`#pricing`): website fee is one billable hour a month at the client's own rate, SEO included; interactive example where one gold hour block turns into a grid of billable hours from new clients
 4. **SEO** section with animated search results where "Your firm" climbs to first
 5. **Why** ("Too many lawyers & firms are invisible online"), with pull quote, example wins list, three points with icons
 6. **Content that works for you**: social post mockup plus six content types
@@ -118,7 +121,7 @@ These rules must be followed in ALL copy written for this website:
 1. **No em dashes anywhere** — restructure sentences instead. Never use — in any copy.
 2. **No hyphens used as dashes** — restructure sentences instead.
 3. **No geographic references** — do not mention Ohio, Cleveland, or any specific location in website copy.
-4. **No pricing on the website** — pricing is never displayed publicly.
+4. **Pricing model only** — the site explains the one billable hour a month model with an adjustable example; no fixed package prices appear publicly.
 5. **No revision rounds language** — do not mention or imply revision rounds are offered.
 6. **No "solo practitioners" alone** — always say "law firms and solo practitioners" or just "law firms."
 7. **Straight apostrophes only in JavaScript** — curly/smart apostrophes break JS functions. Always use straight apostrophes (`'`) inside any JavaScript strings.
@@ -182,7 +185,7 @@ No email address is displayed publicly on the site. Form uses a `handleSubmit` J
 
 - Do not add a `<style>` block anywhere in the `<body>` — all CSS goes in `<head>`
 - Do not use em dashes or hyphens as dashes in any copy
-- Do not display pricing
+- Do not display fixed package prices (the one billable hour a month model is the only pricing shown)
 - Do not reference specific states or cities in website copy
 - Do not use curly apostrophes inside JavaScript strings
 - Do not add external JavaScript libraries unless absolutely necessary — keep the site self-contained
